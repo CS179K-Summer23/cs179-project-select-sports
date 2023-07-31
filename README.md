@@ -17,11 +17,12 @@ javascript, React.js, google authenticator API, sports data API, user/sports dat
 Team members have some experience using React, but some time still needs to be invested to learn React.js and the various APIs required to implement some of the features listed.
 
 ## Major Features:
+(Highest to Lowest Priority)
+- Search sports data
 - GUI displaying sports information such as scores, player stats, winning odds, etc
 - User Accounts
+- Follow teams for user-specific pages
 - Site point system
-- Google Authenticate implementation to secure accounts
-- Search sports data
-- Sort through sports and user data
-- Follow teams for user-specific pages 
 - Chance-based points earning
+- Google Authenticate implementation to secure accounts
+- Sort through sports and user data
