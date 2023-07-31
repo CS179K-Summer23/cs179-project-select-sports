@@ -3,6 +3,7 @@
   When input is invalid, no result should be displayed.
   When wrong information been put into the wrong section, no result should be displayed.
   When BACKSPACE button is pressed, the input query should be deleted.
-
-* As a user I want to be able to see clean information display on the website interface:
-  When information is displayed, user should be able to view it cleanly.
+  When result being displayed, user should be able to view all the necessary statistics.
+  When information is not present, no result should be shown.
+  When information is present, and it has not been called, it should not be shown.
+  When information is present, and it has been called correctly, it should be displaying.
