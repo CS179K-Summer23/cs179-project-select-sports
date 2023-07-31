@@ -1,26 +1,8 @@
-* Establish clean data display on interface:
-  As a user, I want data being clearly displayed.
-  As a user, I want to see necessary information about the sport, the team and the player.
-  As a developer, I want to make sure the interface is displaying the correct type of output.
-  As a developer, I want to make sure the information being displayed matches what it is in the backend.
+* As a user I want to be able to search through the database based on my input query:
+  When input is valid, correct corresponding result should be displayed.
+  When input is invalid, no result should be displayed.
+  When wrong information been put into the wrong section, no result should be displayed.
+  When BACKSPACE button is pressed, the input query should be deleted.
 
-* Establish method of storing sports data in the backend:
-  As a developer, I want to store all the necessary sport related data.
-
-* Create a search algorithm to search through sports data and return search result:
-  As a user, I want to input keyword and return corresponding result.
-  As a user, I want to be able to re-enter keyword and get new result.
-  As a user, I want to be able to delete my current keyword, and input a new one.
-  As a user, I want to be able to search either for team name or player name.
-  As a user, I want to make sure invalid input will not cause error.
-
-* Establish a rudimentary web GUI with a search bar to access data:
-  As a user, I want the search bar to be clear.
-  As a user, I want to be able to reset the search bar.
-  As a developer, I want the serach bar to have a size limit, so it won't cause overflow.
-  As a developer, I want to make sure what puts into the search bar won't cause error.
-
-* Establish method of accessing sports data via a sports data API
-  As a developer, I want to access the real-world sporting data.
-  As a developer, I want to access data with different aspects of information, player name, statistics etc.
-  As a developer, I want to make sure API can properly work.
+* As a user I want to be able to see clean information display on the website interface:
+  When information is displayed, user should be able to view it cleanly.
