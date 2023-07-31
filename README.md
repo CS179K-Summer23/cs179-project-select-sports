@@ -26,3 +26,7 @@ Team members have some experience using React, but some time still needs to be i
 - (3) Follow teams for user-specific pages
 - (2) Google Authenticate implementation to secure accounts
 - (1) Sort through sports and user data
+
+## User Stories:
+- As a user I want to be able to search through the database based on my input query.
+- As a user I want to be able to see clean information display on the website interface.
