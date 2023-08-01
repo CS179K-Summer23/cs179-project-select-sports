@@ -28,5 +28,11 @@ Team members have some experience using React, but some time still needs to be i
 - (1) Sort through sports and user data
 
 ## User Stories:
-- As a user I want to be able to search through the database based on my input query.
-- As a user I want to be able to see clean information display on the website interface.
+- As a user, I want to be able to search through the database based on my input query.
+- As a user, I want to be able to see clean information display on the website interface.
+- As a user, I want to have an independent account, keep track of my preference and loved team or players.
+- As a developer, I want to attract more users to the website and keep the current users, I want to create a site point system for users to earn and unlock special features using the site points.
+- As a user, I want to be able to play small games on the site to earn the site points.
+- As a user, I want to be able to follow my favorite team or players, and have them memorized on my account for easier access next time I login.
+- As a user, I want to be extra safe, so I want to have another authentication method other than just username and password.
+- As a user, especially new users, a few data analysis on the sport players will be useful for me to get familar with the sport. And I also want to earn my rankings on site based on site coins too.
