@@ -1,7 +1,9 @@
 * As a user I want to be able to search through the database based on my input query:
+  When keyword being pressed, system should capture inputted query.
   When input is valid, correct corresponding result should be displayed.
   When input is invalid, no result should be displayed.
   When wrong information been put into the wrong section, no result should be displayed.
+  When invalid and wrong information being deleted, they should not affect next search.
   When BACKSPACE button is pressed, the input query should be deleted.
   When result being displayed, user should be able to view all the necessary statistics.
   When information is not present, no result should be shown.
