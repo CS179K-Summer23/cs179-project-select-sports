@@ -7,8 +7,7 @@ Team Select Sports
 - Joel Garcia, jgarc594
 - Fengchun Fan, FengchunFan
 - Nolan Fuliar-Abanes, Nabanes06
-- Adolfo Nieblas, AdolfoNieblas
-- Fnu Azma
+- Fnu Azma, fazma2020
 
 ## Software Description: 
 Website focused on Sports data, information, and statistics. Users can sign in to their accounts, follow their favorite teams, and compete for website points.
