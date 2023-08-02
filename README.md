@@ -8,6 +8,7 @@ Team Select Sports
 - Fengchun Fan, FengchunFan
 - Nolan Fuliar-Abanes, Nabanes06
 - Adolfo Nieblas, AdolfoNieblas
+- Fnu Azma
 
 ## Software Description: 
 Website focused on Sports data, information, and statistics. Users can sign in to their accounts, follow their favorite teams, and compete for website points.
