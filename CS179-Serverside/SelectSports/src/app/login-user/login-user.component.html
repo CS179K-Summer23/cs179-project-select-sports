@@ -1,0 +1,33 @@
+<body>
+    <div class="signUp container">
+    
+        <div class="card" style="width: 35rem;">
+            <div class="card-body">
+              <h5 class="card-title">Login</h5>
+             
+              
+                <form  #registerForm="ngForm" (ngSubmit)="Login()">
+    
+                    <div class="form-group">
+                     
+    
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email"  [(ngModel)]="userForm.email" placeholder="Enter your Email">
+    
+    
+                        <label>Password</label>
+                        <input type="text" class="form-control" name="password"  [(ngModel)]="userForm.password" placeholder="Enter your Password">
+    
+                        
+    
+                    </div>
+                    <br>
+                    <button class="btn btn-primary">Create Account
+    
+                    </button>
+                </form>
+    
+            </div>
+          </div>
+    </div>
+    </body>
