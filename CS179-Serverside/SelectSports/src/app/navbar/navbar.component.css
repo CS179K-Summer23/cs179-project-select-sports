@@ -1,0 +1,23 @@
+
+a:hover {
+    background: #e2e2e4;
+}
+
+.navbar-nav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    margin: 5px;
+    color: #6a6a90;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+
+.nav-link {
+    margin: 10px;
+    color: #6a6a90;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
