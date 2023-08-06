@@ -1,17 +1,19 @@
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Horizontally center the container */
-  align-items: center; /* Vertically center the container */
-  height: 100vh; /* Set container height to fit the viewport */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 50px solid #ccc; 
+  padding: 20px; 
 }
 
 .left-side {
-  margin-right: 1rem; /* Add margin to separate from the right-side */
+  margin-right: 1rem;
 }
 
 .right-side {
-  margin-left: 1rem; /* Add margin to separate from the left-side */
+  margin-left: 1rem;
 }
 
 .profile-picture {
@@ -42,12 +44,12 @@
 
 .edit-button {
   position: fixed;
-  bottom: 80px;
-  right: 20px;
+  bottom: 140px;
+  right: 170px;
 }
 
 .logout-button {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 70px;
+  right: 170px;
 }
