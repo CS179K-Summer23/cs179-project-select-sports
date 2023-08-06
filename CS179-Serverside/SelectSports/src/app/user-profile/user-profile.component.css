@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Horizontally center the container */
+  align-items: center; /* Vertically center the container */
+  height: 100vh; /* Set container height to fit the viewport */
+}
+
+.left-side {
+  margin-right: 1rem; /* Add margin to separate from the right-side */
+}
+
+.right-side {
+  margin-left: 1rem; /* Add margin to separate from the left-side */
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.description-box {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.edit-button,
+.logout-button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.edit-button {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+}
+
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
