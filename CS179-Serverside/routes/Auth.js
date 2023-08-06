@@ -78,11 +78,19 @@ router.get('/profile', VerifyAuth, (req, res)=>{
     }).catch(err=>{
         res.json({success:false, message: "Fetching User failed"})
     })
-})
+});
 
-
-
-
+/*router.post('/profileEdit', (req, res) => {
+  UserData.findOne({ email: req.body.email })
+    .then(user => {
+      if (!user) {
+        return res.json({ success: false, message: "User not found" });
+      }
+      user.favorite_sport = req.body.favorite_sport;
+      user.description = req.body.description;
+      return user.save();
+    })
+});*/
 
 module.exports = router;
 

@@ -34,7 +34,7 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['/SignIn']);
   }
 
-  ProfileEdit() {
+  ProfileEditt() {
     this.router.navigate(['/profileEdit']);
   }
 }

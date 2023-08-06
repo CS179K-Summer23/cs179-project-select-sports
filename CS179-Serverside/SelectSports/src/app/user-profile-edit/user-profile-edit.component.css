@@ -1,0 +1,18 @@
+body {
+    margin: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .profileEdit.container {
+    display: flex;
+    justify-content: center;
+}
+
+.back-button {
+  position: fixed;
+  bottom: 270px;
+  right: 520px;
+}

@@ -7,10 +7,9 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
         name: {type: String},
         email:{type: String, unique:true},
-        password: {type: String, required:true}
-
-
-
+        password: {type: String, required:true},
+        favorite_sport: {type: String},
+        description: {type: String}
 });
 
 //creating model for db
