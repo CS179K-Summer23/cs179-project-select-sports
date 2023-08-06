@@ -80,17 +80,21 @@ router.get('/profile', VerifyAuth, (req, res)=>{
     })
 });
 
-/*router.post('/profileEdit', (req, res) => {
-  UserData.findOne({ email: req.body.email })
-    .then(user => {
-      if (!user) {
+router.post('/profileEdit', (req, res) => {
+  const { email, favorite_sport, description } = req.body;
+
+  UserData.findOneAndUpdate({ email: email }, { favorite_sport: favorite_sport, description: description }, { new: true })
+    .then(updatedUser => {
+      if (!updatedUser) {
         return res.json({ success: false, message: "User not found" });
       }
-      user.favorite_sport = req.body.favorite_sport;
-      user.description = req.body.description;
-      return user.save();
+      return res.json({ success: true, message: "Profile updated successfully", data: updatedUser });
     })
-});*/
+    .catch(err => {
+      console.error(err);
+      return res.json({ success: false, message: "Error updating profile" });
+    });
+});
 
 module.exports = router;
 

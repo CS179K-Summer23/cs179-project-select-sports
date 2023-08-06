@@ -29,7 +29,7 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
     HttpClientModule,
 ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

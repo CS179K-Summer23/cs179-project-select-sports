@@ -35,6 +35,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ProfileEditt() {
-    this.router.navigate(['/profileEdit']);
+    //this.router.navigate(['/profileEdit']);
+    this.router.navigate(['/profileEdit'], { state: { user: this.data } });
   }
 }

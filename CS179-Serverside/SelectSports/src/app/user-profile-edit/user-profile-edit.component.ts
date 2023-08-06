@@ -5,7 +5,7 @@ import { AuthService } from '../Services/auth.service';
 import { FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile-edit',
@@ -14,14 +14,16 @@ import { Router } from '@angular/router';
 })
 
 export class UserProfileEditComponent implements OnInit{
-  userForm = { favorite_sport: '',  description: ''};
+  userForm = { email: '', favorite_sport: '',  description: ''};
 
   constructor(private formBuilder:FormBuilder, private auth:AuthService, private router: Router){
- 
 }
 
   ngOnInit(): void {
-      
+    const currentUser = history.state.user;
+    if (currentUser) {
+      this.userForm.email = currentUser.email;
+    }
   }
 
   back() {
