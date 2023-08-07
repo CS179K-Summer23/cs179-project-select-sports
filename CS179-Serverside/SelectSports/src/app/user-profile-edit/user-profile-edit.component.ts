@@ -23,6 +23,8 @@ export class UserProfileEditComponent implements OnInit{
     const currentUser = history.state.user;
     if (currentUser) {
       this.userForm.email = currentUser.email;
+      this.userForm.favorite_sport = currentUser.favorite_sport;
+      this.userForm.description = currentUser.description;
     }
   }
 

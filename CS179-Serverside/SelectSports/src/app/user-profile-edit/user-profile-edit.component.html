@@ -10,10 +10,10 @@
     
                     <div class="form-group" >
                         <label>Favorite sport</label>
-                        <input type="text" class="form-control" name = "favorite_sport"   [(ngModel)]="userForm.favorite_sport" placeholder="Enter your favorite sport" required>
+                        <input type="text" class="form-control" name = "favorite_sport"   [(ngModel)]="userForm.favorite_sport" placeholder="{{userForm.favorite_sport}}" required>
     
                         <label>Description</label>
-                        <input type="text" class="form-control" name = "description"   [(ngModel)]="userForm.description" placeholder="Enter your description" required>
+                        <input type="text" class="form-control" name = "description"   [(ngModel)]="userForm.description" placeholder="{{userForm.description}}" required>
     
                     </div>
                     <br>

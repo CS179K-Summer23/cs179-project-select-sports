@@ -9,7 +9,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import { AuthService } from './Services/auth.service';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 @NgModule({
@@ -19,7 +18,6 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
     LoginUserComponent,
     SignUpComponent,
     UserProfileComponent,
-    HomeComponent,
     UserProfileEditComponent,
   ],
   imports: [
