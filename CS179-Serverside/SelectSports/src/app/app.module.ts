@@ -9,8 +9,10 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './Services/auth.service';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,6 +21,7 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
     SignUpComponent,
     UserProfileComponent,
     UserProfileEditComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
