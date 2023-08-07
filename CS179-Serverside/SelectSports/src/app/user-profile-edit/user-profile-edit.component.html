@@ -9,6 +9,9 @@
                 <form #registerForm="ngForm" (ngSubmit)="profileEdit()">
     
                     <div class="form-group" >
+                        <label>Profile Picture ID</label>
+                        <input type="text" class="form-control" name = "profileID"   [(ngModel)]="userForm.profileID" placeholder="{{userForm.profileID}}" required>
+
                         <label>Favorite sport</label>
                         <input type="text" class="form-control" name = "favorite_sport"   [(ngModel)]="userForm.favorite_sport" placeholder="{{userForm.favorite_sport}}" required>
     
