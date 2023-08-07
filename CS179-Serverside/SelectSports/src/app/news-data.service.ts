@@ -11,8 +11,8 @@ export class NewsDataService {
 
   constructor(private http: HttpClient) { }
 
-  getLatestAmericanSportsNews(): Observable<any> {
-    const url = `${this.baseUrl}top-headlines?category=sports&country=us&apiKey=${this.apiKey}`;
+  getTopAmericanSportsNews(): Observable<any> {
+    const url = `${this.baseUrl}top-headlines?country=us&category=sports&apiKey=${this.apiKey}`;
     return this.http.get(url);
   }
 }

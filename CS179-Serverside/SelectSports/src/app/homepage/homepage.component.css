@@ -1,3 +1,26 @@
+
+ul {
+    list-style-type: none;
+  }
+  ul li {
+    padding: 5px 0; 
+  }
+  
+  /* homepage.component.css */
+.scores-list {
+  list-style-type: none;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.score-item {
+  white-space: nowrap; /* Prevent the text from wrapping to the next line */
+  display: flex; /* Align the elements horizontally */
+  align-items: center; /* Center the elements vertically if needed */
+  justify-content: space-between; /* Space the elements evenly along the line */
+  padding: 5px 0; /* Add padding for spacing between items */
+}
+
 .container.sportcard {
      background-color: beige;
     border-style: solid;
@@ -5,3 +28,4 @@
    padding: 10px;
     }
     
+

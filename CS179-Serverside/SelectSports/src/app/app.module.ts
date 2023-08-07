@@ -12,6 +12,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './Services/auth.service';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+import { FilterLeaguePipe } from './filter-league.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
     UserProfileComponent,
     UserProfileEditComponent,
     HomepageComponent,
+    FilterLeaguePipe,
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { Observable, forkJoin } from 'rxjs';
   providedIn: 'root'
 })
 export class SportsDataService {
-  private apiKey = '3';
+  private apiKey = '60130162';
   private baseUrl = 'https://www.thesportsdb.com/api/v1/json/';
 
   constructor(private http: HttpClient) { }

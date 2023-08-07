@@ -1,4 +1,40 @@
 <div class="container">
+
+  <div class="row">
+    <!-- Left Column for Scores -->
+    <div class="col-md-3">
+      <h2>Scores</h2>
+      <h3>MLB</h3>
+      <ul class="scores-list">
+        <li *ngFor="let score of scores | filterLeague:'MLB'">
+          {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
+        </li>
+      </ul>
+      <h3>NFL</h3>
+      <ul class="scores-list">
+        <li *ngFor="let score of scores | filterLeague:'NFL'">
+          {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
+        </li>
+      </ul>
+      <h3>NBA</h3>
+      <ul class="scores-list">
+        <li *ngFor="let score of scores | filterLeague:'NBA'">
+          {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
+        </li>
+      </ul>
+    </div>
+    <!-- Right Column for Top American Sports Stories -->
+    <div class="col-md-9">
+      <h2>Latest News</h2>
+      <ul>
+        <li *ngFor="let newsItem of topAmericanSportsNews">
+          <h3>{{ newsItem.title }}</h3>
+          <p>{{ newsItem.description }}</p>
+          <a [href]="newsItem.url" target="_blank">Read More</a>
+        </li>
+      </ul>
+    </div>
+
   <h1>Welcome to Select Sports!</h1>
   <div *ngIf="news.length > 0">
     <h2>Latest Sports News</h2>
@@ -12,5 +48,6 @@
       </div>
       </li>
     </ul>
+
   </div>
 </div>
