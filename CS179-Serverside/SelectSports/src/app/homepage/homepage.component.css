@@ -1,3 +1,7 @@
-.container {
+.container.sportcard {
+     background-color: beige;
+    border-style: solid;
+      margin-bottom: 10px;
+   padding: 10px;
+    }
     
-}
