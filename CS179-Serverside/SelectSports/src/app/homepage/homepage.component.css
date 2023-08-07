@@ -1,3 +1,4 @@
+
 ul {
     list-style-type: none;
   }
@@ -19,3 +20,12 @@ ul {
   justify-content: space-between; /* Space the elements evenly along the line */
   padding: 5px 0; /* Add padding for spacing between items */
 }
+
+.container.sportcard {
+     background-color: beige;
+    border-style: solid;
+      margin-bottom: 10px;
+   padding: 10px;
+    }
+    
+
