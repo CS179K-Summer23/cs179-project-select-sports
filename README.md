@@ -13,8 +13,8 @@ Team Select Sports
 Website focused on Sports data, information, and statistics. Users can sign in to their accounts, follow their favorite teams, and compete for website points.
 
 ## Skills and technologies: 
-javascript, React.js, google authenticator API, sports data API, user/sports data management
-Team members have some experience using React, but some time still needs to be invested to learn React.js and the various APIs required to implement some of the features listed.
+javascript, google authenticator API, sports data API, user/sports data management, Angular, MongoDB
+Team members have some experience using React, but some time still needs to be invested to learn MongoDB, Angular, and the various APIs required to implement some of the features listed.
 
 ## Major Features:
 (Highest to Lowest Priority)
