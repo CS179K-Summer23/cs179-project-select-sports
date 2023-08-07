@@ -35,19 +35,8 @@
       </ul>
     </div>
 
-  <h1>Welcome to Select Sports!</h1>
-  <div *ngIf="news.length > 0">
-    <h2>Latest Sports News</h2>
-    <br>
-    <ul>
-      <li *ngFor="let article of news" style="list-style:none;">
-        <div class="container sportcard">
-        <h3>{{ article.title }}</h3>
-        <p>{{ article.description }}</p>
-        <a [href]="article.url" target="_blank">Read More</a>
-      </div>
-      </li>
-    </ul>
+  
+    
 
   </div>
 </div>
