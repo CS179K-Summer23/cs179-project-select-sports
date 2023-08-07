@@ -1,0 +1,6 @@
+* As a user, I want to be able to search for teams and players
+- As a user enters a queryint into the search bar, a small list of the most relevant results will appear under the search bar.
+- When the user clicks on a search result, they get redirected to their search result's page.
+- When the user clicks outside of the results list, the list dissapears, but the query still remains in the text box.
+- Results only appear when the search bar is selected.
+- If the user presses 'enter' or 'return' after entering their query, nothing happens.
