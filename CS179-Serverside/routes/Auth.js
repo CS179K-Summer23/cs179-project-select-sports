@@ -78,11 +78,23 @@ router.get('/profile', VerifyAuth, (req, res)=>{
     }).catch(err=>{
         res.json({success:false, message: "Fetching User failed"})
     })
-})
+});
 
+router.post('/profileEdit', (req, res) => {
+  const { email, favorite_sport, description } = req.body;
 
-
-
+  UserData.findOneAndUpdate({ email: email }, { favorite_sport: favorite_sport, description: description }, { new: true })
+    .then(updatedUser => {
+      if (!updatedUser) {
+        return res.json({ success: false, message: "User not found" });
+      }
+      return res.json({ success: true, message: "Profile updated successfully", data: updatedUser });
+    })
+    .catch(err => {
+      console.error(err);
+      return res.json({ success: false, message: "Error updating profile" });
+    });
+});
 
 module.exports = router;
 

@@ -25,4 +25,8 @@ export class AuthService {
     return this.http.get('http://localhost:4000/auth/profile', {headers:headers})
   }
 
+  profileEdit(data:any):Observable<any>{
+    return this.http.post('http://localhost:4000/auth/profileEdit', data)
+  }
+
 }

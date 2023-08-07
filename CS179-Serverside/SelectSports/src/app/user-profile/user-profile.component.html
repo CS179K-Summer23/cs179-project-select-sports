@@ -1,5 +1,19 @@
-<h5>Welcome {{data.name}}</h5>
+<div class="container">
+  <div class="left-side">
+    <img class="profile-picture" src="{{ data.profilePicture }}" alt="Profile Picture">
+    <h2>Welcome {{ data.name }}</h2>
+  </div>
 
+  <div class="right-side">
+    <p>Name: {{ data.name }}</p>
+    <p>Email: {{ data.email }}</p>
+    <p>Favorite Sport: {{ data.favorite_sport }}</p>
+    <p>Description: </p>
+    <div class="description-box">
+      <span>{{ data.description }}</span>
+    </div>
+  </div>
+</div>
 
-<br>
-<button (click)="logout()">Log me out</button>
+<button (click)="ProfileEditt()" class="edit-button">Edit Profile</button>
+<button (click)="logout()" class="logout-button">Log out</button>

@@ -10,6 +10,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
+import { AuthService } from './Services/auth.service';
+import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +20,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     LoginUserComponent,
     SignUpComponent,
     UserProfileComponent,
+    UserProfileEditComponent,
     HomepageComponent,
   ],
   imports: [
@@ -26,7 +30,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     HttpClientModule,
 ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
