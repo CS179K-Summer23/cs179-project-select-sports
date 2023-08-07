@@ -30,6 +30,7 @@ Team members have some experience using React, but some time still needs to be i
 ## User Stories:
 - As a user, I want to be able to search through the database based on my input query.
 - As a user, I want to be able to see clean information display on the website interface.
+- As a user, I want to have my own profile page, be able to constantly add/edit my information, and have cute avatar icons.
 - As a user, I want to have an independent account, keep track of my preference and loved team or players.
 - As a developer, I want to attract more users to the website and keep the current users, I want to create a site point system for users to earn and unlock special features using the site points.
 - As a user, I want to be able to play small games on the site to earn the site points.
