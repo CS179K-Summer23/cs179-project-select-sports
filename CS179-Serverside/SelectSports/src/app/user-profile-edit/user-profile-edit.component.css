@@ -12,7 +12,7 @@ body {
 }
 
 .back-button {
-  position: fixed;
-  bottom: 270px;
-  right: 520px;
+  position: absolute;
+  bottom: 18px;
+  right: 25px;
 }

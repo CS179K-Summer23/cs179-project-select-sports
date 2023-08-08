@@ -81,9 +81,9 @@ router.get('/profile', VerifyAuth, (req, res)=>{
 });
 
 router.post('/profileEdit', (req, res) => {
-  const { email, favorite_sport, description } = req.body;
+  const { email, profileID, favorite_sport, description } = req.body;
 
-  UserData.findOneAndUpdate({ email: email }, { favorite_sport: favorite_sport, description: description }, { new: true })
+  UserData.findOneAndUpdate({ email: email }, { profileID: profileID, favorite_sport: favorite_sport, description: description }, { new: true })
     .then(updatedUser => {
       if (!updatedUser) {
         return res.json({ success: false, message: "User not found" });

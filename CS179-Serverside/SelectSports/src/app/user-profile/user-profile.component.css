@@ -43,13 +43,13 @@
 }
 
 .edit-button {
-  position: fixed;
-  bottom: 140px;
-  right: 170px;
+  position:absolute;
+  bottom: 120px;
+  right: 200px;
 }
 
 .logout-button {
-  position: fixed;
-  bottom: 70px;
-  right: 170px;
+  position: absolute;
+  bottom: 50px;
+  right: 200px;
 }

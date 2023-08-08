@@ -1,6 +1,11 @@
 <div class="container">
   <div class="left-side">
-    <img class="profile-picture" src="{{ data.profilePicture }}" alt="Profile Picture">
+    <ng-container *ngIf="data.profileID; else defaultProfile">
+      <img class="profile-picture" [src]="'assets/profilePic' + data.profileID + '.png'" alt="Profile Picture">
+    </ng-container>
+    <ng-template #defaultProfile>
+      <img class="profile-picture" src="assets/profilePic.png" alt="Default Profile Picture">
+    </ng-template>
     <h2>Welcome {{ data.name }}</h2>
   </div>
 
