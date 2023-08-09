@@ -13,6 +13,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './Services/auth.service';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { FilterLeaguePipe } from './filter-league.pipe';
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { FilterLeaguePipe } from './filter-league.pipe';
     UserProfileEditComponent,
     HomepageComponent,
     FilterLeaguePipe,
+    SearchBarComponent,
+    SearchResultComponent,
   ],
   imports: [
     BrowserModule,
