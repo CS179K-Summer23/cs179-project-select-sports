@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit{
   //to collect form data from html
-  userForm = { name: '', email: '', password: '' };
+  userForm = { name: '', email: '', password: '' , points: 0};
 
   constructor(private formBuilder:FormBuilder, private auth:AuthService){
  

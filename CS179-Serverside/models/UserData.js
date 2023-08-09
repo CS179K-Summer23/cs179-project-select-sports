@@ -10,7 +10,8 @@ const userSchema = new Schema({
         password: {type: String, required:true},
         favorite_sport: {type: String},
         description: {type: String},
-        profileID: {type: Number}
+        profileID: {type: Number},
+        points: {type: Number}
 });
 
 //creating model for db
