@@ -1,7 +1,36 @@
 <div *ngIf="team">
-    <h1>{{ team.strTeam }}</h1>
-    <p>Founded: {{ team.intFormedYear }}</p>
-    <p>Stadium: {{ team.strStadium }}</p>
-    <!-- Add more details as needed -->
+  <!-- Display Team Name and Badge -->
+  <h1>
+    {{ team.strTeam }}
+    <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+  </h1>
+
+  <!-- Display Team Details -->
+  <div class="team-details">
+    <p><strong>Founded:</strong> {{ team.intFormedYear }}</p>
+    <p><strong>Stadium:</strong> {{ team.strStadium }}</p>
+    <p><strong>Sport:</strong> {{ team.strSport }}</p>
+    <p><strong>League:</strong> {{ team.strLeague }}</p>
   </div>
-  
+
+  <!-- Display Upcoming Games -->
+  <div class="upcoming-games" *ngIf="upcomingGames.length > 0">
+    <h2>Upcoming Games</h2>
+    <ul>
+      <li *ngFor="let game of upcomingGames">
+        {{ game.dateEvent }} - {{ game.strEvent }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Display Past 5 Games-->>
+  <div class="past-games" *ngIf="pastGames.length > 0">
+    <h2>Past 5 Games</h2>
+    <ul>
+      <li *ngFor="let game of pastGames">
+        {{ game.dateEvent }} - {{ game.strEvent }}
+      </li>
+    </ul>
+  </div>
+
+</div>

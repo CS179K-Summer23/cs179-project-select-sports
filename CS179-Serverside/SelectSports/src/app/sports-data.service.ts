@@ -33,4 +33,15 @@ export class SportsDataService {
     const url = `${this.baseUrl}${this.apiKey}/lookupteam.php?id=${teamId}`;
     return this.http.get(url);
   }
+
+  getUpcomingGames(teamId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/eventsnext.php?id=${teamId}`;
+    return this.http.get(url);
+  }
+
+  getPastGames(teamId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/eventslast.php?id=${teamId}`;
+    return this.http.get(url);
+  }
+  
 }

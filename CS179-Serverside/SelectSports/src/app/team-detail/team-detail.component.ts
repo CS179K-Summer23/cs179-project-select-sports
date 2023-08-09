@@ -9,6 +9,8 @@ import { SportsDataService } from '../sports-data.service';
 })
 export class TeamDetailComponent implements OnInit {
   team: any; // Store the team details
+  upcomingGames: any[] = []; //Store upcoming events
+  pastGames: any[] = []; //Store past 5 games
 
   constructor(
     private route: ActivatedRoute,
@@ -20,15 +22,34 @@ export class TeamDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const teamId = params['id'];
 
-      // Fetch the team details using the service
+      // Fetch the team details using the api
       this.sportsDataService.getTeamDetails(teamId).subscribe(
         (team) => {
-          this.team = team.teams[0]; // Assuming the API response has a 'teams' property
+          this.team = team.teams[0];
         },
         (error) => {
           console.error('Error fetching team details:', error);
         }
       );
+
+      this.sportsDataService.getUpcomingGames(teamId).subscribe(
+        (upcomingGames) => {
+          this.upcomingGames = upcomingGames.events;
+        },
+        (error) => {
+          console.error('Error fetching upcoming games:', error);
+        }
+      );
+
+      this.sportsDataService.getPastGames(teamId).subscribe(
+        (pastGames) => {
+          this.pastGames = pastGames.results.slice(0, 5);
+        },
+        (error) => {
+          console.error('Error fetching past games:', error);
+        }
+      );
+      
     });
   }
 }

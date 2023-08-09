@@ -1,0 +1,29 @@
+.team-badge {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+  }
+
+  /* Example CSS for styling the upcoming games section */
+.upcoming-games {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  .upcoming-games h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .upcoming-games ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .upcoming-games li {
+    margin-bottom: 5px;
+  }
+  
