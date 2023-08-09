@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,25 +24,13 @@ export class SportsDataService {
     return forkJoin(requests);
   }
 
-  searchData(query: string): Observable<any> {
+  search(query: string): Observable<any> {
     const url = `${this.baseUrl}${this.apiKey}/searchteams.php?t=${query}`;
-    const request = this.http.get(url);
-    return request;
+    return this.http.get(url);
   }
 
-  searchLeagues(query: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}${this.apiKey}/search_all_leagues.php?s=${query}`);
-  }
-
-  searchTeams(query: string): Observable<any> {
-    const url = `${this.baseUrl}${this.apiKey}/searchteams.php?t=${query}`;
-    const request = this.http.get(url);
-    return request;
-  }
-
-  searchPlayers(query: string): Observable<any> {
-    const url = `${this.baseUrl}${this.apiKey}/searchplayers.php?t=${query}`;
-    const request = this.http.get(url);
-    return request;
+  getTeamDetails(teamId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupteam.php?id=${teamId}`;
+    return this.http.get(url);
   }
 }

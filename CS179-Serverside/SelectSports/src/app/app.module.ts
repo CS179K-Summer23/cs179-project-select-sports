@@ -15,6 +15,7 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
 import { FilterLeaguePipe } from './filter-league.pipe';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { TeamDetailComponent } from './team-detail/team-detail.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     FilterLeaguePipe,
     SearchBarComponent,
     SearchResultComponent,
+    TeamDetailComponent,
   ],
   imports: [
     BrowserModule,

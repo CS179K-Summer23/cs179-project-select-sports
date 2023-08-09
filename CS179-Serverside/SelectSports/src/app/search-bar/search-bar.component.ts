@@ -16,10 +16,10 @@ export class SearchBarComponent {
   constructor(private router: Router, private sportsDataService: SportsDataService) {}
   
   onSearchInput() {
-    if (this.searchQuery.length > 0) {
-      this.sportsDataService.searchTeams(this.searchQuery).subscribe(
-        (results: any[]) => {
-          this.searchResults = results;
+    if (this.searchQuery.trim() !== '') {
+      this.sportsDataService.search(this.searchQuery).subscribe(
+        (response) => {
+          this.searchResults = response.teams;
           this.showResults = true;
 
           console.log(this.searchResults);
@@ -34,8 +34,8 @@ export class SearchBarComponent {
     }
   }
 
-  onResultClick(result: any) {
-    this.router.navigate(['/result', result.id]);
+  onResultClick(teamId: string) {
+    this.router.navigate(['/team', teamId]);
   }
 
   onSearchBlur() {

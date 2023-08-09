@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,10 +8,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent {
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe(params => {
-      const resultId = params['id'];
-      // Fetch data based on resultId and display it
-    });
+  @Input() result: any; // Input property to receive search result data
+
+  constructor(private router: Router) {}
+
+  navigateToTeamDetail() {
+    this.router.navigate(['/team', this.result.idTeam]);
   }
 }

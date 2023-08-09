@@ -7,9 +7,9 @@
     (keydown.enter)="onSearchEnter()"
     placeholder="Search..."
   />
-  <div *ngIf="showResults && searchQuery" class="search-results">
-    <div *ngFor="let result of searchResults" class="result-box" (click)="onResultClick(result)">
-      {{ result }}
+  <div class="search-results" *ngIf="showResults && searchQuery">
+    <div class="result-box" *ngFor="let result of searchResults" (click)="onResultClick(result.idTeam)">
+      {{ result.strTeam }}
     </div>
   </div>
 </div>
