@@ -1,9 +1,17 @@
+h1 {
+  text-align: center;
+  background-color: #ccc;
+}
+
 .team-badge {
     width: 70px;
     height: 70px;
     margin-right: 10px;
-  }
+}
 
+.team-details {
+  text-align: center;
+}
 .upcoming-games {
     margin-top: 20px;
     padding: 10px;
@@ -15,6 +23,7 @@
   .upcoming-games h2 {
     font-size: 1.2rem;
     margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
   }
   
   .upcoming-games ul {
@@ -23,7 +32,7 @@
   }
   
   .upcoming-games li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 
   .past-games {
@@ -37,6 +46,7 @@
   .past-games h2 {
     font-size: 1.2rem;
     margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
   }
   
   .past-games ul {
@@ -45,6 +55,6 @@
   }
   
   .past-games li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
   

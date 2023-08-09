@@ -7,30 +7,45 @@
 
   <!-- Display Team Details -->
   <div class="team-details">
-    <p><strong>Founded:</strong> {{ team.intFormedYear }}</p>
-    <p><strong>Stadium:</strong> {{ team.strStadium }}</p>
-    <p><strong>Sport:</strong> {{ team.strSport }}</p>
-    <p><strong>League:</strong> {{ team.strLeague }}</p>
+    <p>
+      <strong>Sport:</strong> {{ team.strSport }}
+      <strong>League:</strong> {{ team.strLeague }}
+      <strong>Stadium:</strong> {{ team.strStadium }}
+      <strong>Founded:</strong> {{ team.intFormedYear }}
+    </p>
   </div>
 
-  <!-- Display Upcoming Games -->
-  <div class="upcoming-games" *ngIf="upcomingGames.length > 0">
-    <h2>Upcoming Games</h2>
-    <ul>
-      <li *ngFor="let game of upcomingGames">
-        {{ game.dateEvent }} - {{ game.strEvent }}
-      </li>
-    </ul>
-  </div>
+  <!-- Table -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
 
-  <!-- Display Past 5 Games-->>
-  <div class="past-games" *ngIf="pastGames.length > 0">
-    <h2>Past 5 Games</h2>
-    <ul>
-      <li *ngFor="let game of pastGames">
-        {{ game.dateEvent }} - {{ game.strEvent }}
-      </li>
-    </ul>
-  </div>
+        <!-- Display Upcoming Games -->
+        <div class="upcoming-games" *ngIf="upcomingGames.length > 0">
+          <h2>Upcoming Games</h2>
+          <ul>
+            <li *ngFor="let game of upcomingGames">
+              {{ game.dateEvent }} <br> {{ game.strEvent }}
+            </li>
+          </ul>
+        </div>
 
+        <!-- Display Past 5 Games-->
+        <div class="past-games" *ngIf="pastGames.length > 0">
+          <h2>Past 5 Games</h2>
+            <ul>
+              <li *ngFor="let game of pastGames">
+                {{ game.dateEvent }} <br> {{ game.strEvent }}
+              </li>
+            </ul>
+        </div>
+
+      </div>
+
+      <div class="col-md-9">
+        <!-- Display Team News -->
+
+      </div>
+    </div>
+  </div>
 </div>

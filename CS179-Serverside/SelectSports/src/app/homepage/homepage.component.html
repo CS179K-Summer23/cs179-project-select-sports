@@ -3,29 +3,29 @@
   <div class="row">
     <!-- Left Column for Scores -->
     <div class="col-md-3">
-      <h2>Scores</h2>
-      <h3>MLB</h3>
+      <h3>MLB Scores</h3>
       <ul class="scores-list">
         <li *ngFor="let score of scores | filterLeague:'MLB'" class="score-item">
           {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
         </li>
       </ul>
+      <h3>NFL Scores</h3>
       <ul class="scores-list">
         <li *ngFor="let score of scores | filterLeague:'NFL'" class="score-item">
           {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
         </li>
       </ul>
+      <h3>NBA Scores</h3>
       <ul class="scores-list">
         <li *ngFor="let score of scores | filterLeague:'NBA'" class="score-item">
           {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
         </li>
       </ul>
-      <!-- ... Repeat for NFL and NBA -->
     </div>
 
     <!-- Right Column for Top American Sports Stories -->
     <div class="col-md-9">
-      <h2>Latest News</h2>
+      <h2>Latest American Sports News</h2>
       <ul>
         <li *ngFor="let newsItem of topAmericanSportsNews" class="news-item">
           <h3>{{ newsItem.title }}</h3>
