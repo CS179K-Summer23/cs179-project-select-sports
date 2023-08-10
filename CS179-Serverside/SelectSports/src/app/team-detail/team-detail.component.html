@@ -21,6 +21,7 @@
       <div class="col-md-3">
 
         <!-- Display Upcoming Games -->
+        <h2>Schedule</h2>
         <div class="upcoming-games" *ngIf="upcomingGames.length > 0">
           <h2>Upcoming Games</h2>
           <ul>
@@ -40,15 +41,25 @@
             </ul>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-7">
 
         <!-- Display Team News -->
-        <h2>{{team.strTeam}} News</h2>
-        <div *ngFor="let newsItem of teamNews" class="news-item">
+        <h2>News</h2>
+        <div class="news-item" *ngFor="let newsItem of teamNews">
           <h3>{{ newsItem.title }}</h3>
           <p>{{ newsItem.description }}</p>
           <a [href]="newsItem.url" target="_blank">Read More</a>
         </div>        
+      </div>
+      <div class="col-md-2">
+
+        <!-- Display team players -->
+        <h2>Players</h2>
+        <ul class="player-list">
+          <li class="player-item" *ngFor="let player of players">
+            {{ player.strPlayer }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>

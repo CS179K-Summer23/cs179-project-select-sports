@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SportsDataService } from '../sports-data.service';
+import { SportsDataService } from '../Services/sports-data.service';
 
 @Component({
   selector: 'app-search-bar',

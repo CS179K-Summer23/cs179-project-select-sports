@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SportsDataService } from '../sports-data.service';
-import { NewsDataService } from '../news-data.service';
+import { SportsDataService } from '../Services/sports-data.service'; 
+import { NewsDataService } from '../Services/news-data.service';
 
 @Component({
   selector: 'app-team-detail',
@@ -10,6 +10,7 @@ import { NewsDataService } from '../news-data.service';
 })
 export class TeamDetailComponent implements OnInit {
   team: any; // Store the team details
+  players: any[] = []; // Store the team's players
   upcomingGames: any[] = []; // Store upcoming events
   pastGames: any[] = []; // Store past 5 games
   teamNews: any[] = [];
@@ -25,7 +26,7 @@ export class TeamDetailComponent implements OnInit {
     this.route.params.subscribe((params) => {
       const teamId = params['id'];
 
-      // Fetch the team details using thesportsdb api to get the team name
+      // Fetch the team details using the api to get the team name
       this.sportsDataService.getTeamDetails(teamId).subscribe(
         (team) => {
           // Extract the team name from the team details
@@ -34,10 +35,11 @@ export class TeamDetailComponent implements OnInit {
           // Assign the team details
           this.team = team.teams[0];
 
-          // Fetch upcoming games, past games, and team-specific news
+          // Fetch upcoming games, past games, team news, and team players
           this.fetchUpcomingGames(teamId);
           this.fetchPastGames(teamId);
           this.fetchTeamNews(teamName);
+          this.fetchTeamPlayers(teamId);
         },
         (error) => {
           console.error('Error fetching team details:', error);
@@ -82,4 +84,15 @@ export class TeamDetailComponent implements OnInit {
     );
   }
 
+  // Fetch the team's players
+  fetchTeamPlayers(teamId: string) {
+    this.sportsDataService.getTeamPlayers(teamId).subscribe(
+      (players) => {
+        this.players = players.player; // Assuming the API response has a 'player' property with an array of players
+      },
+      (error) => {
+        console.error('Error fetching team players:', error);
+      }
+    );
+  }
 }

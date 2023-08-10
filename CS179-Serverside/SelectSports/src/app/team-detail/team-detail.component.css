@@ -24,45 +24,45 @@ h2 {
     background-color: #f5f5f5;
   }
   
-  .upcoming-games h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-  }
+.upcoming-games h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
   
-  .upcoming-games ul {
-    list-style-type: none;
-    padding: 0;
-  }
+.upcoming-games ul {
+  list-style-type: none;
+  padding: 0;
+}
   
-  .upcoming-games li {
-    margin-bottom: 10px;
-  }
+.upcoming-games li {
+  margin-bottom: 10px;
+}
 
-  .past-games {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-  }
+.past-games {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
   
-  .past-games h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-  }
+.past-games h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
   
-  .past-games ul {
-    list-style-type: none;
-    padding: 0;
-  }
+.past-games ul {
+  list-style-type: none;
+  padding: 0;
+}
   
-  .past-games li {
-    margin-bottom: 10px;
-  }
+.past-games li {
+  margin-bottom: 10px;
+}
 
-  /* Style the news items */
+/* Style the news items */
 .news-item {
   padding: 15px;
   border: 1px solid #989898;
@@ -80,10 +80,24 @@ h2 {
   margin-left: 8px;
 }
 
-/* Style the "Read More" link */
 .news-item a {
   color: #007bff;
   text-decoration: none;
   margin-left: 8px;
+}
+
+.player-list {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  list-style-type: none;
+}
+
+.player-item {
+  border-bottom: 1px solid #ccc;
+  padding: 3%;
+  text-align: center;
 }
   

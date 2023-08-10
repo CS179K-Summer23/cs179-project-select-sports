@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsDataService } from '../news-data.service';
-import { SportsDataService } from '../sports-data.service';
+import { NewsDataService } from '../Services/news-data.service';
+import { SportsDataService } from '../Services/sports-data.service';
 
 @Component({
   selector: 'app-homepage',
