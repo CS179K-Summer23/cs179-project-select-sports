@@ -3,6 +3,10 @@ h1 {
   background-color: #ccc;
 }
 
+h2 {
+  text-align: center;
+}
+
 .team-badge {
     width: 70px;
     height: 70px;
@@ -57,4 +61,29 @@ h1 {
   .past-games li {
     margin-bottom: 10px;
   }
+
+  /* Style the news items */
+.news-item {
+  padding: 15px;
+  border: 1px solid #989898;
+  border-radius: 5px;
+  margin-bottom: 7px;
+}
+
+.news-item p {
+  margin-left: 8px;
+}
+
+.news-item h3 {
+  font-size: 150%;
+  text-align: left;
+  margin-left: 8px;
+}
+
+/* Style the "Read More" link */
+.news-item a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 8px;
+}
   

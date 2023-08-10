@@ -15,4 +15,9 @@ export class NewsDataService {
     const url = `${this.baseUrl}top-headlines?country=us&category=sports&apiKey=${this.apiKey}`;
     return this.http.get(url);
   }
+
+  getTeamNews(teamName: string): Observable<any> {
+    const url = `${this.baseUrl}top-headlines?q=${teamName}&apiKey=${this.apiKey}`;
+    return this.http.get(url);
+  }
 }
