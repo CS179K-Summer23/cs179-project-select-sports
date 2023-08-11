@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { SportsDataService } from '../Services/sports-data.service'; 
 import { NewsDataService } from '../Services/news-data.service';
 
@@ -17,9 +18,14 @@ export class TeamDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private sportsDataService: SportsDataService,
     private newsDataService: NewsDataService
   ) {}
+
+  navigateToPlayer(playerId: string) {
+    this.router.navigate(['/player', playerId]);
+  }
 
   ngOnInit(): void {
     // Get the team ID from the route parameters

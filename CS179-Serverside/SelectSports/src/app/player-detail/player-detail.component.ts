@@ -10,24 +10,28 @@ import { SportsDataService } from '../Services/sports-data.service';
 })
 export class PlayerDetailComponent implements OnInit {
   playerId: string = '';
-  playerDetails: any;
+  player: any;
 
   constructor(
     private route: ActivatedRoute, 
     private sportsDataService: SportsDataService
     ) { }
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.playerId = params['id'];
-      this.fetchPlayerDetails();
-    });
-  }
-
-  fetchPlayerDetails() {
-    this.sportsDataService.getPlayerDetailsById(this.playerId)
-      .subscribe(data => {
-        this.playerDetails = data.players[0];
+    ngOnInit(): void {
+      // Get the player ID from the route parameters
+      this.route.params.subscribe(params => {
+        const playerId = params['id'];
+  
+        // Fetch the player details using the API
+        this.sportsDataService.getPlayerDetails(playerId).subscribe(
+          (player) => {
+            // Assign the player details
+            this.player = player.players[0];
+          },
+          (error) => {
+            console.error('Error fetching player details:', error);
+          }
+        );
       });
-  }
+    }
 }

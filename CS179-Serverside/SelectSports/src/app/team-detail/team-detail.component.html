@@ -57,7 +57,9 @@
         <h2>Players</h2>
         <ul class="player-list">
           <li class="player-item" *ngFor="let player of players">
-            {{ player.strPlayer }}
+            <button class="player-button" (click)="navigateToPlayer(player.idPlayer)">
+              {{ player.strPlayer }}
+            </button>
           </li>
         </ul>
       </div>
