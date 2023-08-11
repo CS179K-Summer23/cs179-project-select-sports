@@ -53,3 +53,29 @@
   bottom: 50px;
   right: 200px;
 }
+
+.top-bar {
+  position: absolute;
+  top: 170px;
+  right: 230px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.user-points {
+  display: flex;
+  align-items: center;
+}
+
+.user-points img {
+  width: 36px;
+  height: 36px;
+  margin-right: 5px;
+}
+
+.user-points span {
+  font-size: 24px; 
+  font-weight: bold;
+  color: #00aa00; 
+}

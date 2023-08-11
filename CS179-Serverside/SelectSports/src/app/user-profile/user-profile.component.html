@@ -1,4 +1,11 @@
 <div class="container">
+  <div class="top-bar">
+    <div class="user-points">
+      <img src="assets/icon.png" alt="Points Icon">
+      <span>{{ data.points }}</span>
+    </div>
+  </div>
+
   <div class="left-side">
     <ng-container *ngIf="data.profileID; else defaultProfile">
       <img class="profile-picture" [src]="'assets/profilePic' + data.profileID + '.png'" alt="Profile Picture">
@@ -12,7 +19,7 @@
   <div class="right-side">
     <p>Name: {{ data.name }}</p>
     <p>Email: {{ data.email }}</p>
-    <p>User Points: {{data.points}}</p>
+    <p>User Points: {{ data.points }}</p>
     <p>Favorite Sport: {{ data.favorite_sport }}</p>
     <p>Description: </p>
     <div class="description-box">
