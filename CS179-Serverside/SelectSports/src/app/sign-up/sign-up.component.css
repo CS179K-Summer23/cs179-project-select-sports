@@ -11,3 +11,15 @@ body {
     /* justify-items: center; */
     justify-content: center;
 }
+
+.password-input {
+  position: relative;
+}
+
+.password-toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #007bff;
+}
