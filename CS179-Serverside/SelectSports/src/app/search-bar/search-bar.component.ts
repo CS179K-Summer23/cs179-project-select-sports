@@ -21,8 +21,6 @@ export class SearchBarComponent {
         (response) => {
           this.searchResults = response.teams;
           this.showResults = true;
-
-          console.log(this.searchResults);
         },
         (error) => {
           console.error('Error fetching search results:', error);

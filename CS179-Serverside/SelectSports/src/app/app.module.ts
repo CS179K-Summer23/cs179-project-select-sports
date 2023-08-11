@@ -16,6 +16,8 @@ import { FilterLeaguePipe } from './Services/filter-league.pipe';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
+import { LeagueDetailComponent } from './league-detail/league-detail.component';
+import { PlayerDetailComponent } from './player-detail/player-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,15 @@ import { TeamDetailComponent } from './team-detail/team-detail.component';
     SearchBarComponent,
     SearchResultComponent,
     TeamDetailComponent,
+    LeagueDetailComponent,
+    PlayerDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-ReactiveFormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

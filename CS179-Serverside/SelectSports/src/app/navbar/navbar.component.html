@@ -1,29 +1,66 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><strong>Select Sports</strong></a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">MLB</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">NFL</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="active">NBA</a>
-        </li>
-        <li class="nav-item">
-          <app-search-bar></app-search-bar>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/SignIn" routerLinkActive="active">Sign In</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  
+  <a class="navbar-brand" routerLink="/">Select Sports</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <!-- Home -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+      </li>
+
+      <!-- Sports Dropdowns -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="soccerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Soccer</a>
+        <div class="dropdown-menu" aria-labelledby="soccerDropdown">
+          <a class="dropdown-item" routerLink="/soccer/4346">MLS</a>
+          <a class="dropdown-item" routerLink="/soccer/4521">NWSL</a>
+          <a class="dropdown-item" routerLink="/soccer/4328">EPL</a>
+          <a class="dropdown-item" routerLink="/soccer/4329">ELC</a>
+          <a class="dropdown-item" routerLink="/soccer/4335">LaLiga</a>
+          <a class="dropdown-item" routerLink="/soccer/4331">Bundesliga</a>
+          <a class="dropdown-item" routerLink="/soccer/4332">Serie A</a>
+          <a class="dropdown-item" routerLink="/soccer/4334">Ligue 1</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="footballDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Football</a>
+        <div class="dropdown-menu" aria-labelledby="footballDropdown">
+          <a class="dropdown-item" routerLink="/football/4391">NFL</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="baseballDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Baseball</a>
+        <div class="dropdown-menu" aria-labelledby="baseballDropdown">
+          <a class="dropdown-item" routerLink="/baseball/4424">MLB</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="basketballDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Basketball</a>
+        <div class="dropdown-menu" aria-labelledby="basketballDropdown">
+          <a class="dropdown-item" routerLink="/basketball/4387">NBA</a>
+          <a class="dropdown-item" routerLink="/basketball/4516">WNBA</a>
+        </div>
+      </li>
+
+      <!-- Search Bar -->
+      <li class="nav-item">
+        <app-search-bar></app-search-bar>
+      </li>
+
+      <!-- Display "Sign In" and "Register" for unauthenticated users -->
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="/SignIn" routerLinkActive="active">Sign In</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLoggedIn()">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+      </li>
+
+      <!-- Display "My Profile" for authenticated users -->
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">My Profile</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -88,7 +88,7 @@ export class TeamDetailComponent implements OnInit {
   fetchTeamPlayers(teamId: string) {
     this.sportsDataService.getTeamPlayers(teamId).subscribe(
       (players) => {
-        this.players = players.player; // Assuming the API response has a 'player' property with an array of players
+        this.players = players.player;
       },
       (error) => {
         console.error('Error fetching team players:', error);

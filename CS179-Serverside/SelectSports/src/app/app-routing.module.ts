@@ -6,8 +6,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { SearchResultComponent } from './search-result/search-result.component';
+import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import { LeagueDetailComponent } from './league-detail/league-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -15,7 +15,12 @@ const routes: Routes = [
   { path:'register', component: SignUpComponent},
   { path:'profile', component: UserProfileComponent},
   { path:'profileEdit', component: UserProfileEditComponent},
-  { path: 'team/:id', component:  TeamDetailComponent}
+  { path: 'team/:id', component:  TeamDetailComponent},
+  { path: 'player/:id', component:  PlayerDetailComponent},
+  { path: 'soccer/:id', component: LeagueDetailComponent},
+  { path: 'football/:id', component: LeagueDetailComponent},
+  { path: 'baseball/:id', component: LeagueDetailComponent},
+  { path: 'basketball/:id', component: LeagueDetailComponent}
 ];
 
 @NgModule({

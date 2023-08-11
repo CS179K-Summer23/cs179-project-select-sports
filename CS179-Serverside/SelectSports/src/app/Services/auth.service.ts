@@ -29,4 +29,10 @@ export class AuthService {
     return this.http.post('http://localhost:4000/auth/profileEdit', data)
   }
 
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    // Check if the token exists and is not expired
+    return !!token;
+  }
+
 }

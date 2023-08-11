@@ -48,5 +48,14 @@ export class SportsDataService {
     const url = `${this.baseUrl}${this.apiKey}/lookup_all_players.php?id=${teamId}`;
     return this.http.get(url);
   }
+
+  getLeagueDetailsById(leagueId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupleague.php?id=${leagueId}`;
+    return this.http.get(url);
+  }
   
+  getPlayerDetailsById(playerId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupplayer.php?id=${playerId}`;
+    return this.http.get(url);
+  }
 }

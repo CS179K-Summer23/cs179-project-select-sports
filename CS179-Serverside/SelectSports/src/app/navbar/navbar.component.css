@@ -24,3 +24,12 @@ a:hover {
     color: #6a6a90;
     font-family: "Lucida Console", "Courier New", monospace;
 }
+
+.nav-item.dropdown .dropdown-menu {
+    display: none;
+  }
+
+  .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
