@@ -97,12 +97,20 @@ export class AuthService {
   }
 
 
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    // Check if the token exists and is not expired
+    return !!token;
+  }
+
+
 
   getEventsbyDate(date: string): Observable<any> {
     
     const params = {d:date};
     return this.http.get(this.EventsDayAPI, { params });
   }
+
 
 
 

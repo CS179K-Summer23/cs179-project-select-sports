@@ -1,0 +1,118 @@
+h1 {
+  text-align: center;
+  background-color: #ccc;
+}
+
+h2 {
+  text-align: center;
+}
+
+.team-badge {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.team-details {
+  text-align: center;
+}
+.upcoming-games {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+.upcoming-games h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+  
+.upcoming-games ul {
+  list-style-type: none;
+  padding: 0;
+}
+  
+.upcoming-games li {
+  margin-bottom: 10px;
+}
+
+.past-games {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+  
+.past-games h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+  
+.past-games ul {
+  list-style-type: none;
+  padding: 0;
+}
+  
+.past-games li {
+  margin-bottom: 10px;
+}
+
+/* Style the news items */
+.news-item {
+  padding: 15px;
+  border: 1px solid #989898;
+  border-radius: 5px;
+  margin-bottom: 7px;
+}
+
+.news-item p {
+  margin-left: 8px;
+}
+
+.news-item h3 {
+  font-size: 150%;
+  text-align: left;
+  margin-left: 8px;
+}
+
+.news-item a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.player-list {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  list-style-type: none;
+}
+
+.player-item {
+  border-bottom: 1px solid #ccc;
+  padding: 3%;
+  text-align: center;
+}
+
+.player-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.player-button:hover {
+  background-color: #f0f0f0;
+}
+
+  
