@@ -11,7 +11,6 @@ export class DailyLoginComponent implements OnInit {
   userForm = { email: '', points: '', dailyAccessTime: 0};
   Counter: number = 0;
   maxC: number = 3;
-  firstAccessTimestamp: number | null = null
 
   constructor(private auth:AuthService, private router: Router) { }
 
