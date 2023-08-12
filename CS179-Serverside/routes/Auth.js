@@ -1,5 +1,10 @@
 const router = require('express').Router();
+
+
 const UserData = require("../models/UserData");
+const Bets = require("../models/Bets");
+
+
 const bcrypt = require('bcrypt');
 const { response } = require('express');
 const jwt = require('jsonwebtoken');
@@ -96,6 +101,83 @@ router.post('/profileEdit', (req, res) => {
       return res.json({ success: false, message: "Error updating profile" });
     });
 });
+
+
+router.post('/myBets', async (req,res)=>{
+   console.log('I was sent here with', req);
+        const { email, EventID, BettingTeamID } = req.body;
+
+try{
+        let myBet =await Bets.findOne({ email });
+
+        //User's FIRST BET EVEEEEEAAAAAAA
+
+        if(!myBet){
+            myBet = new Bets({ email, PlacedBets: [] });
+        }
+
+        if (!myBet.PlacedBets) {
+            myBet.PlacedBets = []; 
+          }
+
+         myBet.PlacedBets.push({EventID, BettingTeamID });
+
+         await   myBet.save();
+
+          
+                res.json({success:true, message:"Bet Placed Successfully! Come Back for results :)"});
+               
+}
+
+
+
+
+
+catch(err){
+    console.error("Error placing bet:", err);
+                res.json({success:false, message:"Error Placing Bet"});
+            }
+
+     
+
+    });
+
+
+    router.get('/myBets/:email', async (req, res) => {
+        const { email } = req.params;
+      
+        try {
+            let myBet =await Bets.findOne({ email });
+          
+      
+          if (!myBet) {
+            return res.json({ error: 'No Bets Placed' });
+          }
+          else{
+            
+            return res.json(myBet);
+          }
+      
+          
+        } catch (error) {
+          res.status.json({success:false, message:"Error Getting Bets" });
+        }
+      });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
 

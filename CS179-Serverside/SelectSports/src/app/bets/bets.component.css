@@ -1,0 +1,61 @@
+.bet {
+    /* width: auto; */
+    text-align: center;
+    background-color: #f4f4f4fa;
+    padding: 10px;
+    /* margin: 50px; */
+    /* justify-content: center; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* display: inline-block; */
+    margin-top: 15px;
+    margin-right: 5rem;
+    margin-left: 5rem;
+}
+
+
+
+.btn-primary:focus {
+    color: #fff;
+    background-color: #58963a;
+    border-color: #0a58ca;
+    box-shadow: 0 0 0 0.25rem rgba(49,132,253,.5);
+}
+
+.GameCard {
+    width: 45rem;
+    height: 100vh;
+   
+}
+
+.container.betsAvailable{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 80px;
+    margin-left: 80px;
+    margin-bottom: 5px;
+}
+
+.column.card.GameCard{
+    flex: 33%;
+    padding: 20px;
+    width:45rem; 
+     height:28rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    min-width: 600px;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    width: 20px;
+}

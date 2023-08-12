@@ -13,6 +13,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './Services/auth.service';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { FilterLeaguePipe } from './filter-league.pipe';
+import { BetsComponent } from './bets/bets.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { FilterLeaguePipe } from './filter-league.pipe';
     UserProfileEditComponent,
     HomepageComponent,
     FilterLeaguePipe,
+    BetsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +35,8 @@ import { FilterLeaguePipe } from './filter-league.pipe';
     FormsModule,
     HttpClientModule,
 ReactiveFormsModule,
+BrowserAnimationsModule,
+NgxSpinnerModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
