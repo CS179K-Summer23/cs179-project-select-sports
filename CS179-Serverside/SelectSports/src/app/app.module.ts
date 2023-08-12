@@ -12,12 +12,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './Services/auth.service';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+
 import { FilterLeaguePipe } from './Services/filter-league.pipe';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { LeagueDetailComponent } from './league-detail/league-detail.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
+
+import { FilterLeaguePipe } from './filter-league.pipe';
+import { BetsComponent } from './bets/bets.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 @NgModule({
   declarations: [
@@ -29,19 +36,29 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
     UserProfileEditComponent,
     HomepageComponent,
     FilterLeaguePipe,
+
     SearchBarComponent,
     SearchResultComponent,
     TeamDetailComponent,
     LeagueDetailComponent,
     PlayerDetailComponent,
+
+    BetsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
     ReactiveFormsModule,
     RouterModule
+
+ReactiveFormsModule,
+BrowserAnimationsModule,
+NgxSpinnerModule
+
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

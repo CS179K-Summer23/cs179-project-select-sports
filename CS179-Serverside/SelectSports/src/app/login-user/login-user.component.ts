@@ -24,6 +24,7 @@ Login(){
   this.auth.login(this.userForm).subscribe(res => {
     if(res.success){
       localStorage.setItem('token',res.token);
+      this.auth.SetLoggedIn();
      this.router.navigate(['/profile']);
       
     }else{

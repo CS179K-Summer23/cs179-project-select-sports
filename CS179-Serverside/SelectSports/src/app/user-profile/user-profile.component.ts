@@ -21,6 +21,8 @@ export class UserProfileComponent implements OnInit {
       (res) => {
         if (res.success) {
           this.data = res.data;
+      
+         
         } else {
           this.logout();
         }
@@ -30,7 +32,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   logout() {
+    
     localStorage.clear();
+    this.auth.SetLoggedOut();
     this.router.navigate(['/SignIn']);
   }
 
