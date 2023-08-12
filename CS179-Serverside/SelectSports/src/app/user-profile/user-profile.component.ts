@@ -34,6 +34,10 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['/SignIn']);
   }
 
+  dailyLogin() {
+    this.router.navigate(['/DailyLogin'], { state: { user: this.data } });
+  }
+
   ProfileEditt() {
     //this.router.navigate(['/profileEdit']);
     this.router.navigate(['/profileEdit'], { state: { user: this.data } });

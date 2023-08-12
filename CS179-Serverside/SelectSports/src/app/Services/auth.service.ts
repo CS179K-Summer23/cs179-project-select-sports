@@ -29,4 +29,8 @@ export class AuthService {
     return this.http.post('http://localhost:4000/auth/profileEdit', data)
   }
 
+  DailyLogin(data:any):Observable<any>{
+    return this.http.post('http://localhost:4000/auth/DailyLogin', data)
+  }
+
 }
