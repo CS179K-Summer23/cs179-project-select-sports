@@ -19,8 +19,6 @@ import { SearchResultComponent } from './search-result/search-result.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { LeagueDetailComponent } from './league-detail/league-detail.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
-
-import { FilterLeaguePipe } from './filter-league.pipe';
 import { BetsComponent } from './bets/bets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
@@ -53,9 +51,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
 
     ReactiveFormsModule,
-    RouterModule
-
-ReactiveFormsModule,
+    RouterModule,
 BrowserAnimationsModule,
 NgxSpinnerModule
 
