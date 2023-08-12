@@ -22,6 +22,7 @@ router.post('/register', (req,res)=>{
                 name: req.body.name,
                 email: req.body.email,
                 password: hash,
+                points: req.body.points,
             })
        
        

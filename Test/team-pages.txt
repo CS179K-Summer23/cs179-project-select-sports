@@ -1,0 +1,3 @@
+* As a user, I want to only see a page dedicated to my favorite teams
+- The user will see all relevant team news, previous game scores, upcoming games, live games (if applicable) and table placement/WL record
+- The user will also see a list of players for the team with 'add to favorites' icons next to each player.

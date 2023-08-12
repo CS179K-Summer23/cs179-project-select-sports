@@ -13,8 +13,8 @@ Team Select Sports
 Website focused on Sports data, information, and statistics. Users can sign in to their accounts, follow their favorite teams, and compete for website points.
 
 ## Skills and technologies: 
-javascript, React.js, google authenticator API, sports data API, user/sports data management
-Team members have some experience using React, but some time still needs to be invested to learn React.js and the various APIs required to implement some of the features listed.
+javascript, google authenticator API, sports data API, user/sports data management, Angular, MongoDB
+Team members have some experience using React, but some time still needs to be invested to learn MongoDB, Angular, and the various APIs required to implement some of the features listed.
 
 ## Major Features:
 (Highest to Lowest Priority)
@@ -30,6 +30,7 @@ Team members have some experience using React, but some time still needs to be i
 ## User Stories:
 - As a user, I want to be able to search through the database based on my input query.
 - As a user, I want to be able to see clean information display on the website interface.
+- As a user, I want to have my own profile page, be able to constantly add/edit my information, and have cute avatar icons.
 - As a user, I want to have an independent account, keep track of my preference and loved team or players.
 - As a developer, I want to attract more users to the website and keep the current users, I want to create a site point system for users to earn and unlock special features using the site points.
 - As a user, I want to be able to play small games on the site to earn the site points.

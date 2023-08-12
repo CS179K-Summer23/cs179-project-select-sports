@@ -1,0 +1,9 @@
+As a user I want to be able have a bets page to interact with games and accumulate points 
+ -User goes the the bets page in accordance to their profile and sees list of games available for betting on that specific day
+ -User goes to bets page and click on won bets to see all the current and past bets won by user 
+ -User goes to bets page and click on lost bets to see all the current and past bets lost by user
+ -User goes to bets page and click on All bets to see all the won and lost bets as well as current bets. 
+ -User has the option to sort ALL bets by lost, won, pending bets. 
+ -User click on a game to place a bet which has two options of team will lose/team will win. 
+ -User sees a bet successfully placed notification. 
+

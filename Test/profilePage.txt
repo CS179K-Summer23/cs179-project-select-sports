@@ -1,0 +1,11 @@
+*As a user, I want to have my own profile page, be able to constantly add/edit my information, and have cute avatar icons.
+When user log into their profile page, they should see their correct information being displayed.
+When user click on "Edit Profile" button, they should be direct to a profile edit page to edit their information.
+When user click on the "Log out" button, they should be back to the SignIn page.
+When user is logged out of their account, they should not be back to the Profile Page until they sign back in.
+When user in profileEdit page, they should be able to type in new information to replace to current information.
+When user click save, their newly entered information should be saved, send back to database, and be viewable on profile page.
+When user didn't click save, their newly entered information will be ignored.
+When user type in strings instead of number in "profile page ID" section, no changes should be saved.
+When user type in number in the "profile page ID" section, changes will be saved.
+When user type in a number bigger than amount of avatar icons saved in the database, no avatar will be displayed.
