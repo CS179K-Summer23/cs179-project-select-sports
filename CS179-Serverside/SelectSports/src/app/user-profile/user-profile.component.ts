@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class UserProfileComponent implements OnInit {
   data: any;
-
+  
   constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
@@ -39,7 +39,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   ProfileEditt() {
-    //this.router.navigate(['/profileEdit']);
     this.router.navigate(['/profileEdit'], { state: { user: this.data } });
   }
 }

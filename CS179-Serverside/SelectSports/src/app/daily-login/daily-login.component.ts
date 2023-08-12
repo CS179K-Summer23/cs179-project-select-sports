@@ -8,9 +8,10 @@ import { AuthService } from '../Services/auth.service';
   styleUrls: ['./daily-login.component.css']
 })
 export class DailyLoginComponent implements OnInit {
-  userForm = { email: '', points: ''};
+  userForm = { email: '', points: '', dailyAccessTime: 0};
   Counter: number = 0;
   maxC: number = 3;
+  firstAccessTimestamp: number | null = null
 
   constructor(private auth:AuthService, private router: Router) { }
 
@@ -19,6 +20,7 @@ export class DailyLoginComponent implements OnInit {
     if (currentUser) {
       this.userForm.email = currentUser.email;
       this.userForm.points = currentUser.points;
+      this.userForm.dailyAccessTime = Date.now();
     }
   }
 

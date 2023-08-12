@@ -11,7 +11,8 @@ const userSchema = new Schema({
         favorite_sport: {type: String},
         description: {type: String},
         profileID: {type: Number},
-        points: {type: Number}
+        points: {type: Number},
+        dailyAccessTime: {type: Number}
 });
 
 //creating model for db

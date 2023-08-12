@@ -98,9 +98,9 @@ router.post('/profileEdit', (req, res) => {
 });
 
 router.post('/DailyLogin', (req, res) => {
-  const { email, points } = req.body;
+  const { email, points, dailyAccessTime} = req.body;
 
-  UserData.findOneAndUpdate({ email: email }, { points: points }, { new: true })
+  UserData.findOneAndUpdate({ email: email }, { points: points , dailyAccessTime: dailyAccessTime}, { new: true })
     .then(updatedUser => {
       if (!updatedUser) {
         return res.json({ success: false, message: "User not found" });
