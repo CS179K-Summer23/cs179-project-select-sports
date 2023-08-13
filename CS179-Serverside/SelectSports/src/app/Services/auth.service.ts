@@ -96,6 +96,9 @@ export class AuthService {
     return this.http.post('http://localhost:4000/auth/profileEdit', data)
   }
 
+  DailyLogin(data:any):Observable<any>{
+    return this.http.post('http://localhost:4000/auth/DailyLogin', data)
+  }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -103,15 +106,10 @@ export class AuthService {
     return !!token;
   }
 
-
-
   getEventsbyDate(date: string): Observable<any> {
     
     const params = {d:date};
     return this.http.get(this.EventsDayAPI, { params });
   }
-
-
-
 
 }

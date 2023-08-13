@@ -32,7 +32,8 @@
 }
 
 .edit-button,
-.logout-button {
+.logout-button,
+.daily-login-button {
   padding: 8px 16px;
   background-color: #007bff;
   color: white;
@@ -44,12 +45,52 @@
 
 .edit-button {
   position:absolute;
-  bottom: 120px;
-  right: 200px;
+  bottom: 100px;
+  left: 1200px;
 }
 
 .logout-button {
   position: absolute;
-  bottom: 50px;
-  right: 200px;
+  bottom: 30px;
+  left: 1200px;
+}
+
+.daily-login-button{
+  position: absolute;
+  bottom: 170px;
+  left: 1200px;
+}
+
+.top-bar {
+  position: absolute;
+  top: 170px;
+  right: 230px;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.user-points {
+  display: flex;
+  align-items: center;
+}
+
+.user-points img {
+  width: 36px;
+  height: 36px;
+  margin-right: 5px;
+}
+
+.user-points span {
+  font-size: 24px; 
+  font-weight: bold;
+  color: #00aa00; 
+}
+
+.remaining-time-message {
+  margin-top: 60px; 
+  position: absolute;
+  top: 170px;
+  right: 190px;
 }
