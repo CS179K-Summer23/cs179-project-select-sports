@@ -8,9 +8,22 @@
     </a>
   </div>
 
+  <ng-container *ngIf="remainingTime.hours === 0 && remainingTime.minutes === 0 && remainingTime.seconds === 0; else timer">
+    </ng-container>
+    <ng-template #timer>
+      <div class="remaining-time-container">
+        <div class="remaining-time-message">
+          Rewards Cooldown:
+          <span>{{ remainingTime.hours }}h</span>
+          <span>{{ remainingTime.minutes }}m</span>
+          <span>{{ remainingTime.seconds }}s</span>
+        </div>
+      </div>
+    </ng-template>
+
   <div class="left-side">
     <ng-container *ngIf="data.profileID; else defaultProfile">
-      <img class="profile-picture" [src]="'assets/profilePic' + data.profileID + '.png'" alt="Profile Picture">
+      <img class="profile-picture" [src]="'assets/ProfilePics/profilePic' + data.profileID + '.png'" alt="Profile Picture">
     </ng-container>
     <ng-template #defaultProfile>
       <img class="profile-picture" src="assets/profilePic.png" alt="Default Profile Picture">

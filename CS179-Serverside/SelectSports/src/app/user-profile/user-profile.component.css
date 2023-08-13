@@ -87,3 +87,10 @@
   font-weight: bold;
   color: #00aa00; 
 }
+
+.remaining-time-message {
+  margin-top: 60px; 
+  position: absolute;
+  top: 170px;
+  right: 190px;
+}

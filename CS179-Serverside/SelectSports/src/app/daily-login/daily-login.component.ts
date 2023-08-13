@@ -10,7 +10,7 @@ import { AuthService } from '../Services/auth.service';
 export class DailyLoginComponent implements OnInit {
   userForm = { email: '', points: '', dailyAccessTime: 0};
   Counter: number = 0;
-  maxC: number = 3;
+  maxC: number = 2;
 
   constructor(private auth:AuthService, private router: Router) { }
 
