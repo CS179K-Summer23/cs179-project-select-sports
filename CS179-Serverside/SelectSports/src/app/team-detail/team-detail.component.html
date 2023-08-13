@@ -1,0 +1,68 @@
+<div *ngIf="team">
+  <!-- Display Team Name and Badge -->
+  <h1>
+    {{ team.strTeam }}
+    <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+  </h1>
+
+  <!-- Display Team Details -->
+  <div class="team-details">
+    <p>
+      <strong>Sport:</strong> {{ team.strSport }}
+      <strong>League:</strong> {{ team.strLeague }}
+      <strong>Stadium:</strong> {{ team.strStadium }}
+      <strong>Founded:</strong> {{ team.intFormedYear }}
+    </p>
+  </div>
+
+  <!-- Table -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+
+        <!-- Display Upcoming Games -->
+        <h2>Schedule</h2>
+        <div class="upcoming-games" *ngIf="upcomingGames.length > 0">
+          <h2>Upcoming Games</h2>
+          <ul>
+            <li *ngFor="let game of upcomingGames">
+              {{ game.dateEvent }} <br> {{ game.strEvent }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Display Past 5 Games-->
+        <div class="past-games" *ngIf="pastGames.length > 0">
+          <h2>Past 5 Games</h2>
+            <ul>
+              <li *ngFor="let game of pastGames">
+                {{ game.dateEvent }} <br> {{ game.strEvent }}
+              </li>
+            </ul>
+        </div>
+      </div>
+      <div class="col-md-7">
+
+        <!-- Display Team News -->
+        <h2>News</h2>
+        <div class="news-item" *ngFor="let newsItem of teamNews">
+          <h3>{{ newsItem.title }}</h3>
+          <p>{{ newsItem.description }}</p>
+          <a [href]="newsItem.url" target="_blank">Read More</a>
+        </div>        
+      </div>
+      <div class="col-md-2">
+
+        <!-- Display team players -->
+        <h2>Players</h2>
+        <ul class="player-list">
+          <li class="player-item" *ngFor="let player of players">
+            <button class="player-button" (click)="navigateToPlayer(player.idPlayer)">
+              {{ player.strPlayer }}
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

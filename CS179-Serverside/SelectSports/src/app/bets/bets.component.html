@@ -1,0 +1,150 @@
+<div class="container" style="text-align: center;"><h1 class="display-5">My Bets</h1></div>
+
+
+<ul class="nav flex-row" style="text-align: center; justify-content: center; margin:30px;">
+    <li class="nav-item">
+      <button type="button" class="btn btn-primary"(click)="toggleAvailable()" >Bets Available</button>
+      
+    </li>
+    &nbsp;&nbsp;
+    <li class="nav-item">
+      <button type="button" class="btn btn-primary" (click)="toggleBets()" >My Bets</button>
+      
+    </li>
+
+  </ul>
+
+  
+<div *ngIf="BetAvailable && Events" class="container betsAvailable" style="flex-wrap: wrap;">
+
+  
+  
+  <div *ngFor="let selectedEvent of Events" > 
+   
+   
+    <div *ngIf="selectedEvent" class="column card GameCard" style="width:45rem; background-image: url('{{selectedEvent.strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
+        <div class="card-body">
+          <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
+            <h4 style="margin-bottom:20px;">{{selectedEvent.strLeague}}&nbsp;{{selectedEvent.strSeason}}</h4>
+            <div class="row">
+              <div class="col-md" style="text-align:center;">
+                <p style="margin-bottom:1px;">(Home)</p>
+                <h5>{{selectedEvent.strHomeTeam}}</h5>
+                
+              </div>
+              <div class="col-sm" style="text-align:center;">
+              <h3>VS</h3>
+              <p>{{selectedEvent.dateEvent}}</p>
+              </div>
+              <div class="col-md" style="text-align:center;">
+                <p style="margin-bottom:1px;">(Away)</p>
+                <h5>{{selectedEvent.strAwayTeam}}</h5>
+               
+              </div>
+            </div>
+          </div>
+          
+          <hr>
+          <div *ngIf="!Placed[selectedEvent.idEvent]" style="text-align:center; "[@fadeOut]="!Placed[selectedEvent.idEvent] ? 'visible' : 'hidden'">
+          <button type="button" class="btn btn-danger PlaceABet" style="background-color: #e7dddd;
+          color: #6c1919;
+          font-size: x-large;
+          font-weight: 700;" (click)="InitializeBet[selectedEvent.idEvent]=!InitializeBet[selectedEvent.idEvent]">Place a Bet</button>
+        </div>
+         <div *ngIf="Placed[selectedEvent.idEvent]" style="text-align:center; " [@fadeIn]="Placed[selectedEvent.idEvent] ? 'visible' : 'hidden'" >
+          <button type="button" class="btn btn-danger" style="background-color: #e7dddd;
+          color: #6c1919;
+          font-size: x-large;
+          font-weight: 700;">Bet Placed</button>
+        </div>
+        <div *ngIf="!Placed[selectedEvent.idEvent]&& InitializeBet[selectedEvent.idEvent]" [@fadeOut]="!Placed[selectedEvent.idEvent]&&InitializeBet[selectedEvent.idEvent] ? 'visible' : 'hidden'">
+         
+          <form #registerForm="ngForm" (ngSubmit)="submitBet(selectedEvent.idEvent, BetForm.team)">
+            <div class="form-group bet">
+              <label>Which TEAM are you betting on?</label><br>
+              <label>
+                <input type="radio" name="team" [(ngModel)]="BetForm.team" value="{{selectedEvent.idHomeTeam}}" required> {{selectedEvent.strHomeTeam}}
+              </label><br>
+               
+              <label>
+                <input type="radio" name="team" [(ngModel)]="BetForm.team" value="{{selectedEvent.idAwayTeam}}" required> {{selectedEvent.strAwayTeam}}
+              </label>
+            </div>
+            <div class="betButton" style="display:flex; justify-content:center; margin-top:10px;">
+            <button type="submit button" class="btn btn-primary betB" [disabled]="!registerForm.valid">Submit Bet</button>
+          </div>
+          </form>
+      
+        </div>
+        
+        </div>
+      </div>
+
+      
+      
+
+
+
+  </div>
+
+
+</div>
+
+
+
+<div *ngIf="!BetsPlacedEvents&&MyBets">
+  <h5>No Bets Yet</h5>
+</div>
+
+<div *ngIf="MyBets && BetsPlacedEvents" class="container betsAvailable" style="flex-wrap: wrap;">
+
+  
+  
+  <div *ngFor="let selectedEvent of BetsPlacedEvents" > 
+   
+   
+    <div *ngIf="selectedEvent" class="column card GameCard" style="width:45rem; background-image: url('{{selectedEvent.strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
+        <div class="card-body">
+          <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
+            <h4 style="margin-bottom:20px;">{{selectedEvent.strLeague}}&nbsp;{{selectedEvent.strSeason}}</h4>
+            <div class="row">
+              <div class="col-md" style="text-align:center;">
+                <p style="margin-bottom:1px;">(Home)</p>
+                <h5>{{selectedEvent.strHomeTeam}}</h5>
+                
+              </div>
+              <div class="col-sm" style="text-align:center;">
+              <h3>VS</h3>
+              <p>{{selectedEvent.dateEvent}}</p>
+              </div>
+              <div class="col-md" style="text-align:center;">
+                <p style="margin-bottom:1px;">(Away)</p>
+                <h5>{{selectedEvent.strAwayTeam}}</h5>
+               
+              </div>
+            </div>
+          </div>
+          
+          <hr>
+        
+         <div style="text-align:center; " >
+          <button type="button" class="btn btn-danger" style="background-color: #e7dddd;
+          color: #6c1919;
+          font-size: x-large;
+          font-weight: 700;">Bet Placed</button>
+        </div>
+       
+        
+        </div>
+      </div>
+
+      
+      
+
+
+
+  </div>
+
+
+</div>
+

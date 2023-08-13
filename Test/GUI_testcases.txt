@@ -1,1 +1,4 @@
-
+* As a user, I want an easy-to-use GUI that is also visually appealing
+- When A link in the navbar is clicked, the user should be redirected to that link
+- When the homepage is visited, the information shown should be easy to follow
+- When registering for an account, the text fields should be clearly and accurately described

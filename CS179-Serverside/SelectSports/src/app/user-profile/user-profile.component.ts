@@ -48,7 +48,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   logout() {
+    
     localStorage.clear();
+    this.auth.SetLoggedOut();
     this.router.navigate(['/SignIn']);
   }
 

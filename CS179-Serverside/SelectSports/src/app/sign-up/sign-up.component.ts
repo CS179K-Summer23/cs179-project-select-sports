@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit{
     
    this.auth.register(this.userForm).subscribe(
     res=>{
-      alert("New Account has been Added");
+      alert(res.message);
     }, err=>{
         
         

@@ -1,0 +1,5 @@
+* As a user, I want a page that displays relevant information for leagues I am interested in
+- The user will see general league information such as previous/upcoming fixtures and latest league news.
+- When the user hovers their mouse over the empty star icon (add to favotites) it jumps up and fills in.
+- When the user clicks on the empty star icon, it remains filled and that player/team gets added to their favorites.
+- When the user clicks on the solid star icon, it becomes empty and that player/team gets removed from their favorites.
