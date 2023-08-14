@@ -141,7 +141,7 @@ background: linear-gradient(90deg, rgba(22,121,9,1) 35%, rgba(193,21,21,1) 57%);
   <div *ngFor="let selectedEvent of BetsPlacedEvents" > 
    
    
-    <div *ngIf="selectedEvent" class="column card GameCard" style="width:45rem; background-image: url('{{selectedEvent.events[0].strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
+    <div *ngIf="selectedEvent" class="column card GameCard" style=" margin:20px; width:45rem; background-image: url('{{selectedEvent.events[0].strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
         <div class="card-body">
           <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
             <h4 style="margin-bottom:20px;">{{selectedEvent.events[0].strLeague}}&nbsp;{{selectedEvent.events[0].strSeason}}</h4>

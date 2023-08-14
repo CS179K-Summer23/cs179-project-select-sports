@@ -166,7 +166,21 @@ catch(err){
       });
     
 
-
+      router.post('/AddPoints', (req, res) => {
+        const { email, points} = req.body;
+      
+        UserData.findOneAndUpdate({ email: email }, { points: points}, { new: true })
+          .then(updatedUser => {
+            if (!updatedUser) {
+              return res.json({ success: false, message: "User not found" });
+            }
+            return res.json({ success: true, message: "Profile updated successfully", data: updatedUser });
+          })
+          .catch(err => {
+            console.error(err);
+            return res.json({ success: false, message: "Error updating profile" });
+          });
+      });
 
 
 

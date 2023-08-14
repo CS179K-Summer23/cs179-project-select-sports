@@ -45,7 +45,7 @@ export class BetsComponent implements OnInit{
   Ready=false;
   Visible= false;
   betClick =false;
-
+  points:any;
   BetResult: { [key: number]: string} = {};
   
 
@@ -58,6 +58,7 @@ export class BetsComponent implements OnInit{
       (res) => {
         if (res.success) {
           this.currentUser = res.data;
+          this.points = this.currentUser.points;
           console.log("User Authenticated")
           this.CurrentBets();
           this.BetsEvents();
@@ -80,6 +81,8 @@ export class BetsComponent implements OnInit{
 BetsEvents(){
   
   
+  
+  
   this.auth.getEventsbyID(this.PlayedEvents).subscribe((res:any)=>{
     this.BetsPlacedEvents=res;
    
@@ -96,6 +99,11 @@ BetsEvents(){
        if(this.BetsPlacedEvents[i].events[0].intHomeScore>this.BetsPlacedEvents[i].events[0].intAwayScore){
         this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Won the BET! on Home Team";
         
+        this.points = this.points+50;
+        this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
+         
+        });
+      
        }
        else{
         this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Lost the BET! on Home Team";
@@ -105,6 +113,13 @@ BetsEvents(){
       else if((this.BetsPlacedEvents[i].events[0].idEvent===this.PlayedEvents[i].EventID) && this.PlayedEvents[i].BettingTeamID==="Away"){
         if(this.BetsPlacedEvents[i].events[0].intHomeScore<this.BetsPlacedEvents[i].events[0].intAwayScore){
           this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Won the BET! on Away Team";
+          
+          this.points = this.points+50;
+        this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
+         
+        });
+      
+        
          }
          else{
           this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Lost the BET! on Away Team";

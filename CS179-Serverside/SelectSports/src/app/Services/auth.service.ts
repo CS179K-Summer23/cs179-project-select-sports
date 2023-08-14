@@ -101,6 +101,13 @@ export class AuthService {
     return this.http.post('http://localhost:4000/auth/DailyLogin', data)
   }
 
+  AddPoints(email:any, points:Number):Observable<any>{
+   
+    const data = { email,points};
+    return this.http.post('http://localhost:4000/auth/AddPoints', data)
+  }
+  
+
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     // Check if the token exists and is not expired
