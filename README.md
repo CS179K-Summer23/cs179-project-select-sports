@@ -23,6 +23,7 @@ Team members have some experience using React, but some time still needs to be i
 - (5) User Accounts
 - (4) Site point system
 - (3) Chance-based points earning
+- (3) Daily login games
 - (3) Follow teams for user-specific pages
 - (2) Google Authenticate implementation to secure accounts
 - (2) Points Leaderboard on the homepage
