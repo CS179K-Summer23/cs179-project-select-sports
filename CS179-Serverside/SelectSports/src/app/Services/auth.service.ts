@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private EventsDayAPI = 'https://www.thesportsdb.com/api/v1/json/60130162/eventsday.php';
+  private EventsIDAPI = 'https://www.thesportsdb.com/api/v1/json/60130162/lookupevent.php';
   UserLoggedIn: boolean = false;
   currentUser: any;
 
@@ -106,10 +107,28 @@ export class AuthService {
     return !!token;
   }
 
-  getEventsbyDate(date: string): Observable<any> {
+
+
+
+  getEventsbyDate(date: string, sport: string): Observable<any> {
+
     
-    const params = {d:date};
+    const params = {d:date, s:sport};
     return this.http.get(this.EventsDayAPI, { params });
   }
+
+
+  getEventsbyID(playedEvents: any[]): Observable<any[][]> {
+    const res: Observable<any[]>[] = [];
+    const len= playedEvents.length;
+    for(let i=0; i<len; i++){
+    const params = {id:playedEvents[i].EventID};
+    res.push(this.http.get<any[]>(this.EventsIDAPI, { params }));
+  }
+  return forkJoin(res);
+  }
+
+
+
 
 }
