@@ -135,7 +135,20 @@ export class AuthService {
   return forkJoin(res);
   }
 
+  getEventbyID(idEvent:any): Observable<any> {
+    
+    const params = {id:idEvent};
+   return(this.http.get<any[]>(this.EventsIDAPI, { params }));
+  }
+  
 
 
 
+  sendEmail(data:any):Observable<any>{
+    return this.http.post('http://localhost:4000/sendEmail', data)
+  };
+
+  
 }
+
+
