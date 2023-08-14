@@ -18,6 +18,7 @@ Team members have some experience using React, but some time still needs to be i
 
 ## Major Features:
 (Highest to Lowest Priority)
+- (7) Emailing Feature(notifying user of their bets)
 - (6) Search sports data
 - (5) User Accounts
 - (4) Site point system
