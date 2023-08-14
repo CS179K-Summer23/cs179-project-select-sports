@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginUserComponent implements OnInit {
   userForm = { email: '', password: '' };
+
   showPassword = false;
 
   constructor(private auth: AuthService, private router: Router) {}
@@ -34,4 +35,31 @@ export class LoginUserComponent implements OnInit {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+
+  
+constructor(private formBuilder:FormBuilder, private auth:AuthService, private router:Router){
+
+}
+
+ngOnInit(): void {
+
+}
+Login(){
+  
+  this.auth.login(this.userForm).subscribe(res => {
+    if(res.success){
+      localStorage.setItem('token',res.token);
+      this.auth.SetLoggedIn();
+     this.router.navigate(['/profile']);
+      
+    }else{
+      alert(res.message)
+    }
+  }, err=>{
+    alert("Login Unsuccessful");
+  })
+  
+
+
+
 }

@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+h1 h2 h3 h4 h5 h6 p li ul a {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+body {
+    background-color: #ccc;
+  }
+  

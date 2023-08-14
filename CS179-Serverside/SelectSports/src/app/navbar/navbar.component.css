@@ -1,23 +1,35 @@
-
-a:hover {
-    background: #e2e2e4;
+.navbar {
+    background-color: black;
 }
 
+.nav-item nav-link {
+    text-decoration-color: white;
+}
 .navbar-nav {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .navbar-brand {
-    margin: 5px;
-    color: #6a6a90;
+    margin: 20px;
+    font-size: 110%;
+    color: rgb(235, 80, 80);
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
-
 .nav-link {
     margin: 10px;
-    color: #6a6a90;
+    color: white;
     font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+a:hover {
+    background: #ccc;
+    border-radius: 5px;
 }

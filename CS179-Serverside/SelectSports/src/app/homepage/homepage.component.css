@@ -1,31 +1,77 @@
 
+/*Add border to scores*/
+.col-md-3 {
+  border: 1px solid #000000;
+  border-radius: 20px;
+  background-color: #ffffff;
+
+}
 ul {
-    list-style-type: none;
-  }
-  ul li {
-    padding: 5px 0; 
-  }
-  
-  /* homepage.component.css */
+  list-style-type: none;
+}
+ul li {
+  padding: 5px 0; 
+}
+
+h3 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
 .scores-list {
   list-style-type: none;
-  padding: 0;
   white-space: nowrap;
+  border: 1px solid #ccc;
+  border-radius: 10px;
 }
 
+.col-md-3 {
+  margin-top: 45px;
+}
+
+.container.sportcard {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* Style individual score items as boxes */
 .score-item {
-  white-space: nowrap; /* Prevent the text from wrapping to the next line */
-  display: flex; /* Align the elements horizontally */
-  align-items: center; /* Center the elements vertically if needed */
-  justify-content: space-between; /* Space the elements evenly along the line */
-  padding: 5px 0; /* Add padding for spacing between items */
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  
 }
 
-.container.sportcard {
-     background-color: beige;
-    border-style: solid;
-      margin-bottom: 10px;
-   padding: 10px;
-    }
-    
+/* Style the news items */
+.news-item {
+  padding: 15px;
+  border: 1px solid #989898;
+  border-radius: 5px;
+  margin-bottom: 7px;
+}
 
+.news-item p {
+  margin-left: 8px;
+}
+
+.news-item h3 {
+  font-size: 150%;
+  text-align: left;
+  margin-left: 8px;
+}
+
+/* Style the "Read More" link */
+.news-item a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+body {
+  background-color: #ccc;
+  margin: 0;
+}

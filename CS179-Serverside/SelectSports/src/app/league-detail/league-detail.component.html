@@ -1,0 +1,52 @@
+<!-- league-detail.component.html -->
+<div *ngIf="leagueDetails">
+  <h1>
+    {{ leagueDetails.strLeague }}
+    <img class="league-badge" *ngIf="leagueDetails.strBadge" [src]="leagueDetails.strBadge" alt="League Badge"/>
+  </h1>
+
+  <div class="team-details">
+    <p>
+      <strong>Sport:</strong> {{ leagueDetails.strSport }}
+      <strong>Country:</strong> {{ leagueDetails.strCountry }}
+      <strong>Year Formed:</strong> {{ leagueDetails.intFormedYear }}
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+
+        <!-- Display League Schedule -->
+        <h2>Schedule</h2>
+        <div class="upcoming-games" *ngIf="">
+          <h2>Upcoming Games</h2>
+          <ul>
+            <li >
+              
+            </li>
+          </ul>
+        </div>
+
+        <!-- Display Past 5 Games-->
+        
+      </div>
+      <div class="col-md-7">
+
+        <!-- Display Team News -->
+        <h2>News</h2>
+        <div class="news-item" >
+          
+        </div>        
+      </div>
+      <div class="col-md-2">
+
+        <!-- Display team players -->
+        <h2>League Standings</h2>
+        <ul class="player-list">
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

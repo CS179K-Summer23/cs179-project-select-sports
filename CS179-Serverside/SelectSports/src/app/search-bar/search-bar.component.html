@@ -1,0 +1,15 @@
+<div class="search-bar">
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    (input)="onSearchInput()"
+    (blur)="onSearchBlur()"
+    (keydown.enter)="onSearchEnter()"
+    placeholder="Search..."
+  />
+  <div class="search-results" *ngIf="showResults && searchQuery">
+    <div class="result-box" *ngFor="let result of searchResults" (click)="onResultClick(result.idTeam)">
+      {{ result.strTeam }}
+    </div>
+  </div>
+</div>
