@@ -23,7 +23,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  animation: reelRoll 3s linear infinite;
 }
 
 .reel-image-2 {
@@ -31,7 +30,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  animation: reelRoll 2s linear infinite;
 }
 
 .reel-image-3 {
@@ -39,7 +37,102 @@
   top: 0;
   left: 0;
   width: 100%;
-  animation: reelRoll 1s linear infinite;
+}
+
+.rolling_reel-image-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll 0.5s linear infinite;
+}
+
+.rolling_reel-image-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll 0.5s linear infinite;
+}
+
+.rolling_reel-image-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll 0.5s linear infinite;
+}
+
+.rolling_reel-image-11 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll1 0.5s linear infinite;
+}
+
+.rolling_reel-image-12 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll2 0.5s linear infinite;
+}
+
+.rolling_reel-image-13 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll3 0.5s linear infinite;
+}
+
+.rolling_reel-image-14 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll4 0.5s linear infinite;
+}
+
+.rolling_reel-image-15 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll5 0.5s linear infinite;
+}
+
+.rolling_reel-image-16 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll6 0.5s linear infinite;
+}
+
+.rolling_reel-image-17 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll7 0.5s linear infinite;
+}
+
+.rolling_reel-image-18 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll8 0.5s linear infinite;
+}
+
+.rolling_reel-image-19 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll9 0.5s linear infinite;
 }
 
 .symbol {
@@ -52,5 +145,86 @@
   }
   100% {
     transform: translateY(-100%);
+  }
+}
+
+@keyframes reelRoll1 {
+  0% {
+    transform: translateY(-5.55%);
+  }
+  100% {
+    transform: translateY(-5.55%);
+  }
+}
+
+@keyframes reelRoll2 {
+  0% {
+    transform: translateY(-16.667%);
+  }
+  100% {
+    transform: translateY(-16.667%);
+  }
+}
+
+@keyframes reelRoll3 {
+  0% {
+    transform: translateY(-27.778%);
+  }
+  100% {
+    transform: translateY(-27.778%);
+  }
+}
+
+@keyframes reelRoll4 {
+  0% {
+    transform: translateY(-38.889%);
+  }
+  100% {
+    transform: translateY(-38.889%);
+  }
+}
+
+@keyframes reelRoll5 {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes reelRoll6 {
+  0% {
+    transform: translateY(-61.111%);
+  }
+  100% {
+    transform: translateY(-61.111%);
+  }
+}
+
+@keyframes reelRoll7 {
+  0% {
+    transform: translateY(-72.222%);
+  }
+  100% {
+    transform: translateY(-72.222%);
+  }
+}
+
+@keyframes reelRoll8 {
+  0% {
+    transform: translateY(-83.333%);
+  }
+  100% {
+    transform: translateY(-83.333%);
+  }
+}
+
+@keyframes reelRoll9 {
+  0% {
+    transform: translateY(-94.444%);
+  }
+  100% {
+    transform: translateY(-94.444%);
   }
 }
