@@ -8,7 +8,7 @@ import { AuthService } from '../Services/auth.service';
   styleUrls: ['./daily-login.component.css']
 })
 export class DailyLoginComponent implements OnInit {
-  userForm = { email: '', points: '', dailyAccessTime: 0};
+  userForm = { email: '', points: 0, dailyAccessTime: 0};
   Counter: number = 0;
   maxC: number = 1;
 
@@ -51,33 +51,41 @@ export class DailyLoginComponent implements OnInit {
         reelImage3.style.display = 'none';
         setTimeout(() => {
           const randomNumber1 = Math.floor(Math.random() * 9) + 1;
-          const randomNumber2 = Math.floor(Math.random() * 9) + 1;
-          const randomNumber3 = Math.floor(Math.random() * 9) + 1;
-          const newrolling1 = document.getElementById('rolling_reel-image-1'+randomNumber1);
-          const newrolling2 = document.getElementById('rolling_reel-image-2'+randomNumber2);
-          const newrolling3 = document.getElementById('rolling_reel-image-3'+randomNumber3);
-          if(newrolling1 && newrolling2 && newrolling3){
+          const newrolling1 = document.getElementById('rolling_reel-image-1'+randomNumber1);        
+          if(newrolling1){
             rollingReelImage1.style.display = 'none';
-            rollingReelImage2.style.display = 'none';
-            rollingReelImage3.style.display = 'none';
             newrolling1.style.display = 'inline';
-            newrolling2.style.display = 'inline';
-            newrolling3.style.display = 'inline';
           }
           setTimeout(() => {
-            const randomPoints = Math.floor(Math.random() * 141) + 10;
-            this.userForm.points += randomPoints;
-            this.Counter++;
-            alert("You got " + randomPoints + " points");
-            if(newrolling1 && newrolling2 && newrolling3){
-              newrolling1.style.display = 'none';
-              reelImage1.style.display = 'inline';
-              newrolling2.style.display = 'none';
-              reelImage2.style.display = 'inline';
-              newrolling3.style.display = 'none';
-              reelImage3.style.display = 'inline';
+            const randomNumber2 = Math.floor(Math.random() * 9) + 1;
+            const newrolling2 = document.getElementById('rolling_reel-image-2'+randomNumber2);
+            if(newrolling2){
+              rollingReelImage2.style.display = 'none';
+              newrolling2.style.display = 'inline';
             }
-          }, 1000);    
+            setTimeout(() => {
+              const randomNumber3 = Math.floor(Math.random() * 9) + 1;
+              const newrolling3 = document.getElementById('rolling_reel-image-3'+randomNumber3);
+              if(newrolling3){
+                rollingReelImage3.style.display = 'none';
+                newrolling3.style.display = 'inline';
+              }
+              setTimeout(() => {
+                const randomPoints = Math.floor(Math.random() * 141) + 10;
+                this.userForm.points += randomPoints;
+                this.Counter++;
+                alert("You got " + randomPoints + " points");
+                if(newrolling1 && newrolling2 && newrolling3){
+                  newrolling1.style.display = 'none';
+                  reelImage1.style.display = 'inline';
+                  newrolling2.style.display = 'none';
+                  reelImage2.style.display = 'inline';
+                  newrolling3.style.display = 'none';
+                  reelImage3.style.display = 'inline';
+                }
+              }, 800);
+            }, 800);
+          }, 800);    
         }, 4500);
       }      
     }else {
