@@ -97,6 +97,9 @@ export class AuthService {
     return this.http.post('http://localhost:4000/auth/profileEdit', data)
   }
 
+  DailyLogin(data:any):Observable<any>{
+    return this.http.post('http://localhost:4000/auth/DailyLogin', data)
+  }
 
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
@@ -106,11 +109,14 @@ export class AuthService {
 
 
 
+
   getEventsbyDate(date: string, sport: string): Observable<any> {
+
     
     const params = {d:date, s:sport};
     return this.http.get(this.EventsDayAPI, { params });
   }
+
 
   getEventsbyID(playedEvents: any[]): Observable<any[][]> {
     const res: Observable<any[]>[] = [];
@@ -121,6 +127,7 @@ export class AuthService {
   }
   return forkJoin(res);
   }
+
 
 
 

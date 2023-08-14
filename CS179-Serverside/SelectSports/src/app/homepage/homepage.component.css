@@ -28,6 +28,10 @@ h2 {
   border-radius: 10px;
 }
 
+.col-md-3 {
+  margin-top: 45px;
+}
+
 .container.sportcard {
   margin-bottom: 10px;
   padding: 10px;
@@ -67,3 +71,7 @@ h2 {
   margin-left: 8px;
 }
 
+body {
+  background-color: #ccc;
+  margin: 0;
+}
