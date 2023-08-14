@@ -1,34 +1,71 @@
-<body>
-    <div class="signUp container">
-    
-        <div class="card" style="width: 35rem;">
-            <div class="card-body">
-              <h5 class="card-title">Sign Up</h5>
-             
-              
-                <form #registerForm="ngForm" (ngSubmit)="register()">
-    
-                    <div class="form-group" >
-                        <label>Name</label>
-                        <input type="text" class="form-control" name = "name"   [(ngModel)]="userForm.name" placeholder="Enter your username" required>
-    
-                        <label>Email</label>
-                        <input type="text" class="form-control" name="email"   [(ngModel)]="userForm.email" placeholder="Enter your Email" required email>
-    
-    
-                        <label>Password</label>
-                        <input type="text" class="form-control" name="password"   [(ngModel)]="userForm.password" placeholder="Enter your Password" required minlength="6">
-    
-                        
-    
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid"> Create Account
-    
-                    </button>
-                </form>
-    
-            </div>
+<div class="signUp container">
+  <div class="card" style="width: 35rem;">
+    <div class="card-body">
+      <h5 class="card-title">Sign Up</h5>
+      <form #registerForm="ngForm" (ngSubmit)="register()">
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="name"
+            [(ngModel)]="userForm.name"
+            placeholder="Enter your username"
+            required
+          />
+
+          <label>Email</label>
+          <input
+            type="text"
+            class="form-control"
+            name="email"
+            [(ngModel)]="userForm.email"
+            placeholder="Enter your Email"
+            required
+            email
+          />
+
+          <label>Password</label>
+          <div class="password-input">
+            <input
+              type="text"
+              class="form-control"
+              name="password"
+              [(ngModel)]="userForm.password"
+              placeholder="Enter your Password"
+              required
+              minlength="6"
+            />
           </div>
+
+          <label>Confirm Password</label>
+          <div class="password-input">
+            <input
+              type="{{ showPassword ? 'text' : 'password' }}"
+              class="form-control"
+              name="confirmPassword"
+              [(ngModel)]="userForm.confirmPassword"
+              placeholder="Confirm your Password"
+              required
+            />
+            <button
+              type="button"
+              class="password-toggle"
+              (click)="togglePasswordVisibility('confirmPassword')"
+            >
+              {{ showPassword ? 'Hide' : 'Show' }} Password
+            </button>
+          </div>
+        </div>
+        <br />
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!registerForm.valid || userForm.password !== userForm.confirmPassword"
+        >
+          Create Account
+        </button>
+      </form>
     </div>
-    </body>
+  </div>
+</div>
