@@ -1,6 +1,21 @@
 <div class="container">
   <h2>THE MONEY MACHINE</h2>
   <p>Points: {{ userForm.points }}</p>
+
+<div class="slots">
+  <div class="reel">
+    <img src="../../assets/SlotMachine/reel.png" class="reel-image-1" />
+  </div>
+  <div class="reel">
+    <img src="../../assets/SlotMachine/reel.png" class="reel-image-2" />
+  </div>
+  <div class="reel">
+    <img src="../../assets/SlotMachine/reel.png" class="reel-image-3" />
+  </div>
+</div>
+
+  <img style="position:fixed; left: 0; top: 100px; height: 85vh; width: auto;"  src="../../assets/SlotMachine/reel.png">
+
   <button (click)="addPoints()" class="add-points-button">Add Daily Login Points</button>
   <button (click)="DailyLogin()" class="back-button">back</button>
 </div>

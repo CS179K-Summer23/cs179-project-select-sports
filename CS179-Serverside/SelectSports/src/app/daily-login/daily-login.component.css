@@ -1,0 +1,56 @@
+.slots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.reel {
+  width: 80px;
+  height: 150px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.reel-image-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll 3s linear infinite;
+}
+
+.reel-image-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll 2s linear infinite;
+}
+
+.reel-image-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: reelRoll 1s linear infinite;
+}
+
+.symbol {
+  font-size: 2em;
+}
+
+@keyframes reelRoll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}

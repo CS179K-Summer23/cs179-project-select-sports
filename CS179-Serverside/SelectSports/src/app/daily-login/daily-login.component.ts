@@ -11,6 +11,9 @@ export class DailyLoginComponent implements OnInit {
   userForm = { email: '', points: '', dailyAccessTime: 0};
   Counter: number = 0;
   maxC: number = 2;
+  slot1: string = '';
+  slot2: string = '';
+  slot3: string = '';
 
   constructor(private auth:AuthService, private router: Router) { }
 
@@ -42,4 +45,5 @@ export class DailyLoginComponent implements OnInit {
       alert('You have reached daily points limit.');
     }
   }
+
 }
