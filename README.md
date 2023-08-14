@@ -19,12 +19,12 @@ Team members have some experience using React, but some time still needs to be i
 ## Major Features:
 (Highest to Lowest Priority)
 - (6) Search sports data
-- (6) GUI displaying sports information such as scores, player stats, winning odds, etc
 - (5) User Accounts
 - (4) Site point system
 - (3) Chance-based points earning
 - (3) Follow teams for user-specific pages
 - (2) Google Authenticate implementation to secure accounts
+- (2) Points Leaderboard on the homepage
 - (1) Sort through sports and user data
 
 ## User Stories:
