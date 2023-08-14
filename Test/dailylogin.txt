@@ -1,1 +1,8 @@
-
+*As a user, I want the daily login point system to be fun and addictive
+When user click on the point icon on profile page, they will be directed to the daily login page.
+When user click back on the daily login page, they will be directed back to the profile page.
+When user clicked back from the daily login page, they will not be able to access the daily login page until a cooldown period.
+When user on a cooldown period, they click on the point icon, they will be giving a warning on how long their cooldown period is.
+When user in the daily login page, they can play slot machine by clicking play button.
+When user click play button, they will see animation on slot machine then points given based on their result (luck).
+When user click play button more than 1 time on the slot machine, they won't be able to play, because the daily limit is just 1 time.
