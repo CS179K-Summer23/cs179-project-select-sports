@@ -25,7 +25,7 @@ export class PlayerDetailComponent implements OnInit {
         // Fetch the player details using the API
         this.sportsDataService.getPlayerDetails(playerId).subscribe(
           (player) => {
-            // Assign the player details
+            console.log(player);
             this.player = player.players[0];
           },
           (error) => {
