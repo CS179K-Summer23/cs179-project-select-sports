@@ -58,7 +58,7 @@ async function SendEmail(user, callback){
   });
   let mailOptions={
     from: '"Select Sports" <selectsports2023@gmail.com>',
-    to: 'azmachaudhry@gmail.com',
+    to: user.email,
     subject: "Welcome to Select Sport",
     html: user.body
   };

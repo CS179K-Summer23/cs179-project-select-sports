@@ -209,85 +209,89 @@ return true;
   }
 
   submitBet(EventID:any, BettingTeamID:any){
-    this.auth.getEventbyID(EventID).subscribe((res)=>{
-      this.BetEvent=res;
-      console.log(this.BetEvent.events[0].idEvent);
-
-    });
-if(this.BetEvent){
-  let user={
-    name:this.currentUser.name,
-    email:this.currentUser.email,
-    body:`<body class="bg-light">
-    <div class="container">
-      
-      <div class="card p-6 p-lg-10 space-y-4">
-        <h1 class="h3 fw-700">
-          Your Bet has been placed successfully! 
-        </h1>
-        <p>
-        <div class="column card GameCard" style=" margin:20px; width:45rem; background-image: url('${this.BetEvent.events[0].strThumb}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
-        <div class="card-body">
-          <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
-            <h4 style="margin-bottom:20px;">${this.BetEvent.events[0].strLeague}&nbsp;${this.BetEvent.events[0].strSeason}</h4>
-            <div class="row">
-              <div class="col-md" style="text-align:center;">
-                <p style="margin-bottom:1px;">(Home)</p>
-                <h5>${this.BetEvent.events[0].strHomeTeam}</h5>
-                
-              </div>
-              <div class="col-sm" style="text-align:center;">
-              <h3>VS</h3>
-              <p>${this.BetEvent.events[0].dateEvent}</p>
-              </div>
-              <div class="col-md" style="text-align:center;">
-                <p style="margin-bottom:1px;">(Away)</p>
-                <h5>${this.BetEvent.events[0].strAwayTeam}</h5>
-               
-              </div>
-            </div>
-          </div>
-          
-          <hr>
-        
-        
-       
-        
-        </div>
-      </div>
-
-          You have bet in favor of ${BettingTeamID}! come back at the end of game for your results! 
-        </p>
-        <a class="btn btn-primary p-3 fw-700" href="#">Visit Website</a>
-      </div>
-      <div class="text-muted text-center my-6">
-        
-        
-      Team Select Sports
-      </div>
-    </div>
-  </body>`,
-  }
-  this.auth.sendEmail(user).subscribe((res:any)=>{
-    console.log(res);
-  });
-}
-    
+   
     
   
     
     this.Placed[EventID] = !this.Placed[EventID];
     this.auth.submitBet(this.currentUser.email,EventID,BettingTeamID).subscribe(
       (res:any) => {
+        
+    
          
        },
        err => {
          console.error(err);
        }
      );
+     this.auth.getEventbyID(EventID).subscribe((res)=>{
+      this.BetEvent=res;
+      console.log(this.BetEvent.events[0].idEvent);
+      let user={
+        name:this.currentUser.name,
+        email:this.currentUser.email,
+        body:`<body class="bg-light">
+        <div class="container">
+          
+          <div class="card p-6 p-lg-10 space-y-4">
+            <h1 class="h3 fw-700">
+              Your Bet has been placed successfully! 
+            </h1>
+            <p>
+            <div class="column card GameCard" style=" margin:20px; width:45rem; background-image: url('${this.BetEvent.events[0].strThumb}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
+            <div class="card-body">
+              <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
+                <h4 style="margin-bottom:20px;">${this.BetEvent.events[0].strLeague}&nbsp;${this.BetEvent.events[0].strSeason}</h4>
+                <div class="row">
+                  <div class="col-md" style="text-align:center;">
+                    <p style="margin-bottom:1px;">(Home)</p>
+                    <h5>${this.BetEvent.events[0].strHomeTeam}</h5>
+                    
+                  </div>
+                  <div class="col-sm" style="text-align:center;">
+                  <h3>VS</h3>
+                  <p>${this.BetEvent.events[0].dateEvent}</p>
+                  </div>
+                  <div class="col-md" style="text-align:center;">
+                    <p style="margin-bottom:1px;">(Away)</p>
+                    <h5>${this.BetEvent.events[0].strAwayTeam}</h5>
+                   
+                  </div>
+                </div>
+              </div>
+              
+              <hr>
+            
+            
+           
+            
+            </div>
+          </div>
+    
+              You have bet in favor of ${BettingTeamID}! come back at the end of game for your results! 
+            </p>
+            <a class="btn btn-primary p-3 fw-700" href="#">Visit Website</a>
+          </div>
+          <div class="text-muted text-center my-6">
+            
+            
+          Team Select Sports
+          </div>
+        </div>
+      </body>`,
+      }
+      this.auth.sendEmail(user).subscribe((res:any)=>{
+        console.log(res);
+      });
+
+    });
+    
+     
+    
+    
 
    
-    
+    return true;
   }
   toggleBasketball(){
    
@@ -337,10 +341,13 @@ this.Visible=false;
     }
   }
   toggleBets(){
+
     this.betClick=true;
 this.BetAvailable=false;
+
 if(this.BetsEvents()){
-  console.log("hi");
+  console.log("hii");
+  
   this.MyBets=true;
 }
 

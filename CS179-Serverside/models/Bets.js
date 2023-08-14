@@ -23,13 +23,13 @@ const Schema = mongoose.Schema;
 
 const PlacedBetSchema = new Schema({
 
- EventID: {type: String, unique:true},
+ EventID: {type: String},
  BettingTeamID: Schema.Types.Mixed,
 
 });
 
 const betsSchema = new Schema({
-   email:{type: String, unique:true},
+   email:{type: String},
    PlacedBets: [PlacedBetSchema], 
   
 });
