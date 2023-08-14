@@ -15,11 +15,13 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {}
 
   register() {
+    console.log(this.userForm);
     this.auth.register(this.userForm).subscribe(
       res => {
         alert(res.message);
       },
       err => {
+        console.log(err);
         // Handle registration error
       }
     );

@@ -35,8 +35,9 @@ export class LoginUserComponent implements OnInit {
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+}
 
-  
+  /*
 constructor(private formBuilder:FormBuilder, private auth:AuthService, private router:Router){
 
 }
@@ -63,3 +64,4 @@ Login(){
 
 
 }
+*/
