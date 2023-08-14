@@ -45,8 +45,9 @@ export class BetsComponent implements OnInit{
   Ready=false;
   Visible= false;
   betClick =false;
-
+  points:any;
   BetResult: { [key: number]: string} = {};
+  BetEvent: any;
   
 
   constructor(private auth:AuthService, private spinner:NgxSpinnerService){
@@ -58,6 +59,7 @@ export class BetsComponent implements OnInit{
       (res) => {
         if (res.success) {
           this.currentUser = res.data;
+          this.points = this.currentUser.points;
           console.log("User Authenticated")
           this.CurrentBets();
           this.BetsEvents();
@@ -80,6 +82,7 @@ export class BetsComponent implements OnInit{
 BetsEvents(){
   
   
+  
   this.auth.getEventsbyID(this.PlayedEvents).subscribe((res:any)=>{
     this.BetsPlacedEvents=res;
    
@@ -96,6 +99,11 @@ BetsEvents(){
        if(this.BetsPlacedEvents[i].events[0].intHomeScore>this.BetsPlacedEvents[i].events[0].intAwayScore){
         this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Won the BET! on Home Team";
         
+        this.points = this.points+50;
+        this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
+         
+        });
+      
        }
        else{
         this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Lost the BET! on Home Team";
@@ -105,6 +113,13 @@ BetsEvents(){
       else if((this.BetsPlacedEvents[i].events[0].idEvent===this.PlayedEvents[i].EventID) && this.PlayedEvents[i].BettingTeamID==="Away"){
         if(this.BetsPlacedEvents[i].events[0].intHomeScore<this.BetsPlacedEvents[i].events[0].intAwayScore){
           this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Won the BET! on Away Team";
+          
+          this.points = this.points+50;
+        this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
+         
+        });
+      
+        
          }
          else{
           this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Lost the BET! on Away Team";
@@ -194,6 +209,72 @@ return true;
   }
 
   submitBet(EventID:any, BettingTeamID:any){
+    this.auth.getEventbyID(EventID).subscribe((res)=>{
+      this.BetEvent=res;
+      console.log(this.BetEvent.events[0].idEvent);
+
+    });
+if(this.BetEvent){
+  let user={
+    name:this.currentUser.name,
+    email:this.currentUser.email,
+    body:`<body class="bg-light">
+    <div class="container">
+      
+      <div class="card p-6 p-lg-10 space-y-4">
+        <h1 class="h3 fw-700">
+          Your Bet has been placed successfully! 
+        </h1>
+        <p>
+        <div class="column card GameCard" style=" margin:20px; width:45rem; background-image: url('${this.BetEvent.events[0].strThumb}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
+        <div class="card-body">
+          <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
+            <h4 style="margin-bottom:20px;">${this.BetEvent.events[0].strLeague}&nbsp;${this.BetEvent.events[0].strSeason}</h4>
+            <div class="row">
+              <div class="col-md" style="text-align:center;">
+                <p style="margin-bottom:1px;">(Home)</p>
+                <h5>${this.BetEvent.events[0].strHomeTeam}</h5>
+                
+              </div>
+              <div class="col-sm" style="text-align:center;">
+              <h3>VS</h3>
+              <p>${this.BetEvent.events[0].dateEvent}</p>
+              </div>
+              <div class="col-md" style="text-align:center;">
+                <p style="margin-bottom:1px;">(Away)</p>
+                <h5>${this.BetEvent.events[0].strAwayTeam}</h5>
+               
+              </div>
+            </div>
+          </div>
+          
+          <hr>
+        
+        
+       
+        
+        </div>
+      </div>
+
+          You have bet in favor of ${BettingTeamID}! come back at the end of game for your results! 
+        </p>
+        <a class="btn btn-primary p-3 fw-700" href="#">Visit Website</a>
+      </div>
+      <div class="text-muted text-center my-6">
+        
+        
+      Team Select Sports
+      </div>
+    </div>
+  </body>`,
+  }
+  this.auth.sendEmail(user).subscribe((res:any)=>{
+    console.log(res);
+  });
+}
+    
+    
+  
     
     this.Placed[EventID] = !this.Placed[EventID];
     this.auth.submitBet(this.currentUser.email,EventID,BettingTeamID).subscribe(
