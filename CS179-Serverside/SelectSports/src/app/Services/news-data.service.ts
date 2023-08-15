@@ -20,4 +20,14 @@ export class NewsDataService {
     const url = `${this.baseUrl}top-headlines?q=${teamName}&apiKey=${this.apiKey}`;
     return this.http.get(url);
   }
+
+  getLeagueNews(leagueName: string): Observable<any> {
+    const url = `${this.baseUrl}top-headlines?q=${leagueName}&apiKey=${this.apiKey}`;
+    return this.http.get(url);
+  }
+
+  getPlayerNews(playerName: string): Observable<any> {
+    const url = `${this.baseUrl}top-headlines?q=${playerName}&apiKey=${this.apiKey}`;
+    return this.http.get(url);
+  }
 }

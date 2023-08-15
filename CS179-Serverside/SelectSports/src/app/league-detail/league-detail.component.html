@@ -19,11 +19,11 @@
 
         <!-- Display League Schedule -->
         <h2>Schedule</h2>
-        <div class="upcoming-games" *ngIf="">
-          <h2>Upcoming Games</h2>
+        <div class="upcoming-events" *ngIf="leagueNextFifteen.length > 0">
+          <h2>Upcoming Events</h2>
           <ul>
-            <li >
-              
+            <li *ngFor="let game of leagueNextFifteen">
+              {{ game.dateEvent }} <br> {{ game.strEvent }}
             </li>
           </ul>
         </div>
@@ -39,14 +39,23 @@
           
         </div>        
       </div>
+
       <div class="col-md-2">
 
         <!-- Display team players -->
         <h2>League Standings</h2>
-        <ul class="player-list">
-          
-        </ul>
+        <div *ngIf="leagueTable.length > 0">
+          <ul class = "league-table">
+            <li class="league-team" *ngFor="let team of leagueTable">
+              <button class="team-button" (click)="navigateToTeam(team.idTeam)">
+                {{ team.intRank }} - {{ team.strTeam }}
+              <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
