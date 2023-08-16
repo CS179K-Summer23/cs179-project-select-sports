@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { SignUpComponent } from './sign-up/sign-up.component'
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserFavsComponent } from './user-favs/user-favs.component';
 import { HomepageComponent } from './homepage/homepage.component'; // Import the homepage component
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { DailyLoginComponent } from './daily-login/daily-login.component';
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path:'register', component:SignUpComponent},
   {path:'DailyLogin', component:DailyLoginComponent},
   {path:'profile', component:UserProfileComponent,canActivate:[AuthGuard]},
+  {path:'profile', component:UserProfileComponent,canActivate:[AuthGuard]},
+  {path:'favs', component:UserFavsComponent,canActivate:[AuthGuard]},
   {path:'profileEdit', component:UserProfileEditComponent,canActivate:[AuthGuard]},
   {path:'Bets', component:BetsComponent, canActivate:[AuthGuard]},
   { path: 'team/:id', component:  TeamDetailComponent},

@@ -17,6 +17,7 @@ export class LeagueDetailComponent implements OnInit {
   leaguePastFifteen: any;
   leagueTable: any;
   leagueYear: string = '2023-2024';
+  leagueNews: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,19 +33,30 @@ export class LeagueDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const leagueId = params['id'];
-      this.fetchLeagueDetails(leagueId);
-      this.fetchNextFifteen(leagueId);
-      this.fetchLastFifteen(leagueId);
-      this.fetchLeagueStandings(leagueId, this.leagueYear);
-    });
-  }
-
-  fetchLeagueDetails(leagueId: string) {
-    this.sportsDataService.getLeagueDetailsById(leagueId)
+      
+      this.sportsDataService.getLeagueDetailsById(leagueId)
       .subscribe(data => {
         console.log(data);
         this.leagueDetails = data.leagues[0];
       });
+
+      const leagueName = this.leagueDetails.strLeague;
+      const thisSeason = this.leagueDetails.strCurrentSeason;
+      
+      this.fetchNextFifteen(leagueId);
+      this.fetchLastFifteen(leagueId);
+      this.fetchLeagueNews(leagueName);
+      this.fetchLeagueStandings(leagueId, thisSeason);
+    });
+  }
+
+  fetchLeagueNews(leagueName: string) {
+    this.newsDataService.getLeagueNews(leagueName).subscribe(
+      (leagueNews) => {
+        console.log(leagueNews);
+        this.leagueNews = leagueNews.articles;
+      }
+    );
   }
 
   fetchNextFifteen(leagueId: string) {

@@ -27,6 +27,11 @@ export class TeamDetailComponent implements OnInit {
     this.router.navigate(['/player', playerId]);
   }
 
+  addToFavorites(team: any) {
+    console.log('Added to favorites:', team.strTeam);
+    alert(`${team.strTeam} has been added to your favorites.`);
+  }
+
   ngOnInit(): void {
     // Get the team ID from the route parameters
     this.route.params.subscribe((params) => {
@@ -46,9 +51,6 @@ export class TeamDetailComponent implements OnInit {
           this.fetchPastGames(teamId);
           this.fetchTeamNews(teamName);
           this.fetchTeamPlayers(teamId);
-        },
-        (error) => {
-          console.error('Error fetching team details:', error);
         }
       );
     });

@@ -1,6 +1,9 @@
 <div *ngIf="team">
   <!-- Display Team Name and Badge -->
   <h1>
+    <button class="favorite-button" (click)="addToFavorites(team)">
+      <img class="star-icon" src="assets/star.png" alt="Add to Favorites" />
+    </button>
     {{ team.strTeam }}
     <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
   </h1>

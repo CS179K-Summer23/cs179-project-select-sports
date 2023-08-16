@@ -59,6 +59,9 @@
 
       <!-- Display "My Profile" for authenticated users -->
       <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="/favs" routerLinkActive="active">My Favorites</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/profile" routerLinkActive="active">My Profile</a>
       </li>
       <li class="nav-item" *ngIf="isLoggedIn()">

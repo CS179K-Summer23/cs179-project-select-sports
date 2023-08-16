@@ -7,6 +7,18 @@ h2 {
   text-align: center;
 }
 
+.star-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .team-badge {
     width: 70px;
     height: 70px;
@@ -62,7 +74,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Style the news items */
 .news-item {
   padding: 15px;
   border: 1px solid #989898;
@@ -99,6 +110,10 @@ h2 {
   border-bottom: 1px solid #ccc;
   padding: 3%;
   text-align: center;
+}
+
+.player-item:last-child {
+  border-bottom: none;
 }
 
 .player-button {

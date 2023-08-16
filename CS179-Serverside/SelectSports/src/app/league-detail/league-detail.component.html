@@ -31,18 +31,21 @@
         <!-- Display Past 5 Games-->
         
       </div>
+      
       <div class="col-md-7">
-
-        <!-- Display Team News -->
-        <h2>News</h2>
-        <div class="news-item" >
-          
+        <!-- Display League News -->
+        <h2>League News</h2>
+        <div class="news-item" *ngFor="let newsItem of leagueNews">
+          <h3>{{ newsItem.title }}</h3>
+          <p>{{ newsItem.description }}</p>
+          <a [href]="newsItem.url" target="_blank">Read More</a>
         </div>        
-      </div>
+      </div>        
+
 
       <div class="col-md-2">
 
-        <!-- Display team players -->
+        <!-- Display league standings -->
         <h2>League Standings</h2>
         <div *ngIf="leagueTable.length > 0">
           <ul class = "league-table">
