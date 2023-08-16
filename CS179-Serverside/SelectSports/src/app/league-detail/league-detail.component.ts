@@ -38,15 +38,16 @@ export class LeagueDetailComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.leagueDetails = data.leagues[0];
+        const leagueName = this.leagueDetails.strLeague;
+        const thisSeason = this.leagueDetails.strCurrentSeason;
+        
+        this.fetchNextFifteen(leagueId);
+        this.fetchLastFifteen(leagueId);
+        this.fetchLeagueNews(leagueName);
+        this.fetchLeagueStandings(leagueId, thisSeason);
       });
 
-      const leagueName = this.leagueDetails.strLeague;
-      const thisSeason = this.leagueDetails.strCurrentSeason;
-      
-      this.fetchNextFifteen(leagueId);
-      this.fetchLastFifteen(leagueId);
-      this.fetchLeagueNews(leagueName);
-      this.fetchLeagueStandings(leagueId, thisSeason);
+     
     });
   }
 
@@ -54,7 +55,7 @@ export class LeagueDetailComponent implements OnInit {
     this.newsDataService.getLeagueNews(leagueName).subscribe(
       (leagueNews) => {
         console.log(leagueNews);
-        this.leagueNews = leagueNews.articles;
+        this.leagueNews = leagueNews.articles.slice(0, 5);
       }
     );
   }
