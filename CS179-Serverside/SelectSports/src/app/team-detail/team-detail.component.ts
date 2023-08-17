@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { SportsDataService } from '../Services/sports-data.service'; 
 import { NewsDataService } from '../Services/news-data.service';
+import { AuthService } from '../Services/auth.service';
+
 
 @Component({
   selector: 'app-team-detail',
@@ -20,7 +22,8 @@ export class TeamDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private sportsDataService: SportsDataService,
-    private newsDataService: NewsDataService
+    private newsDataService: NewsDataService,
+    private auth: AuthService
   ) {}
 
   navigateToPlayer(playerId: string) {
@@ -32,9 +35,21 @@ export class TeamDetailComponent implements OnInit {
   }
 
   addToFavorites(team: any) {
-    console.log('Added to favorites:', team.strTeam);
-    alert(`${team.strTeam} has been added to your favorites.`);
+    const userEmail = this.auth.GetCurrentUser();
+    const teamIdToAdd = team.idTeam;
+    console.log(userEmail);
+  
+    this.auth.addTeamToFavorites(userEmail, teamIdToAdd).subscribe(
+      (result) => {
+        if (result.success) {
+
+        } else {
+        }
+      }
+    );
   }
+  
+  
 
   ngOnInit(): void {
     // Get the team ID from the route parameters
@@ -77,7 +92,6 @@ export class TeamDetailComponent implements OnInit {
     this.sportsDataService.getPastGames(teamId).subscribe(
       (pastGames) => {
         this.pastGames = pastGames.results.slice(0, 5);
-        console.log(this.pastGames);
       },
       (error) => {
         console.error('Error fetching past games:', error);
