@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsDataService } from '../Services/news-data.service';
 import { SportsDataService } from '../Services/sports-data.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-homepage',
@@ -14,8 +16,14 @@ export class HomepageComponent implements OnInit {
 
   constructor(
     private newsDataService: NewsDataService,
-    private sportsDataService: SportsDataService
+    private sportsDataService: SportsDataService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
+
+  navigateToEvent(eventId: string) {
+    this.router.navigate(['/event', eventId]);
+  }
 
   ngOnInit(): void {
     this.fetchTopAmericanSportsNews();

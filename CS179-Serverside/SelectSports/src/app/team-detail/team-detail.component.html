@@ -43,7 +43,17 @@
           <h2>Past 5 Games</h2>
             <ul>
               <li *ngFor="let game of pastGames">
-                <button class="event-button" (click)="navigateToEvent(game.idEvent)">
+                <button class="event-button" *ngIf="game.intHomeScore > game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+                  {{ game.dateEvent }} <br>
+                  <strong>{{ game.strHomeTeam }} - {{ game.intHomeScore }} </strong><br>
+                  {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+                </button>
+                <button class="event-button" *ngIf="game.intHomeScore < game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+                  {{ game.dateEvent }} <br>
+                  {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+                  <strong>{{ game.strAwayTeam }} - {{ game.intAwayScore }}</strong>
+                </button>
+                <button class="event-button" *ngIf="game.intHomeScore == game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
                   {{ game.dateEvent }} <br>
                   {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
                   {{ game.strAwayTeam }} - {{ game.intAwayScore }}

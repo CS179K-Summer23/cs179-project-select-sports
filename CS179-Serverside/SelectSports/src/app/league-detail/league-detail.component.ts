@@ -55,7 +55,6 @@ export class LeagueDetailComponent implements OnInit {
   fetchLeagueNews(leagueName: string) {
     this.newsDataService.getLeagueNews(leagueName).subscribe(
       (leagueNews) => {
-        console.log(leagueNews);
         this.leagueNews = leagueNews.articles.slice(0, 5);
       }
     );
@@ -64,7 +63,6 @@ export class LeagueDetailComponent implements OnInit {
   fetchNextFifteen(leagueId: string) {
     this.sportsDataService.getNextFifteen(leagueId).subscribe(
       (next) => {
-        console.log(next);
         this.leagueNextFifteen = next.events.slice(0, 10);
       })
   }
@@ -72,7 +70,6 @@ export class LeagueDetailComponent implements OnInit {
   fetchLastFifteen(leagueId: string) {
     this.sportsDataService.getNextFifteen(leagueId).subscribe(
       (past) => {
-        console.log(past);
         this.leaguePastFifteen = past.events.slice(0, 10);
       })
   }
@@ -80,6 +77,7 @@ export class LeagueDetailComponent implements OnInit {
   fetchLeagueStandings(leagueId: string, leagueYear: string) {
     this.sportsDataService.getLeagueTable(leagueId, leagueYear).subscribe(
       (table) => {
+        console.log(table);
         this.leagueTable = table.table;
       })
   }

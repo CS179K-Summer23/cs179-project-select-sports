@@ -3,20 +3,62 @@
   <div class="col-md-3">
     <h3>MLB Scores</h3>
     <ul class="scores-list">
-      <li class="score-item" *ngFor="let score of scores | filterLeague:'MLB'">
-        {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
+      <li class="score-item" *ngFor="let game of scores | filterLeague:'MLB'">
+        <button class="event-button" *ngIf="game.intHomeScore > game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          <strong>{{ game.strHomeTeam }} - {{ game.intHomeScore }} </strong><br>
+          {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+        </button>
+        <button class="event-button" *ngIf="game.intHomeScore < game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+          <strong>{{ game.strAwayTeam }} - {{ game.intAwayScore }}</strong>
+        </button>
+        <button class="event-button" *ngIf="game.intHomeScore == game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+          {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+        </button>
       </li>
     </ul>
     <h3>NFL Scores</h3>
     <ul class="scores-list">
-      <li class="score-item" *ngFor="let score of scores | filterLeague:'NFL'" >
-        {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
+      <li class="score-item" *ngFor="let game of scores | filterLeague:'NFL'" >
+        <button class="event-button" *ngIf="game.intHomeScore > game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          <strong>{{ game.strHomeTeam }} - {{ game.intHomeScore }} </strong><br>
+          {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+        </button>
+        <button class="event-button" *ngIf="game.intHomeScore < game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+          <strong>{{ game.strAwayTeam }} - {{ game.intAwayScore }}</strong>
+        </button>
+        <button class="event-button" *ngIf="game.intHomeScore == game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+          {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+        </button>
       </li>
     </ul>
     <h3>NBA Scores</h3>
     <ul class="scores-list">
-      <li class="score-item" *ngFor="let score of scores | filterLeague:'NBA'">
-        {{ score.dateEvent }} <br> {{ score.strHomeTeam }} {{ score.intHomeScore }} <br> {{ score.strAwayTeam }} {{ score.intAwayScore }}
+      <li class="score-item" *ngFor="let game of scores | filterLeague:'NBA'">
+        <button class="event-button" *ngIf="game.intHomeScore > game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          <strong>{{ game.strHomeTeam }} - {{ game.intHomeScore }} </strong><br>
+          {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+        </button>
+        <button class="event-button" *ngIf="game.intHomeScore < game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+          <strong>{{ game.strAwayTeam }} - {{ game.intAwayScore }}</strong>
+        </button>
+        <button class="event-button" *ngIf="game.intHomeScore == game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+          {{ game.dateEvent }} <br>
+          {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+          {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+        </button>
       </li>
     </ul>
   </div>
