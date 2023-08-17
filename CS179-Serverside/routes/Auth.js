@@ -1,9 +1,8 @@
 const router = require('express').Router();
 
-
 const UserData = require("../models/UserData");
 const Bets = require("../models/Bets");
-
+const Teams = require("../models/teams");
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -62,14 +61,14 @@ router.post('/SignIn', (req, res) => {
   
 
 router.get('/profile', VerifyAuth, (req, res) => {
-    const userId = req.userData.userId;
-    UserData.findById(userId).exec()
-        .then((response) => {
-            res.json({ success: true, data: response });
-        })
-        .catch(err => {
-            res.json({ success: false, message: "Fetching User failed" });
-        });
+  const userId = req.userData.userId;
+  UserData.findById(userId).exec()
+    .then((response) => {
+      res.json({ success: true, data: response });
+  })
+  .catch(err => {
+    res.json({ success: false, message: "Fetching User failed" });
+  });
 });
 
 router.post('/profileEdit', (req, res) => {
@@ -106,42 +105,27 @@ router.post('/DailyLogin', (req, res) => {
 
 router.post('/myBets', async (req,res)=>{
    console.log('I was sent here with', req);
-        const { email, EventID, BettingTeamID } = req.body;
+  const { email, EventID, BettingTeamID } = req.body;
 
-try{
-        let myBet =await Bets.findOne({ email });
+  try{
+    let myBet =await Bets.findOne({ email });
+    //User's FIRST BET EVEEEEEAAAAAAA
+    if(!myBet){
+      myBet = new Bets({ email, PlacedBets: [] });
+    }
+    if (!myBet.PlacedBets) {
+      myBet.PlacedBets = []; 
+    }
+    myBet.PlacedBets.push({EventID, BettingTeamID });
+    await myBet.save();
 
-        //User's FIRST BET EVEEEEEAAAAAAA
-
-        if(!myBet){
-            myBet = new Bets({ email, PlacedBets: [] });
-        }
-
-        if (!myBet.PlacedBets) {
-            myBet.PlacedBets = []; 
-          }
-
-         myBet.PlacedBets.push({EventID, BettingTeamID });
-
-         await   myBet.save();
-
-          
-                res.json({success:true, message:"Bet Placed Successfully! Come Back for results :)"});
-               
-}
-
-
-
-
-
-catch(err){
+    es.json({success:true, message:"Bet Placed Successfully! Come Back for results :)"});              
+  }
+  catch(err){
     console.error("Error placing bet:", err);
-                res.json({success:false, message:"Error Placing Bet"});
-            }
-
-     
-
-    });
+    res.json({success:false, message:"Error Placing Bet"});
+  }
+});
 
 
     router.get('/myBets/:email', async (req, res) => {
@@ -181,8 +165,46 @@ catch(err){
             return res.json({ success: false, message: "Error updating profile" });
           });
       });
+  
+  router.get('/getFavTeams/:email', (req, res) => {
+    const userEmail = req.params.email;
+        
+    Team.findOne({ email: userEmail })
+      .then((team) => {
+        if (team) {
+            es.status(200).json({ success: true, data: team.teamIDs });
+        } else {
+          res.status(404).json({ success: false, message: 'User not found' });
+        }
+      })
+      .catch((error) => {
+        res.status(500).json({ success: false, message: 'Error fetching teams', error });
+      });
+  });
 
-     
+  router.post('/addTeamToFavorites', async (req, res) => {
+    const { userEmail, teamId } = req.body;
+  
+    try {
+      const user = await UserData.findOne({ email: userEmail });
+      
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+  
+      // Add the team ID to the teamIDs array if not already present
+      if (!user.teamIDs.includes(teamId)) {
+        user.teamIDs.push(teamId);
+        await user.save();
+      }
+  
+      return res.status(200).json({ success: true, message: 'Team added to favorites' });
+    } catch (error) {
+      return res.status(500).json({ success: false, message: 'Error adding team to favorites', error });
+    }
+  });
+  
+  
 
 
 
