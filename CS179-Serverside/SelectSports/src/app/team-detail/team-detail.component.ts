@@ -26,6 +26,10 @@ export class TeamDetailComponent implements OnInit {
   navigateToPlayer(playerId: string) {
     this.router.navigate(['/player', playerId]);
   }
+  
+  navigateToEvent(eventId: string) {
+    this.router.navigate(['/event', eventId]);
+  }
 
   addToFavorites(team: any) {
     console.log('Added to favorites:', team.strTeam);
@@ -73,6 +77,7 @@ export class TeamDetailComponent implements OnInit {
     this.sportsDataService.getPastGames(teamId).subscribe(
       (pastGames) => {
         this.pastGames = pastGames.results.slice(0, 5);
+        console.log(this.pastGames);
       },
       (error) => {
         console.error('Error fetching past games:', error);
@@ -84,7 +89,7 @@ export class TeamDetailComponent implements OnInit {
   fetchTeamNews(teamName: string) {
     this.newsDataService.getTeamNews(teamName).subscribe(
       (teamNews) => {
-        this.teamNews = teamNews.articles;
+        this.teamNews = teamNews.articles.slice(0, 5);
       },
       (error) => {
         console.error('Error fetching team news:', error);

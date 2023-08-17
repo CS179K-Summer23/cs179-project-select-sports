@@ -10,6 +10,7 @@ import { DailyLoginComponent } from './daily-login/daily-login.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { LeagueDetailComponent } from './league-detail/league-detail.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BetsComponent } from './bets/bets.component';
 import { AuthGuard } from './auth/auth-guard.service';
@@ -29,10 +30,8 @@ const routes: Routes = [
   {path:'Bets', component:BetsComponent, canActivate:[AuthGuard]},
   { path: 'team/:id', component:  TeamDetailComponent},
   { path: 'player/:id', component:  PlayerDetailComponent},
-  { path: 'soccer/:id', component: LeagueDetailComponent},
-  { path: 'football/:id', component: LeagueDetailComponent},
-  { path: 'baseball/:id', component: LeagueDetailComponent},
-  { path: 'basketball/:id', component: LeagueDetailComponent}
+  { path: 'league/:id', component: LeagueDetailComponent},
+  { path: 'event/:id', component: EventDetailComponent}
 ];
 
 @NgModule({

@@ -15,15 +15,19 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3" *ngIf="leagueNextFifteen != null">
 
         <!-- Display League Schedule -->
         <h2>Schedule</h2>
-        <div class="upcoming-events" *ngIf="leagueNextFifteen.length > 0">
+        <div class="upcoming-events">
           <h2>Upcoming Events</h2>
           <ul>
             <li *ngFor="let game of leagueNextFifteen">
-              {{ game.dateEvent }} <br> {{ game.strEvent }}
+              <button class="event-button" (click)="navigateToEvent(game.idEvent)">
+                {{ game.dateEvent }} <br>
+                {{ game.strHomeTeam }} <br>
+                {{ game.strAwayTeam }}
+              </button>
             </li>
           </ul>
         </div>
@@ -34,7 +38,8 @@
       
       <div class="col-md-7">
         <!-- Display League News -->
-        <h2>League News</h2>
+        <h2 *ngIf="leagueNews != null">League News</h2>
+        <h2 *ngIf="leagueNews == null">No League News For Now!</h2>
         <div class="news-item" *ngFor="let newsItem of leagueNews">
           <h3>{{ newsItem.title }}</h3>
           <p>{{ newsItem.description }}</p>
@@ -43,11 +48,11 @@
       </div>        
 
 
-      <div class="col-md-2">
+      <div class="col-md-2" *ngIf="leagueTable != null">
 
         <!-- Display league standings -->
         <h2>League Standings</h2>
-        <div *ngIf="leagueTable.length > 0">
+        <div>
           <ul class = "league-table">
             <li class="league-team" *ngFor="let team of leagueTable">
               <button class="team-button" (click)="navigateToTeam(team.idTeam)">

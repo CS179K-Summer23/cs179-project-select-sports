@@ -24,7 +24,7 @@ import { BetsComponent } from './bets/bets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { UserFavsComponent } from './user-favs/user-favs.component';
-import { EventComponent } from './event/event.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import { EventComponent } from './event/event.component';
     PlayerDetailComponent,
     BetsComponent,
     UserFavsComponent,
-    EventComponent,
+    EventDetailComponent,
   ],
   imports: [
     BrowserModule,
