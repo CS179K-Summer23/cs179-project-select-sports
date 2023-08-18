@@ -203,6 +203,29 @@ router.post('/myBets', async (req,res)=>{
       return res.status(500).json({ success: false, message: 'Error adding team to favorites', error });
     }
   });
+
+  router.post('/removeTeamFromFavorites', async (req, res) => {
+    const { userEmail, teamId } = req.body;
+  
+    try {
+      const user = await Teams.findOne({ email: userEmail });
+  
+      if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+  
+      // Remove the team ID from the teamIDs array if present
+      if (user.teamIDs.includes(teamId)) {
+        user.teamIDs = user.teamIDs.filter(id => id !== teamId);
+        await user.save();
+      }
+  
+      return res.status(200).json({ success: true, message: 'Team removed from favorites' });
+    } catch (error) {
+      return res.status(500).json({ success: false, message: 'Error removing team from favorites', error });
+    }
+  });
+  
   
   
 

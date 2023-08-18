@@ -132,7 +132,12 @@ export class AuthService {
   addTeamToFavorites(userEmail: string, teamId: string): Observable<any> {
     const data = { userEmail, teamId };
     return this.http.post('http://localhost:4000/auth/addTeamToFavorites', data);
-  }    
+  } 
+  
+  removeTeamFromFavorites(userEmail: string, teamId: string): Observable<any> {
+    const data = { userEmail, teamId };
+    return this.http.post('http://localhost:4000/auth/removeTeamFromFavorites', data);
+  }
 
 }
 

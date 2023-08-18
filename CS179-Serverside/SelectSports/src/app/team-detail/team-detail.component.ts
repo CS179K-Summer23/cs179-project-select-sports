@@ -18,13 +18,16 @@ export class TeamDetailComponent implements OnInit {
   pastGames: any[] = []; // Store past 5 games
   teamNews: any[] = [];
   teamName: string = "";
+  favoriteTeamIds: any[] = [];
+  isLoggedIn: boolean = false;
+  data: any;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private sportsDataService: SportsDataService,
     private newsDataService: NewsDataService,
-    private auth: AuthService
+    public auth: AuthService
   ) {}
 
   navigateToPlayer(playerId: string) {
@@ -41,15 +44,41 @@ export class TeamDetailComponent implements OnInit {
         if (result.success) {
           alert(this.teamName + " was added to your favorites!");
         } else {
-          console.error('Error adding team to favorites:', result); // Log the error details
+          console.error('Error adding team to favorites:', result);
         }
       },
       (error) => {
-        console.error('HTTP error:', error); // Log the HTTP error if one occurred
+        console.error('HTTP error:', error);
       }
     );
   }
   
+  removeFromFavorites(teamId: string) {
+    this.auth.removeTeamFromFavorites(this.auth.GetCurrentUser().email, teamId).subscribe(
+      (result) => {
+        if (result.success) {
+          alert(this.teamName + " was removed from your favorites!");
+        } else {
+          console.error('Error removing team from favorites:', result);
+        }
+      },
+      (error) => {
+        console.error('HTTP error:', error);
+      }
+    );
+  }
+
+  isTeamFavorite(teamId: string): boolean {
+    return this.favoriteTeamIds.includes(teamId);
+  }
+  
+  toggleFavorite(teamId: string): void {
+    if (this.isTeamFavorite(teamId)) {
+      this.removeFromFavorites(teamId);
+    } else {
+      this.addToFavorites(teamId);
+    }
+  }
   
   
 
@@ -75,6 +104,30 @@ export class TeamDetailComponent implements OnInit {
         }
       );
     });
+
+    this.auth.profile().subscribe(
+      (result) => {
+        if (result.success) {
+          this.data = result.data;
+          this.isLoggedIn = this.auth.isAuthenticated();
+          this.getTeams(this.data.email);
+
+        } 
+        else {
+          
+        }
+      }
+    ); 
+  }
+
+  getTeams(userEmail: string) {
+    this.auth.getFavTeams(userEmail).subscribe(
+      (teamIds) => {
+        if (teamIds.success) {
+          this.favoriteTeamIds = teamIds.data;
+        }
+      }
+    );
   }
 
   // Fetch upcoming games
