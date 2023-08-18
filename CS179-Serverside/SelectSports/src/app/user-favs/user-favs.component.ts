@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../Services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { SportsDataService } from '../Services/sports-data.service'; 
+import { NewsDataService } from '../Services/news-data.service';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-user-favs',
@@ -8,32 +11,43 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-favs.component.css']
 })
 export class UserFavsComponent implements OnInit {
-  favoriteTeamIds: any;
+  favoriteTeamIds: any[] = [];
+  teamDetails: any[] = [];
   data: any;
 
   constructor(
-    private auth: AuthService, 
-    private router: Router
+    private route: ActivatedRoute,
+    private router: Router,
+    private sportsDataService: SportsDataService,
+    private newsDataService: NewsDataService,
+    private auth: AuthService
     ) {}
+  
+    navigateToEvent(eventId: string) {
+      this.router.navigate(['/event', eventId]);
+    }
 
-  ngOnInit(): void {
-    this.profile();
-    // Fetch the user's favorite teams from backend
-    // For this example, I'm using a static list of teams
-    
-  }
-
-  profile() {
-    this.auth.profile().subscribe(
-      (result) => {
-        if (result.success) {
-          this.data = result.data;
-          this.getTeams(this.data.email);
-          console.log(this.data.email);
-        } 
-        else {
-          this.logout();
+    ngOnInit(): void {
+      this.auth.profile().subscribe(
+        (result) => {
+          if (result.success) {
+            this.data = result.data;
+            this.getTeams(this.data.email);
+  
+          } 
+          else {
+            this.logout();
+          }
         }
+      );    
+    }
+
+
+  getTeamDetails(teamId: string) {
+    this.sportsDataService.getTeamDetails(teamId).subscribe(
+      (team) => {
+        this.teamDetails.push(team.teams[0]);
+        console.log("Team details: ",this.teamDetails);
       }
     );
   }
@@ -43,7 +57,9 @@ export class UserFavsComponent implements OnInit {
       (teamIds) => {
         if (teamIds.success) {
           this.favoriteTeamIds = teamIds.data;
-          console.log("Favorite Team IDs:", this.favoriteTeamIds);
+          for (const teamId of this.favoriteTeamIds) {
+            this.getTeamDetails(teamId);
+          }
         }
       }
     );

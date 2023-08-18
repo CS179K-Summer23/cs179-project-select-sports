@@ -169,10 +169,10 @@ router.post('/myBets', async (req,res)=>{
   router.get('/getFavTeams/:email', (req, res) => {
     const userEmail = req.params.email;
         
-    Team.findOne({ email: userEmail })
+    Teams.findOne({ email: userEmail })
       .then((team) => {
         if (team) {
-            es.status(200).json({ success: true, data: team.teamIDs });
+          res.status(200).json({ success: true, data: team.teamIDs });
         } else {
           res.status(404).json({ success: false, message: 'User not found' });
         }
@@ -186,7 +186,7 @@ router.post('/myBets', async (req,res)=>{
     const { userEmail, teamId } = req.body;
   
     try {
-      const user = await UserData.findOne({ email: userEmail });
+      const user = await Teams.findOne({ email: userEmail });
       
       if (!user) {
         return res.status(404).json({ success: false, message: 'User not found' });

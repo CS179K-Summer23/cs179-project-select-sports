@@ -17,6 +17,7 @@ export class TeamDetailComponent implements OnInit {
   upcomingGames: any[] = []; // Store upcoming events
   pastGames: any[] = []; // Store past 5 games
   teamNews: any[] = [];
+  teamName: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -34,20 +35,21 @@ export class TeamDetailComponent implements OnInit {
     this.router.navigate(['/event', eventId]);
   }
 
-  addToFavorites(team: any) {
-    const userEmail = this.auth.GetCurrentUser();
-    const teamIdToAdd = team.idTeam;
-    console.log(userEmail);
-  
-    this.auth.addTeamToFavorites(userEmail, teamIdToAdd).subscribe(
+  addToFavorites(teamId: string) {
+    this.auth.addTeamToFavorites(this.auth.GetCurrentUser().email, teamId).subscribe(
       (result) => {
         if (result.success) {
-
+          alert(this.teamName + " was added to your favorites!");
         } else {
+          console.error('Error adding team to favorites:', result); // Log the error details
         }
+      },
+      (error) => {
+        console.error('HTTP error:', error); // Log the HTTP error if one occurred
       }
     );
   }
+  
   
   
 
@@ -60,7 +62,7 @@ export class TeamDetailComponent implements OnInit {
       this.sportsDataService.getTeamDetails(teamId).subscribe(
         (team) => {
           // Extract the team name from the team details
-          const teamName = team.teams[0].strTeam;
+          this.teamName = team.teams[0].strTeam;
 
           // Assign the team details
           this.team = team.teams[0];
@@ -68,7 +70,7 @@ export class TeamDetailComponent implements OnInit {
           // Fetch upcoming games, past games, team news, and team players
           this.fetchUpcomingGames(teamId);
           this.fetchPastGames(teamId);
-          this.fetchTeamNews(teamName);
+          this.fetchTeamNews(this.teamName);
           this.fetchTeamPlayers(teamId);
         }
       );
