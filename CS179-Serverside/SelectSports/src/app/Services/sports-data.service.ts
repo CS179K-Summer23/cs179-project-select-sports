@@ -93,4 +93,9 @@ export class SportsDataService {
     const url = `${this.baseUrl}${this.apiKey}/lookupcontracts.php?id=${playerId}`;
     return this.http.get(url);
   }
+
+  getLeagueTeams(leagueName: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/search_all_teams.php?l=${leagueName}`;
+    return this.http.get(url);
+  }
 }

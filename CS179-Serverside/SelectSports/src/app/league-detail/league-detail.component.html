@@ -51,8 +51,8 @@
       <div class="col-md-2" *ngIf="leagueTable != null">
 
         <!-- Display league standings -->
-        <h2>League Standings</h2>
-        <div>
+        <h2 *ngIf="leagueTable != null">League Standings</h2>
+        <div *ngIf="leagueTable != null">
           <ul class = "league-table">
             <li class="league-team" *ngFor="let team of leagueTable">
               <button class="team-button" (click)="navigateToTeam(team.idTeam)">
@@ -62,6 +62,23 @@
             </li>
           </ul>
         </div>
+      </div>
+
+      <div class="col-md-2" *ngIf="leagueTable == null">
+
+        <h2 *ngIf="leagueTable == null">League Teams</h2>
+        <div *ngIf="leagueTable == null">
+          <ul class = "league-teams">
+            <li class="league-team" *ngFor="let team of leagueTeams">
+              <button class="team-button" (click)="navigateToTeam(team.idTeam)">
+                {{ team.strTeam }}
+              <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+
       </div>
 
     </div>

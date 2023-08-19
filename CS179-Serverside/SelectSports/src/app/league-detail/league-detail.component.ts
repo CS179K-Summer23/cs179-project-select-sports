@@ -17,6 +17,7 @@ export class LeagueDetailComponent implements OnInit {
   leaguePastFifteen: any;
   leagueTable: any;
   leagueNews: any;
+  leagueTeams: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +49,7 @@ export class LeagueDetailComponent implements OnInit {
         this.fetchLastFifteen(leagueId);
         this.fetchLeagueNews(leagueName);
         this.fetchLeagueStandings(leagueId, thisSeason);
+        this.fetchLeagueTeams(leagueName);
       });
     });
   }
@@ -79,6 +81,14 @@ export class LeagueDetailComponent implements OnInit {
       (table) => {
         console.log(table);
         this.leagueTable = table.table;
+      })
+  }
+
+  fetchLeagueTeams(leagueName: string) {
+    this.sportsDataService.getLeagueTeams(leagueName).subscribe(
+      (teams) => {
+        this.leagueTeams = teams.teams;
+        console.log(this.leagueTeams);
       })
   }
 }

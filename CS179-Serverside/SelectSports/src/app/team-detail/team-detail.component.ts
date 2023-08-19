@@ -42,7 +42,8 @@ export class TeamDetailComponent implements OnInit {
     this.auth.addTeamToFavorites(this.auth.GetCurrentUser().email, teamId).subscribe(
       (result) => {
         if (result.success) {
-          alert(this.teamName + " was added to your favorites!");
+          this.favoriteTeamIds.push(teamId); // Update the favoriteTeamIds array
+          console.log(result);
         } else {
           console.error('Error adding team to favorites:', result);
         }
@@ -57,7 +58,11 @@ export class TeamDetailComponent implements OnInit {
     this.auth.removeTeamFromFavorites(this.auth.GetCurrentUser().email, teamId).subscribe(
       (result) => {
         if (result.success) {
-          alert(this.teamName + " was removed from your favorites!");
+          const index = this.favoriteTeamIds.indexOf(teamId);
+          if (index !== -1) {
+            this.favoriteTeamIds.splice(index, 1); // Remove the teamId from the array
+          }
+          console.log(result);
         } else {
           console.error('Error removing team from favorites:', result);
         }
