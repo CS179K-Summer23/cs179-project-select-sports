@@ -13,6 +13,7 @@ import { AuthService } from '../Services/auth.service';
 export class UserFavsComponent implements OnInit {
   favoriteTeamIds: any[] = [];
   teamSchedules: any[] = [];
+  pastGames: any[] = [];
   teamDetails: any[] = [];
   data: any;
   
@@ -27,6 +28,10 @@ export class UserFavsComponent implements OnInit {
   
     navigateToEvent(eventId: string) {
       this.router.navigate(['/event', eventId]);
+    }
+
+    navigateToTeam(teamId: string) {
+      this.router.navigate(['/team', teamId]);
     }
 
     ngOnInit(): void {
@@ -62,6 +67,7 @@ export class UserFavsComponent implements OnInit {
           for (const teamId of this.favoriteTeamIds) {
             this.getTeamDetails(teamId);
             this.getNextGames(teamId);
+            this.getPastGames(teamId);
           }
         }
       }
@@ -73,6 +79,14 @@ export class UserFavsComponent implements OnInit {
       (sched) => {
         sched = sched.events;
         this.teamSchedules.push(sched[0]);
+      }
+    );
+  }
+
+  getPastGames(teamId: string) {
+    this.sportsDataService.getPastGames(teamId).subscribe(
+      (past) => {
+        this.pastGames.push(past.results[0]);
       }
     );
   }
