@@ -27,6 +27,7 @@
 
   <div class="row" *ngIf="teamDetails != null">
     <ul class="team-list">
+      <h2>My Favorite Teams</h2>
       <li class="team-item" *ngFor="let team of teamDetails">
         <button class="team-button" (click)="navigateToTeam(team.idTeam)">
           {{ team.strTeam }}
