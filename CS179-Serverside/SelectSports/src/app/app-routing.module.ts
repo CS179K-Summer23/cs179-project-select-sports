@@ -12,7 +12,7 @@ import { LeagueDetailComponent } from './league-detail/league-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BetsComponent } from './bets/bets.component';
 import { AuthGuard } from './auth/auth-guard.service';
-
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 
@@ -29,7 +29,8 @@ const routes: Routes = [
   { path: 'soccer/:id', component: LeagueDetailComponent},
   { path: 'football/:id', component: LeagueDetailComponent},
   { path: 'baseball/:id', component: LeagueDetailComponent},
-  { path: 'basketball/:id', component: LeagueDetailComponent}
+  { path: 'basketball/:id', component: LeagueDetailComponent},
+  { path: 'password-reset/:token', component: PasswordResetComponent},
 ];
 
 @NgModule({

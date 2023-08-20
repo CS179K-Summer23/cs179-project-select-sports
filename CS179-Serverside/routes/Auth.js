@@ -1,10 +1,6 @@
 const router = require('express').Router();
-
-
 const UserData = require("../models/UserData");
 const Bets = require("../models/Bets");
-
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretkey = "SportsSelectSecret";
@@ -183,7 +179,50 @@ catch(err){
       });
 
      
+      router.post('/forgot-password', (req, res) => {
+        const { email } = req.body;
+      
+        UserData.findOne({ email })
+          .then(user => {
+            if (!user) {
+              return res.json({ success: false, message: 'User with this email not found' });
+            }
+      
+            const resetToken = jwt.sign({ email }, secretkey, { expiresIn: '1h' });
+            const resetLink = `http://localhost:4000/auth/forgot-password/${resetToken}`;
+      
+            const emailContent = {
+              to: user.email,
+              subject: 'Password Reset Link',
+              text: `Click on the following link to reset your password: ${resetLink}`
+            };
 
+            console.log('Password reset link:', resetLink);
+      
+            res.json({ success: true, message: 'Password reset link sent to your email' });
+          })
+          .catch(err => {
+            res.json({ success: false, message: 'Error finding user' });
+          });
+      });
 
+router.post('/reset-password', (req, res) => {
+  const { token, newPassword } = req.body;
+
+  try {
+      const decodedToken = jwt.verify(token, secretKey);
+
+      const hashedPassword = bcrypt.hashSync(newPassword, 10);
+      UserData.findOneAndUpdate({ email: decodedToken.email }, { password: hashedPassword })
+          .then(() => {
+              res.json({ success: true, message: 'Password reset successful' });
+          })
+          .catch(err => {
+              res.json({ success: false, message: 'Error resetting password' });
+          });
+  } catch (err) {
+      res.json({ success: false, message: 'Invalid or expired token' });
+  }
+});
 
 module.exports = router;

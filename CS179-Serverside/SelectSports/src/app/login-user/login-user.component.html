@@ -1,34 +1,82 @@
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .signUp.container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .password-input {
+    position: relative;
+  }
+
+  .password-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 14px;
+    color: #007bff;
+  }
+  
+  /* Style for the forgot password prompt container */
+  .forgot-password-prompt.container {
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
 <div class="signUp container">
-    <div class="card" style="width: 35rem;">
-      <div class="card-body">
-        <h5 class="card-title">Login</h5>
-        <form #registerForm="ngForm" (ngSubmit)="Login()">
-  
-          <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email" [(ngModel)]="userForm.email" placeholder="Enter your Email">
-  
-            <label>Password</label>
-            <div class="password-input">
-              <input
-                type="{{ showPassword ? 'text' : 'password' }}"
-                class="form-control"
-                name="password"
-                [(ngModel)]="userForm.password"
-                placeholder="Enter your Password"
-                required
-              />
-              <button type="button" class="password-toggle" (click)="togglePasswordVisibility()">
-                {{ showPassword ? 'Hide' : 'Show' }} Password
-              </button>
-            </div>
-          </div>
-          <br />
-          <button class="btn btn-primary">Sign In</button>
-        </form>
-      </div>
+  <div class="card" style="width: 35rem;">
+    <div class="card-body">
+      <h5 class="card-title">Login</h5>
+      <form #loginForm="ngForm" (ngSubmit)="Login()">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text" class="form-control" name="email" [(ngModel)]="userForm.email" placeholder="Enter your Email">
+        </div>
+        <div class="password-input">
+          <label>Password</label>
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control"
+            name="password"
+            [(ngModel)]="userForm.password"
+            placeholder="Enter your Password"
+            required
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="togglePasswordVisibility()"
+          >
+            {{ showPassword ? 'Hide' : 'Show' }} Password
+          </button>
+        </div>
+        <br />
+        <button class="btn btn-primary">Sign In</button>
+      </form>
+      <button class="btn btn-link" (click)="openForgotPasswordPrompt()">Forgot Password?</button>
     </div>
   </div>
+</div>
 
-
-  
+<div class="forgot-password-prompt container" *ngIf="showForgotPasswordPrompt">
+  <div class="prompt-content">
+    <h5>Forgot Password</h5>
+    <label>Enter your email to reset your password:</label>
+    <input
+      type="email"
+      class="form-control"
+      [(ngModel)]="forgotPasswordEmail"
+      placeholder="Enter your Email"
+    />
+    <button class="btn btn-primary" (click)="resetPassword()">Reset Password</button>
+    <button class="btn btn-link" (click)="closeForgotPasswordPrompt()">Cancel</button>
+  </div>
+</div>

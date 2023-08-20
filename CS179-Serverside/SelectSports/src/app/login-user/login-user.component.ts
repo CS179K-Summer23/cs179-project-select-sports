@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class LoginUserComponent implements OnInit {
   userForm = { email: '', password: '' };
-
   showPassword = false;
+  showForgotPasswordPrompt = false;
+  forgotPasswordEmail = '';
 
   constructor(private auth: AuthService, private router: Router) {}
 
@@ -32,36 +33,54 @@ export class LoginUserComponent implements OnInit {
     );
   }
 
+  openForgotPasswordPrompt() {
+    this.showForgotPasswordPrompt = true;
+  }
+
+  closeForgotPasswordPrompt() {
+    this.showForgotPasswordPrompt = false;
+  }
+  sendForgotPasswordEmail() {
+    if (this.forgotPasswordEmail) {
+      this.auth.forgotPassword(this.forgotPasswordEmail).subscribe(
+        (res: any) => {
+          if (res.success) {
+            alert('Password reset link sent to your email.');
+            this.showForgotPasswordPrompt = false;
+          } else {
+            alert(res.message);
+          }
+        },
+        (err: any) => {
+          alert('Error requesting password reset.');
+        }
+      );
+    } else {
+      alert('Please enter your email.');
+    }
+  }
+
+  resetPassword() {
+    if (this.forgotPasswordEmail) {
+      this.auth.forgotPassword(this.forgotPasswordEmail).subscribe(
+        (res: any) => {
+          if (res.success) {
+            alert('Password reset link sent to your email.');
+            this.showForgotPasswordPrompt = false;
+          } else {
+            alert(res.message);
+          }
+        },
+        (err: any) => {
+          alert('Error requesting password reset.');
+        }
+      );
+    } else {
+      alert('Please enter your email.');
+    }
+  }
+
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 }
-
-  /*
-constructor(private formBuilder:FormBuilder, private auth:AuthService, private router:Router){
-
-}
-
-ngOnInit(): void {
-
-}
-Login(){
-  
-  this.auth.login(this.userForm).subscribe(res => {
-    if(res.success){
-      localStorage.setItem('token',res.token);
-      this.auth.SetLoggedIn();
-     this.router.navigate(['/profile']);
-      
-    }else{
-      alert(res.message)
-    }
-  }, err=>{
-    alert("Login Unsuccessful");
-  })
-  
-
-
-
-}
-*/

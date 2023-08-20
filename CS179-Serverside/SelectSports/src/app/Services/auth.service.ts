@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin, Observable,throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -148,7 +149,24 @@ export class AuthService {
     return this.http.post('http://localhost:4000/sendEmail', data)
   };
 
+  forgotPassword(email: string): Observable<any> {
+    const data = { email };
+    return this.http.post('http://localhost:4000/auth/forgot-password', data).pipe(
+      catchError(error => {
+        return throwError('Error sending password reset email');
+      })
+    );
+  }
   
+
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    const data = { token, newPassword };
+    return this.http.post('http://localhost:4000/auth/reset-password', data).pipe(
+      catchError(error => {
+        return throwError('Error resetting password');
+      })
+    );
+  }
 }
 
 

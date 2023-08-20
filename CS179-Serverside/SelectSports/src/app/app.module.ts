@@ -23,6 +23,8 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { BetsComponent } from './bets/bets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { PasswordResetComponent } from './password-reset/password-reset.component';
+
 
 
 @NgModule({
@@ -42,6 +44,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     LeagueDetailComponent,
     PlayerDetailComponent,
     BetsComponent,
+    PasswordResetComponent,
   ],
   imports: [
     BrowserModule,
