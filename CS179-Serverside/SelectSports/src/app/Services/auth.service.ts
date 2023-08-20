@@ -148,6 +148,18 @@ export class AuthService {
     return this.http.post('http://localhost:4000/sendEmail', data)
   };
 
+ 
+  FollowTeam(email:any,TeamID:any):Observable<any>{
+    const data = {  email, TeamID};
+
+    return this.http.post('http://localhost:4000/auth/myTeams',data)
+
+  };
+ 
+  GetMyTeams(email: string):Observable<any>{
+    const url = `http://localhost:4000/auth/myTeams/${email}`;
+    return this.http.get(url);
+  };
   
 }
 

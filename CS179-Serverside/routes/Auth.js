@@ -4,7 +4,7 @@ const router = require('express').Router();
 const UserData = require("../models/UserData");
 const Bets = require("../models/Bets");
 
-
+const Teams = require("../models/Teams");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretkey = "SportsSelectSecret";
@@ -183,6 +183,70 @@ catch(err){
       });
 
      
+      router.post('/myTeams', async (req,res)=>{
+        console.log('I was sent here with', req);
+        const { email, TeamID } = req.body;
+
+try{
+        let myTeam =await Teams.findOne({ email });
+
+        //User's FIRST follow
+
+        if(!myTeam){
+            myTeam = new Teams({ email, UserTeams: [] });
+        }
+
+        if (!myTeam.UserTeams) {
+            myTeam.UserTeams = []; 
+          }
+
+         myTeam.UserTeams.push({TeamID });
+
+         await   myTeam.save();
+
+          
+                res.json({success:true, message:"Team Followed"});
+               
+}
+
+
+
+
+catch(err){
+    console.error("Error following team:", err);
+                res.json({success:false, message:"Error following team"});
+            }
+
+     
+
+         });
+
+
+
+
+
+
+         router.get('/myTeams/:email', async (req, res) => {
+          const { email } = req.params;
+        
+          try {
+              let myTeam =await Teams.findOne({ email });
+            
+        
+            if (!myTeam) {
+              return res.json({ error: 'No Teams Followed' });
+            }
+            else{
+              
+              return res.json(myTeam);
+            }
+        
+            
+          } catch (error) {
+            res.status.json({success:false, message:"Error Getting User's Teams" });
+          }
+        });
+
 
 
 
