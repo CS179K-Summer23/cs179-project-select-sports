@@ -1,7 +1,12 @@
-<!-- user-favs.component.html -->
-<h2>Your Favorite Teams</h2>
-<ul>
-  <li *ngFor="let team of teamDetails">
-    {{ team.strTeam }}
-  </li>
-</ul>
+<div class="upcoming-events">
+  <h2>Upcoming Events</h2>
+  <ul class="event-list">
+    <li class="event-item" *ngFor="let event of teamSchedules">
+      <button class="event-button" (click)="navigateToEvent(event.idEvent)">
+        {{ event.dateEvent }} <br>
+        {{ event.strHomeTeam }} <br>
+        {{ event.strAwayTeam }}
+      </button>
+    </li>
+  </ul>
+</div>

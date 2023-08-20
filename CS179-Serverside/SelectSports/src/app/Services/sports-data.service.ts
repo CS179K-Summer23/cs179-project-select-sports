@@ -98,4 +98,29 @@ export class SportsDataService {
     const url = `${this.baseUrl}${this.apiKey}/search_all_teams.php?l=${leagueName}`;
     return this.http.get(url);
   }
+
+  getEventDetails(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupevent.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventStatistics(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupeventstats.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventLineup(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuplineup.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventTimeline(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuptimeline.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventTV(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuptv.php?id=${eventId}`;
+    return this.http.get(url);
+  }
 }

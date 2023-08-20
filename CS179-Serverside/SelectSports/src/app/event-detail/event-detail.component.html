@@ -1,1 +1,52 @@
-<p>event-detail works!</p>
+<div *ngIf="eventDetails">
+    
+    <h1 *ngIf="eventDetails.strStatus == 'Match Finished' ">
+      {{ eventDetails.strAwayTeam }} {{ eventDetails.intAwayScore }} - {{ eventDetails.intHomeScore}} {{ eventDetails.strHomeTeam}}
+    </h1>
+    <h1 *ngIf="eventDetails.strStatus != 'Match Finished' ">
+        {{ eventDetails.strEventAlternate }}
+    </h1>
+    <div class="event-details">
+      <p>
+        <strong *ngIf="eventDetails.strSport">Sport:</strong> {{ eventDetails.strSport }}
+        <strong *ngIf="eventDetails.strLeague">League:</strong> {{ eventDetails.strLeague }}
+        <strong *ngIf="eventDetails.strSeason">Season:</strong> {{ eventDetails.strSeason }}
+        <strong *ngIf="eventDetails.strTimeLocal">Time:</strong> {{ eventDetails.strTimeLocal }}
+      </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2" *ngIf="stats">
+        <h2>Stats</h2>
+        <ul class="stats-list">
+            <li class="stats-item" *ngFor="let stat of stats">
+                {{stat.strStat}}: <br>
+                {{ eventDetails.strAwayTeam }} - {{ stat.intAway }} <br>
+                {{ eventDetails.strHomeTeam }} - {{ stat.intHome }}
+            </li>
+        </ul>
+
+
+    </div>
+    <div class="col-md-4" *ngIf="timeline">
+        <h2>Timeline</h2>
+        <ul class="timeline-list">
+            <li class="timeline-item" *ngFor="let event of timeline">
+                {{ event.intTime }}' - {{ event.strTimelineDetail }} for {{ event.strPlayer }}
+            </li>
+        </ul>
+
+    </div>
+    <div class="col-md-4" *ngIf="lineup">
+        <h2>Lineup</h2>
+        <ul class="lineup-list">
+            <li class="lineup-item" *ngFor="let player of lineup">
+                {{ player.strTeam }} {{ player.strPosition }}: {{ player.strPlayer }} #{{ player.intSquadNumber }}
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="tv" *ngIf="tv">
+</div>

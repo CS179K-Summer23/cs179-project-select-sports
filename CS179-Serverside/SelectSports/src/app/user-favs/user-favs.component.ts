@@ -12,8 +12,10 @@ import { AuthService } from '../Services/auth.service';
 })
 export class UserFavsComponent implements OnInit {
   favoriteTeamIds: any[] = [];
+  teamSchedules: any[] = [];
   teamDetails: any[] = [];
   data: any;
+  
 
   constructor(
     private route: ActivatedRoute,
@@ -47,7 +49,7 @@ export class UserFavsComponent implements OnInit {
     this.sportsDataService.getTeamDetails(teamId).subscribe(
       (team) => {
         this.teamDetails.push(team.teams[0]);
-        console.log("Team details: ",this.teamDetails);
+        
       }
     );
   }
@@ -59,8 +61,18 @@ export class UserFavsComponent implements OnInit {
           this.favoriteTeamIds = teamIds.data;
           for (const teamId of this.favoriteTeamIds) {
             this.getTeamDetails(teamId);
+            this.getNextGames(teamId);
           }
         }
+      }
+    );
+  }
+
+  getNextGames(teamId: string) {
+    this.sportsDataService.getUpcomingGames(teamId).subscribe(
+      (sched) => {
+        sched = sched.events;
+        this.teamSchedules.push(sched[0]);
       }
     );
   }

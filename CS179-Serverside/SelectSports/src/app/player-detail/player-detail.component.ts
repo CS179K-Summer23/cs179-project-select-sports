@@ -18,6 +18,7 @@ export class PlayerDetailComponent implements OnInit {
   teams:  any;
   contracts: any;
   playerNews: any[] = [];
+  nextGames: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -25,6 +26,10 @@ export class PlayerDetailComponent implements OnInit {
     private sportsDataService: SportsDataService,
     private newsDataService: NewsDataService
     ) { }
+
+    navigateToEvent(eventId: string) {
+      this.router.navigate(['/event', eventId]);
+    }
 
     ngOnInit() {
       this.route.params.subscribe(params => {
@@ -34,6 +39,7 @@ export class PlayerDetailComponent implements OnInit {
           (player) => {
             console.log(player);
             const playerName = player.players[0].strPlayer;
+            const teamId = player.players[0].idTeam;
             this.player = player.players[0];
 
             this.fetchPlayerHonors(playerId);
@@ -41,15 +47,24 @@ export class PlayerDetailComponent implements OnInit {
             this.fetchPlayerTeams(playerId);
             this.fetchPlayerContracts(playerId);
             this.fetchPlayerNews(playerName);
+            this.fetchSchedule(teamId);
           }
         );
       });
     }
 
+    fetchSchedule(teamId: string) {
+      this.sportsDataService.getUpcomingGames(teamId).subscribe(
+        (sched) => {
+          this.nextGames = sched.events;
+        }
+      );
+    }
+
     fetchPlayerHonors(playerId: string) {
       this.sportsDataService.getPlayerHonors(playerId).subscribe(
         (honors) => {
-          console.log(honors);
+          //console.log(honors);
           this.honors = honors.honours;
         }
       );
@@ -58,7 +73,7 @@ export class PlayerDetailComponent implements OnInit {
     fetchPlayerMilestones(playerId: string) {
       this.sportsDataService.getPlayerMilestones(playerId).subscribe(
         (milestones) => {
-          console.log(milestones);
+          //console.log(milestones);
           this.milestones = milestones.milestones;
         }
       );
@@ -67,7 +82,7 @@ export class PlayerDetailComponent implements OnInit {
     fetchPlayerTeams(playerId: string)  {
       this.sportsDataService.getPlayerTeams(playerId).subscribe(
         (teams) => {
-          console.log(teams);
+          //console.log(teams);
           this.teams = teams.formerteams;
         }
       );
@@ -76,7 +91,7 @@ export class PlayerDetailComponent implements OnInit {
     fetchPlayerContracts(playerId: string) {
       this.sportsDataService.getPlayerContracts(playerId).subscribe(
         (contracts) => {
-          console.log(contracts);
+          //console.log(contracts);
           this.contracts = contracts.contracts;
         }
       );
