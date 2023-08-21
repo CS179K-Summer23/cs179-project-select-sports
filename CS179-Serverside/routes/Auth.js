@@ -2,7 +2,11 @@ const router = require('express').Router();
 
 const UserData = require("../models/UserData");
 const Bets = require("../models/Bets");
+
 const Teams = require("../models/teams");
+
+
+
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -182,6 +186,7 @@ router.post('/myBets', async (req,res)=>{
       });
   });
 
+
   router.post('/addTeamToFavorites', async (req, res) => {
     const { userEmail, teamId } = req.body;
   
@@ -227,7 +232,7 @@ router.post('/myBets', async (req,res)=>{
   });
   
   
-  
+
 
 
 

@@ -124,10 +124,24 @@ export class AuthService {
     return this.http.post('http://localhost:4000/sendEmail', data)
   };
 
+
   getFavTeams(userEmail: string): Observable<any> {
     const url = `http://localhost:4000/auth/getFavTeams/${userEmail}`;
     return this.http.get(url);
   }
+
+ 
+  FollowTeam(email:any,TeamID:any):Observable<any>{
+    const data = {  email, TeamID};
+
+    return this.http.post('http://localhost:4000/auth/myTeams',data)
+
+  };
+ 
+  GetMyTeams(email: string):Observable<any>{
+    const url = `http://localhost:4000/auth/myTeams/${email}`;
+    return this.http.get(url);
+  };
   
   addTeamToFavorites(userEmail: string, teamId: string): Observable<any> {
     const data = { userEmail, teamId };
