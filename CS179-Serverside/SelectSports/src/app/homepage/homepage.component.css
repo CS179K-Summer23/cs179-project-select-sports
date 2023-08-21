@@ -13,6 +13,10 @@ h2, h3 {
   text-align: center;
 }
 
+.marg{
+  margin-top: 15px; 
+}
+
 .scores-list {
   border: 1px solid #000000;
   border-radius: 5px;

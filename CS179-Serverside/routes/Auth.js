@@ -123,7 +123,7 @@ router.post('/myBets', async (req,res)=>{
     myBet.PlacedBets.push({EventID, BettingTeamID });
     await myBet.save();
 
-    es.json({success:true, message:"Bet Placed Successfully! Come Back for results :)"});              
+    res.json({success:true, message:"Bet Placed Successfully! Come Back for results :)"});              
   }
   catch(err){
     console.error("Error placing bet:", err);

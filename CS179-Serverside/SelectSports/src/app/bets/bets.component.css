@@ -15,12 +15,22 @@
 
 
 
+.betbtn:focus{
+    color: #fff;
+    background-color: #9498b1;
+    border-color: #c53eff;
+    box-shadow: 0 0 0 0.25rem rgba(96, 29, 189, 0.5);
+}
+.btn-primary{
+    --bs-btn-bg: rgb(236, 70, 70);
+}
 .btn-primary:focus {
     color: #fff;
-    background-color: #58963a;
-    border-color: #0a58ca;
-    box-shadow: 0 0 0 0.25rem rgba(49,132,253,.5);
+    background-color: #5165dd;
+    border-color: #0a24ca;
+    box-shadow: 0 0 0 0.25rem rgba(189, 29, 29, 0.5);
 }
+
 
 .GameCard {
     width: 45rem;

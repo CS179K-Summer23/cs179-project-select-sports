@@ -10,7 +10,10 @@ body {
     display: flex;
     /* justify-items: center; */
     justify-content: center;
+    position: relative;
+    top:-50px;
 }
+
 
 .password-input {
   position: relative;
