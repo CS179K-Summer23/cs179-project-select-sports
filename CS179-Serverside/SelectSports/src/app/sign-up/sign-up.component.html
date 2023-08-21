@@ -1,5 +1,6 @@
+<body>
 <div class="signUp container">
-  <div class="card" style="width: 35rem;">
+  <div class="card" style="width: 35rem; background-color: #b6bce180">
     <div class="card-body">
       <h5 class="card-title">Sign Up</h5>
       <form #registerForm="ngForm" (ngSubmit)="register()">
@@ -49,6 +50,7 @@
               required
             />
             <button
+              style="color:#ec5050"
               type="button"
               class="password-toggle"
               (click)="togglePasswordVisibility('confirmPassword')"
@@ -62,6 +64,7 @@
           type="submit"
           class="btn btn-primary"
           [disabled]="!registerForm.valid || userForm.password !== userForm.confirmPassword"
+          style="background-color:#ec5050"
         >
           Create Account
         </button>
@@ -69,3 +72,4 @@
     </div>
   </div>
 </div>
+</body>

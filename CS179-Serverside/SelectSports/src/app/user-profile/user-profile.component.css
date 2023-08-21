@@ -4,8 +4,11 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  border: 50px solid #ccc; 
-  padding: 20px; 
+ /* border: 50px solid #ccc; */
+
+  border: 50px solid #ef6869;
+    
+    background-color: #c4f0cc;
 }
 
 .left-side {

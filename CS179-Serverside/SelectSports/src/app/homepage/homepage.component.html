@@ -1,6 +1,6 @@
 <div class="row">
   <!-- Left Column for Scores -->
-  <div class="col-md-3">
+  <div class="col-md-3 marg">
     <h3>MLB Scores</h3>
     <ul class="scores-list">
       <li class="score-item" *ngFor="let game of scores | filterLeague:'MLB'">
@@ -63,7 +63,7 @@
     </ul>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-6 marg">
     <h2>Latest American Sports News</h2>
     <ul class="news-list">
       <li *ngFor="let newsItem of topAmericanSportsNews" class="news-item">
@@ -74,7 +74,7 @@
     </ul>
   </div>
 
-  <div class="col-md-3">
+  <div class="col-md-3 marg">
     <h2>Leaderboards</h2>
     <ul class="leader-list">
       <li class="news-item">

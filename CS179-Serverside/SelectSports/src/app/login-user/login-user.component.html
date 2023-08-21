@@ -1,6 +1,7 @@
+<body>
 <div class="signUp container">
     <div class="card" style="width: 35rem;">
-      <div class="card-body">
+      <div class="card-body" style="background-color: #b6bce180">
         <h5 class="card-title">Login</h5>
         <form #registerForm="ngForm" (ngSubmit)="Login()">
   
@@ -18,17 +19,17 @@
                 placeholder="Enter your Password"
                 required
               />
-              <button type="button" class="password-toggle" (click)="togglePasswordVisibility()">
+              <button style="color:#ec5050" type="button" class="password-toggle" (click)="togglePasswordVisibility()">
                 {{ showPassword ? 'Hide' : 'Show' }} Password
               </button>
             </div>
           </div>
           <br />
-          <button class="btn btn-primary">Sign In</button>
+          <button style="background-color:#ec5050"class="btn btn-primary">Sign In</button>
         </form>
       </div>
     </div>
   </div>
 
-
+</body>
   
