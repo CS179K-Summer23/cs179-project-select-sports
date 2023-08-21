@@ -23,6 +23,8 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { BetsComponent } from './bets/bets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { UserFavsComponent } from './user-favs/user-favs.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     LeagueDetailComponent,
     PlayerDetailComponent,
     BetsComponent,
+    UserFavsComponent,
+    EventDetailComponent,
   ],
   imports: [
     BrowserModule,

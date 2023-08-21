@@ -7,6 +7,18 @@ h2 {
   text-align: center;
 }
 
+.star-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
 .team-badge {
     width: 70px;
     height: 70px;
@@ -16,13 +28,14 @@ h2 {
 .team-details {
   text-align: center;
 }
+
 .upcoming-games {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f5f5f5;
-  }
+}
   
 .upcoming-games h2 {
   font-size: 1.2rem;
@@ -62,7 +75,21 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Style the news items */
+.event-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: left;
+  color: inherit;
+}
+
+.event-button:hover {
+  background-color: #f0f0f0;
+}
+
 .news-item {
   padding: 15px;
   border: 1px solid #989898;
@@ -99,6 +126,10 @@ h2 {
   border-bottom: 1px solid #ccc;
   padding: 3%;
   text-align: center;
+}
+
+.player-item:last-child {
+  border-bottom: none;
 }
 
 .player-button {

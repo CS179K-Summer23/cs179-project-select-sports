@@ -1,125 +1,162 @@
-<div class="container" style="text-align: center;"><h1 class="display-5">My Bets</h1></div>
 
 
-<ul class="nav flex-row" style="text-align: center; justify-content: center; margin:30px;">
+<ul class="nav flex-row" style="text-align: left; justify-content: left; margin:10px;">
     <li class="nav-item">
       <button type="button" class="btn btn-primary"(click)="toggleAvailable()" >Bets Available</button>
       
     </li>
-    &nbsp;&nbsp;
+    &nbsp;
     <li class="nav-item">
       <button type="button" class="btn btn-primary" (click)="toggleBets()" >My Bets</button>
       
     </li>
+    
 
   </ul>
+ <div class="betting101" style="text-align:center; margin-bottom:5px;" ><h5> BETTING 101 WITH SELECT SPORTS </h5>
+<p>We shoot for "EQUALITY BETTING" Just simply place a bet on winning/losing team and Get 50 Points for each game you win!</p> <p>Click "My Bets" to see previous bets(lost or Won) we keep track!</p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-smile" style="margin-bottom:20px;" viewBox="0 0 16 16">
+  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+  <path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5z"/>
+</svg></div> 
+
+
+<ul *ngIf="BetAvailable" class="nav flex-row" style="text-align: center; justify-content: center; margin:30px;">
+  <li class="nav-item">
+    <button type="button" class="btn btn-primary"(click)="toggleBasketball()" >BasketBall</button>
+    
+  </li>
+  &nbsp;&nbsp;
+  <li class="nav-item">
+    <button type="button" class="btn btn-primary" (click)="toggleSoccer()" >Soccer</button>
+    
+  </li>
+  &nbsp;&nbsp;
+  <li class="nav-item">
+    <button type="button" class="btn btn-primary"(click)="toggleFootball()" >Football</button>
+    
+  </li>
+  &nbsp;&nbsp;
+  <li class="nav-item">
+    <button type="button" class="btn btn-primary" (click)="toggleBaseball()" >Baseball</button>
+    
+  </li>
+  
+  
+
+</ul>
+
+
 
   
-<div *ngIf="BetAvailable && Events" class="container betsAvailable" style="flex-wrap: wrap;">
-
+  <div *ngIf="BetAvailable && Events && Visible" class="container betsAvailable" style="flex-wrap: wrap; background: rgb(179,0,23);
+  background: linear-gradient(90deg, rgba(179,0,23,1) 2%, rgba(228,120,120,1) 11%, rgba(38,9,22,1) 26%, rgba(147,217,135,1) 64%, rgba(179,160,0,1) 78%, rgba(0,82,179,1) 100%);" >
   
-  
-  <div *ngFor="let selectedEvent of Events" > 
+    
    
-   
-    <div *ngIf="selectedEvent" class="column card GameCard" style="width:45rem; background-image: url('{{selectedEvent.strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
-        <div class="card-body">
-          <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
-            <h4 style="margin-bottom:20px;">{{selectedEvent.strLeague}}&nbsp;{{selectedEvent.strSeason}}</h4>
-            <div class="row">
-              <div class="col-md" style="text-align:center;">
-                <p style="margin-bottom:1px;">(Home)</p>
-                <h5>{{selectedEvent.strHomeTeam}}</h5>
-                
-              </div>
-              <div class="col-sm" style="text-align:center;">
-              <h3>VS</h3>
-              <p>{{selectedEvent.dateEvent}}</p>
-              </div>
-              <div class="col-md" style="text-align:center;">
-                <p style="margin-bottom:1px;">(Away)</p>
-                <h5>{{selectedEvent.strAwayTeam}}</h5>
-               
+    <div *ngFor="let selectedEvent of Events" > 
+     
+     
+      <div  *ngIf="selectedEvent" class="column card GameCard" style="width:45rem; background-image: url('{{selectedEvent.strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem; margin-top: 10px; margin-bottom: 10px;">
+          <div class="card-body">
+            <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
+              <h4 style="margin-bottom:20px;">{{selectedEvent.strLeague}}&nbsp;{{selectedEvent.strSeason}}</h4>
+              <div class="row">
+                <div class="col-md" style="text-align:center;">
+                  <p style="margin-bottom:1px;">(Home)</p>
+                  <h5>{{selectedEvent.strHomeTeam}}</h5>
+                  
+                </div>
+                <div class="col-sm" style="text-align:center;">
+                <h3>VS</h3>
+                <p>{{selectedEvent.dateEvent}}</p>
+                </div>
+                <div class="col-md" style="text-align:center;">
+                  <p style="margin-bottom:1px;">(Away)</p>
+                  <h5>{{selectedEvent.strAwayTeam}}</h5>
+                 
+                </div>
               </div>
             </div>
+            
+            <hr>
+            <div *ngIf="!Placed[selectedEvent.idEvent]" style="text-align:center; "[@fadeOut]="!Placed[selectedEvent.idEvent] ? 'visible' : 'hidden'">
+            <button type="button" class="btn btn-danger PlaceABet" style="background-color: #e7dddd;
+            color: #6c1919;
+            font-size: x-large;
+            font-weight: 700;" (click)="InitializeBet[selectedEvent.idEvent]=!InitializeBet[selectedEvent.idEvent]">Place a Bet</button>
+          </div>
+           <div *ngIf="Placed[selectedEvent.idEvent]" style="text-align:center; " [@fadeIn]="Placed[selectedEvent.idEvent] ? 'visible' : 'hidden'" >
+            <button type="button" class="btn btn-danger" style="background-color: #e7dddd;
+            color: #6c1919;
+            font-size: x-large;
+            font-weight: 700;">Bet Placed</button>
+          </div>
+          <div *ngIf="!Placed[selectedEvent.idEvent]&& InitializeBet[selectedEvent.idEvent]" [@fadeOut]="!Placed[selectedEvent.idEvent]&&InitializeBet[selectedEvent.idEvent] ? 'visible' : 'hidden'">
+           
+            <form #registerForm="ngForm" (ngSubmit)="submitBet(selectedEvent.idEvent, BetForm.team)">
+              <div class="form-group bet">
+                <label>Which TEAM are you betting on?</label><br>
+                <label>
+                  <input type="radio" name="team" [(ngModel)]="BetForm.team" value="Home" required> {{selectedEvent.strHomeTeam}}
+                </label><br>
+                 
+                <label>
+                  <input type="radio" name="team" [(ngModel)]="BetForm.team" value="Away" required> {{selectedEvent.strAwayTeam}}
+                </label>
+              </div>
+              <div class="betButton" style="display:flex; justify-content:center; margin-top:10px;">
+              <button type="submit button" class="btn btn-primary betB" [disabled]="!registerForm.valid">Submit Bet</button>
+            </div>
+            </form>
+        
           </div>
           
-          <hr>
-          <div *ngIf="!Placed[selectedEvent.idEvent]" style="text-align:center; "[@fadeOut]="!Placed[selectedEvent.idEvent] ? 'visible' : 'hidden'">
-          <button type="button" class="btn btn-danger PlaceABet" style="background-color: #e7dddd;
-          color: #6c1919;
-          font-size: x-large;
-          font-weight: 700;" (click)="InitializeBet[selectedEvent.idEvent]=!InitializeBet[selectedEvent.idEvent]">Place a Bet</button>
-        </div>
-         <div *ngIf="Placed[selectedEvent.idEvent]" style="text-align:center; " [@fadeIn]="Placed[selectedEvent.idEvent] ? 'visible' : 'hidden'" >
-          <button type="button" class="btn btn-danger" style="background-color: #e7dddd;
-          color: #6c1919;
-          font-size: x-large;
-          font-weight: 700;">Bet Placed</button>
-        </div>
-        <div *ngIf="!Placed[selectedEvent.idEvent]&& InitializeBet[selectedEvent.idEvent]" [@fadeOut]="!Placed[selectedEvent.idEvent]&&InitializeBet[selectedEvent.idEvent] ? 'visible' : 'hidden'">
-         
-          <form #registerForm="ngForm" (ngSubmit)="submitBet(selectedEvent.idEvent, BetForm.team)">
-            <div class="form-group bet">
-              <label>Which TEAM are you betting on?</label><br>
-              <label>
-                <input type="radio" name="team" [(ngModel)]="BetForm.team" value="{{selectedEvent.idHomeTeam}}" required> {{selectedEvent.strHomeTeam}}
-              </label><br>
-               
-              <label>
-                <input type="radio" name="team" [(ngModel)]="BetForm.team" value="{{selectedEvent.idAwayTeam}}" required> {{selectedEvent.strAwayTeam}}
-              </label>
-            </div>
-            <div class="betButton" style="display:flex; justify-content:center; margin-top:10px;">
-            <button type="submit button" class="btn btn-primary betB" [disabled]="!registerForm.valid">Submit Bet</button>
           </div>
-          </form>
-      
         </div>
+  
         
-        </div>
-      </div>
-
-      
-      
-
-
-
+        
+  
+  
+  
+    </div>
+  
+  
   </div>
+  
+ 
 
 
-</div>
-
-
-
-<div *ngIf="!BetsPlacedEvents&&MyBets">
+<div *ngIf="!PlayedEvents&&MyBets&&Ready">
   <h5>No Bets Yet</h5>
 </div>
 
-<div *ngIf="MyBets && BetsPlacedEvents" class="container betsAvailable" style="flex-wrap: wrap;">
 
-  
+
+<div *ngIf="MyBets" class="container betsAvailable" style="flex-wrap: wrap;background: rgb(22,121,9);
+background: linear-gradient(90deg, rgba(22,121,9,1) 35%, rgba(193,21,21,1) 57%);">
+
   
   <div *ngFor="let selectedEvent of BetsPlacedEvents" > 
    
    
-    <div *ngIf="selectedEvent" class="column card GameCard" style="width:45rem; background-image: url('{{selectedEvent.strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
+    <div *ngIf="selectedEvent" class="column card GameCard" style=" margin:20px; width:45rem; background-image: url('{{selectedEvent.events[0].strThumb}}'); background-repeat: no-repeat; background-position: center center; background-size: 45rem 28rem;  height: 28rem;">
         <div class="card-body">
           <div class="container" style="text-align: center; background-color:#fff6fff7; padding:10px;">
-            <h4 style="margin-bottom:20px;">{{selectedEvent.strLeague}}&nbsp;{{selectedEvent.strSeason}}</h4>
+            <h4 style="margin-bottom:20px;">{{selectedEvent.events[0].strLeague}}&nbsp;{{selectedEvent.events[0].strSeason}}</h4>
             <div class="row">
               <div class="col-md" style="text-align:center;">
                 <p style="margin-bottom:1px;">(Home)</p>
-                <h5>{{selectedEvent.strHomeTeam}}</h5>
+                <h5>{{selectedEvent.events[0].strHomeTeam}}</h5>
                 
               </div>
               <div class="col-sm" style="text-align:center;">
               <h3>VS</h3>
-              <p>{{selectedEvent.dateEvent}}</p>
+              <p>{{selectedEvent.events[0].dateEvent}}</p>
               </div>
               <div class="col-md" style="text-align:center;">
                 <p style="margin-bottom:1px;">(Away)</p>
-                <h5>{{selectedEvent.strAwayTeam}}</h5>
+                <h5>{{selectedEvent.events[0].strAwayTeam}}</h5>
                
               </div>
             </div>
@@ -127,12 +164,20 @@
           
           <hr>
         
-         <div style="text-align:center; " >
+         <div *ngIf="BetResult[selectedEvent.events[0].idEvent] ==null" style="text-align:center; " >
           <button type="button" class="btn btn-danger" style="background-color: #e7dddd;
           color: #6c1919;
           font-size: x-large;
           font-weight: 700;">Bet Placed</button>
         </div>
+
+        <div *ngIf="BetResult[selectedEvent.events[0].idEvent] !=null" style="text-align:center; " >
+          <button type="button" class="btn btn-danger" style="background-color: #e7dddd;
+          color: #6c1919;
+          font-size: x-large;
+          font-weight: 700;">{{ BetResult[selectedEvent.events[0].idEvent] }}</button>
+        </div>
+       
        
         
         </div>

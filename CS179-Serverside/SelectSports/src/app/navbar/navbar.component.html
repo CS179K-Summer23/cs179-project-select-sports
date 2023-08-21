@@ -11,36 +11,36 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="soccerDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Soccer</a>
         <div class="dropdown-menu" aria-labelledby="soccerDropdown">
-          <a class="dropdown-item" routerLink="/soccer/4346">MLS</a>
-          <a class="dropdown-item" routerLink="/soccer/4521">NWSL</a>
-          <a class="dropdown-item" routerLink="/soccer/4328">EPL</a>
-          <a class="dropdown-item" routerLink="/soccer/4329">ELC</a>
-          <a class="dropdown-item" routerLink="/soccer/4335">LaLiga</a>
-          <a class="dropdown-item" routerLink="/soccer/4331">Bundesliga</a>
-          <a class="dropdown-item" routerLink="/soccer/4332">Serie A</a>
-          <a class="dropdown-item" routerLink="/soccer/4334">Ligue 1</a>
+          <a class="dropdown-item" routerLink="/league/4346">MLS</a>
+          <a class="dropdown-item" routerLink="/league/4521">NWSL</a>
+          <a class="dropdown-item" routerLink="/league/4328">EPL</a>
+          <a class="dropdown-item" routerLink="/league/4329">ELC</a>
+          <a class="dropdown-item" routerLink="/league/4335">La Liga</a>
+          <a class="dropdown-item" routerLink="/league/4331">Bundesliga</a>
+          <a class="dropdown-item" routerLink="/league/4332">Serie A</a>
+          <a class="dropdown-item" routerLink="/league/4334">Ligue 1</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="footballDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Football</a>
         <div class="dropdown-menu" aria-labelledby="footballDropdown">
-          <a class="dropdown-item" routerLink="/football/4391">NFL</a>
+          <a class="dropdown-item" routerLink="/league/4391">NFL</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="baseballDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Baseball</a>
         <div class="dropdown-menu" aria-labelledby="baseballDropdown">
-          <a class="dropdown-item" routerLink="/baseball/4424">MLB</a>
+          <a class="dropdown-item" routerLink="/league/4424">MLB</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="basketballDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Basketball</a>
         <div class="dropdown-menu" aria-labelledby="basketballDropdown">
-          <a class="dropdown-item" routerLink="/basketball/4387">NBA</a>
-          <a class="dropdown-item" routerLink="/basketball/4516">WNBA</a>
+          <a class="dropdown-item" routerLink="/league/4387">NBA</a>
+          <a class="dropdown-item" routerLink="/league/4516">WNBA</a>
         </div>
       </li>
 
@@ -59,7 +59,13 @@
 
       <!-- Display "My Profile" for authenticated users -->
       <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="/favs" routerLinkActive="active">My Favorites</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/profile" routerLinkActive="active">My Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="/Bets" routerLinkActive="active">Bets</a>
       </li>
     </ul>
   </div>

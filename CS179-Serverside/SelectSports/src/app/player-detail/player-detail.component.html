@@ -1,12 +1,59 @@
 <div *ngIf="player">
-  <h1>{{ player.strPlayer }}</h1>
-  <img *ngIf="player.strCutout" [src]="player.strCutout" alt="Player Image" />
 
-  <!-- Display additional player information -->
-  <p><strong>Team:</strong> {{ player.strTeam }}</p>
-  <p><strong>Date of Birth:</strong> {{ player.dateBorn }}</p>
-  <p><strong>Nationality:</strong> {{ player.strNationality }}</p>
-  <!-- Add more properties as needed -->
+  <h1>
+    {{ player.strPlayer }}
+    <img class="player-img" *ngIf="player.strCutout" [src]="player.strCutout" alt="Player Image" />
+  </h1>
 
-  <!-- Add other sections (e.g., player stats, achievements, etc.) -->
+  <div class="player-details">
+    <p>
+      <strong>Sport:</strong> {{ player.strSport }}
+      <strong>Team:</strong> {{ player.strTeam }}
+      <strong>Position:</strong> {{ player.strPosition }}
+      <strong>Nationality:</strong> {{ player.strNationality }}
+    </p>
+  </div>
+
+<div class="schedule">
+  <h2>Player Schedule</h2>
+  <ul class="event-list">
+    <li class="event-item" *ngFor="let event of nextGames">
+      <button class="event-button" (click)="navigateToEvent(event.idEvent)">
+        {{ event.dateEvent }} <br>
+        {{ event.strHomeTeam }} <br>
+        {{ event.strAwayTeam }}
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div class="row">
+
+  <div class="col-md-4" *ngIf="honors != null">
+    <h2>Trophies</h2>
+    <ul class="player-honors">
+      <li class="player-honors" *ngFor="let honor of honors">
+        {{ honor.strSeason }} {{ honor.strHonour }} with {{ honor.strTeam }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-4" *ngIf="teams != null">
+    <h2>Past Teams</h2>
+    <ul class="past-teams">
+      <li class="past-team" *ngFor="let team of teams">
+        {{ team.strFormerTeam }} from {{ team.strJoined }} - {{ team.strDeparted }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-3" *ngIf="milestones != null">
+    <h2>Milestones</h2>
+    <ul class="player-milestones">
+      <li class="player-milestones" *ngFor="let milestone of milestones">
+        {{ milestone.dateMilestone }} {{ milestone.strMilestone }} with {{ milestone.strTeam }}
+      </li>
+    </ul>
+  </div>
+
 </div>

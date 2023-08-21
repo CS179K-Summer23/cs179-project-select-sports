@@ -1,9 +1,13 @@
 <div *ngIf="team">
   <!-- Display Team Name and Badge -->
   <h1>
+    <button  *ngIf="isLoggedIn" class="favorite-button" (click)="toggleFavorite(team.idTeam)">
+      <img class="star-icon" [src]="isTeamFavorite(team.idTeam) ? 'assets/FavsIcons/unfavorite.png' : 'assets/FavsIcons/favorite.png'" alt="Toggle Favorite" />
+    </button>
     {{ team.strTeam }}
     <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
   </h1>
+  
 
   <!-- Display Team Details -->
   <div class="team-details">
@@ -23,10 +27,14 @@
         <!-- Display Upcoming Games -->
         <h2>Schedule</h2>
         <div class="upcoming-games" *ngIf="upcomingGames.length > 0">
-          <h2>Upcoming Games</h2>
+          <h2>Next 5 Games</h2>
           <ul>
             <li *ngFor="let game of upcomingGames">
-              {{ game.dateEvent }} <br> {{ game.strEvent }}
+              <button class="event-button" (click)="navigateToEvent(game.idEvent)">
+                {{ game.dateEvent }} <br>
+                {{ game.strHomeTeam }} <br>
+                {{ game.strAwayTeam }}
+              </button>
             </li>
           </ul>
         </div>
@@ -36,7 +44,21 @@
           <h2>Past 5 Games</h2>
             <ul>
               <li *ngFor="let game of pastGames">
-                {{ game.dateEvent }} <br> {{ game.strEvent }}
+                <button class="event-button" *ngIf="game.intHomeScore > game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+                  {{ game.dateEvent }} <br>
+                  <strong>{{ game.strHomeTeam }} - {{ game.intHomeScore }} </strong><br>
+                  {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+                </button>
+                <button class="event-button" *ngIf="game.intHomeScore < game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+                  {{ game.dateEvent }} <br>
+                  {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+                  <strong>{{ game.strAwayTeam }} - {{ game.intAwayScore }}</strong>
+                </button>
+                <button class="event-button" *ngIf="game.intHomeScore == game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
+                  {{ game.dateEvent }} <br>
+                  {{ game.strHomeTeam }} - {{ game.intHomeScore }} <br>
+                  {{ game.strAwayTeam }} - {{ game.intAwayScore }}
+                </button>
               </li>
             </ul>
         </div>
@@ -44,7 +66,8 @@
       <div class="col-md-7">
 
         <!-- Display Team News -->
-        <h2>News</h2>
+        <h2 *ngIf="teamNews != null">Latest News</h2>
+        <h2 *ngIf="teamNews == null">No News For Now!</h2>
         <div class="news-item" *ngFor="let newsItem of teamNews">
           <h3>{{ newsItem.title }}</h3>
           <p>{{ newsItem.description }}</p>
