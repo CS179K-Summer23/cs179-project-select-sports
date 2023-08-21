@@ -10,7 +10,7 @@ import { AuthService } from '../Services/auth.service';
 export class DailyLoginComponent implements OnInit {
   userForm = { email: '', points: 0, dailyAccessTime: 0};
   Counter: number = 0;
-  maxC: number = 1;
+  maxC: number = 1000;
 
   constructor(private auth:AuthService, private router: Router) { }
 
@@ -71,10 +71,84 @@ export class DailyLoginComponent implements OnInit {
                 newrolling3.style.display = 'inline';
               }
               setTimeout(() => {
-                const randomPoints = Math.floor(Math.random() * 141) + 10;
-                this.userForm.points += randomPoints;
+                var PointsToAdd = 0;
+                if(randomNumber1 == randomNumber2 && randomNumber2 == randomNumber3){
+                  PointsToAdd = 7777;
+                }else if (randomNumber1 == randomNumber2 || randomNumber1 == randomNumber3 || randomNumber2 == randomNumber3){
+                  PointsToAdd = 2666;
+                }else{
+                  PointsToAdd = 188;
+                }
+                this.userForm.points += PointsToAdd;
                 this.Counter++;
-                alert("You got " + randomPoints + " points");
+                alert("Congratulations!! You got " + PointsToAdd + " points");
+                if(newrolling1 && newrolling2 && newrolling3){
+                  newrolling1.style.display = 'none';
+                  reelImage1.style.display = 'inline';
+                  newrolling2.style.display = 'none';
+                  reelImage2.style.display = 'inline';
+                  newrolling3.style.display = 'none';
+                  reelImage3.style.display = 'inline';
+                }
+              }, 800);
+            }, 800);
+          }, 800);    
+        }, 4500);
+      }      
+    }else {
+      alert('You have reached daily points limit.');
+    }
+  }
+
+  cheat() {
+    if (this.Counter < this.maxC) {
+      const rollingReelImage1 = document.getElementById('rolling_reel-image-1');
+      const reelImage1 = document.getElementById('reel-image-1');
+      const rollingReelImage2 = document.getElementById('rolling_reel-image-2');
+      const reelImage2 = document.getElementById('reel-image-2');
+      const rollingReelImage3 = document.getElementById('rolling_reel-image-3');
+      const reelImage3 = document.getElementById('reel-image-3');
+
+      if (rollingReelImage1 && reelImage1 && rollingReelImage2 && reelImage2 && rollingReelImage3 && reelImage3) {
+        rollingReelImage1.style.display = 'inline';
+        reelImage1.style.display = 'none';
+        rollingReelImage2.style.display = 'inline';
+        reelImage2.style.display = 'none';
+        rollingReelImage3.style.display = 'inline';
+        reelImage3.style.display = 'none';
+        setTimeout(() => {
+          const randomNumber1 = Math.floor(Math.random() * 9) + 1;
+          const newrolling1 = document.getElementById('rolling_reel-image-1'+randomNumber1);        
+          if(newrolling1){
+            rollingReelImage1.style.display = 'none';
+            newrolling1.style.display = 'inline';
+          }
+          setTimeout(() => {
+            const randomNumber2 = randomNumber1;
+            const newrolling2 = document.getElementById('rolling_reel-image-2'+randomNumber2);
+            if(newrolling2){
+              rollingReelImage2.style.display = 'none';
+              newrolling2.style.display = 'inline';
+            }
+            setTimeout(() => {
+              const randomNumber3 = randomNumber1;
+              const newrolling3 = document.getElementById('rolling_reel-image-3'+randomNumber3);
+              if(newrolling3){
+                rollingReelImage3.style.display = 'none';
+                newrolling3.style.display = 'inline';
+              }
+              setTimeout(() => {
+                var PointsToAdd = 0;
+                if(randomNumber1 == randomNumber2 && randomNumber2 == randomNumber3){
+                  PointsToAdd = 7777;
+                }else if (randomNumber1 == randomNumber2 || randomNumber1 == randomNumber3 || randomNumber2 == randomNumber3){
+                  PointsToAdd = 2666;
+                }else{
+                  PointsToAdd = 188;
+                }
+                this.userForm.points += PointsToAdd;
+                this.Counter++;
+                alert("Congratulations!! You got " + PointsToAdd + " points");
                 if(newrolling1 && newrolling2 && newrolling3){
                   newrolling1.style.display = 'none';
                   reelImage1.style.display = 'inline';
