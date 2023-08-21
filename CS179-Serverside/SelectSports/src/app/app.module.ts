@@ -23,7 +23,12 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { BetsComponent } from './bets/bets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
+
 import { PasswordResetComponent } from './password-reset/password-reset.component';
+
+
+import { UserFavsComponent } from './user-favs/user-favs.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 
 
@@ -44,7 +49,12 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
     LeagueDetailComponent,
     PlayerDetailComponent,
     BetsComponent,
+
     PasswordResetComponent,
+
+    UserFavsComponent,
+    EventDetailComponent,
+
   ],
   imports: [
     BrowserModule,

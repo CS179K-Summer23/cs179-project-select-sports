@@ -54,6 +54,7 @@ export class BetsComponent implements OnInit{
 
   }
   ngOnInit(): void {
+  
 
     this.auth.profile().subscribe(
       (res) => {
@@ -62,9 +63,14 @@ export class BetsComponent implements OnInit{
           this.points = this.currentUser.points;
           console.log("User Authenticated")
           this.CurrentBets();
+
+         
+
           this.BetsEvents();
         
           this.Ready=true;
+           
+
           
          
         } 
@@ -134,7 +140,9 @@ BetsEvents(){
 return true;
 }
   BetsAvailable(){
+
       this.BetAvailable = true; 
+    
 
   }
   fetchEventsbyDate(){
@@ -188,6 +196,7 @@ return true;
   
   }
   CurrentBets(){
+
     
     this.auth.getBets(this.currentUser.email).subscribe(
       (res) => {
@@ -370,3 +379,4 @@ if(this.BetsEvents()){
   }
 
 }
+

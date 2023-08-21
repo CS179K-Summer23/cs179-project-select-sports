@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { SignUpComponent } from './sign-up/sign-up.component'
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserFavsComponent } from './user-favs/user-favs.component';
 import { HomepageComponent } from './homepage/homepage.component'; // Import the homepage component
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { DailyLoginComponent } from './daily-login/daily-login.component';
 import { TeamDetailComponent } from './team-detail/team-detail.component';
 import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { LeagueDetailComponent } from './league-detail/league-detail.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BetsComponent } from './bets/bets.component';
 import { AuthGuard } from './auth/auth-guard.service';
@@ -22,15 +24,22 @@ const routes: Routes = [
   {path:'register', component:SignUpComponent},
   {path:'DailyLogin', component:DailyLoginComponent},
   {path:'profile', component:UserProfileComponent,canActivate:[AuthGuard]},
+  {path:'profile', component:UserProfileComponent,canActivate:[AuthGuard]},
+  {path:'favs', component:UserFavsComponent,canActivate:[AuthGuard]},
   {path:'profileEdit', component:UserProfileEditComponent,canActivate:[AuthGuard]},
   {path:'Bets', component:BetsComponent, canActivate:[AuthGuard]},
   { path: 'team/:id', component:  TeamDetailComponent},
   { path: 'player/:id', component:  PlayerDetailComponent},
+
   { path: 'soccer/:id', component: LeagueDetailComponent},
   { path: 'football/:id', component: LeagueDetailComponent},
   { path: 'baseball/:id', component: LeagueDetailComponent},
   { path: 'basketball/:id', component: LeagueDetailComponent},
   { path: 'password-reset/:token', component: PasswordResetComponent},
+
+  { path: 'league/:id', component: LeagueDetailComponent},
+  { path: 'event/:id', component: EventDetailComponent}
+
 ];
 
 @NgModule({

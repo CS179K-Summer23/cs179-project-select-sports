@@ -14,15 +14,46 @@
     </p>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <h2>Player Schedule</h2>
-      </div>
+<div class="schedule">
+  <h2>Player Schedule</h2>
+  <ul class="event-list">
+    <li class="event-item" *ngFor="let event of nextGames">
+      <button class="event-button" (click)="navigateToEvent(event.idEvent)">
+        {{ event.dateEvent }} <br>
+        {{ event.strHomeTeam }} <br>
+        {{ event.strAwayTeam }}
+      </button>
+    </li>
+  </ul>
+</div>
 
-      <div class="col-md-7">
-        <h2>Player Stats</h2>
-      </div>
-    </div>
+<div class="row">
+
+  <div class="col-md-4" *ngIf="honors != null">
+    <h2>Trophies</h2>
+    <ul class="player-honors">
+      <li class="player-honors" *ngFor="let honor of honors">
+        {{ honor.strSeason }} {{ honor.strHonour }} with {{ honor.strTeam }}
+      </li>
+    </ul>
   </div>
+
+  <div class="col-md-4" *ngIf="teams != null">
+    <h2>Past Teams</h2>
+    <ul class="past-teams">
+      <li class="past-team" *ngFor="let team of teams">
+        {{ team.strFormerTeam }} from {{ team.strJoined }} - {{ team.strDeparted }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-md-3" *ngIf="milestones != null">
+    <h2>Milestones</h2>
+    <ul class="player-milestones">
+      <li class="player-milestones" *ngFor="let milestone of milestones">
+        {{ milestone.dateMilestone }} {{ milestone.strMilestone }} with {{ milestone.strTeam }}
+      </li>
+    </ul>
+  </div>
+
 </div>
