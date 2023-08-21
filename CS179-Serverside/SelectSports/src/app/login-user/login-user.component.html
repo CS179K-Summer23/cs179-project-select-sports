@@ -2,6 +2,7 @@
 <div class="signUp container">
     <div class="card" style="width: 35rem;">
       <div class="card-body" style="background-color: #b6bce180">
+        <div *ngIf="!resetRequest">
         <h5 class="card-title">Login</h5>
         <form #registerForm="ngForm" (ngSubmit)="Login()">
   
@@ -25,8 +26,124 @@
             </div>
           </div>
           <br />
-          <button style="background-color:#ec5050"class="btn btn-primary">Sign In</button>
+          <button style="background-color:#ec5050"class="btn btn-primary">Sign In</button>&nbsp;
+          <p class="text-muted" style="display:inline"><a style="display:inline; color:#ec5050" (click)="resetRequest=true" class=" " routerLink=" " routerLinkActive="active">Reset Password</a></p>
         </form>
+
+        </div>
+
+
+        <div *ngIf="resetRequest && !codeEmailed" class="reset">
+       
+          <form #registerForm="ngForm">
+  
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" name="email" [(ngModel)]="ResetForm.email" placeholder="Enter your Email">
+    
+            
+            </div>
+            <br />
+            
+            <button class="btn btn-primary" style="background-color:#ec5050" (click)="EmailCode()">Send me code</button>&nbsp;&nbsp;
+            
+           
+            <button class="btn btn-primary" style="background-color:#ec5050" (click)="back()">Go Back</button>
+            
+          </form>
+  
+  
+        </div>
+        <div *ngIf="codeEmailed&&!authorized" class="reset">
+         
+          <form #registerForm="ngForm" (ngSubmit)="verifyUserCode()">
+  
+            <div class="form-group">
+              <label>Verification Code</label>
+              <input type="text" class="form-control" name="email" [(ngModel)]="codeEntered" placeholder="Enter your code" minlength="36">
+    
+            
+            </div>
+            <br />
+            
+            <button class="btn btn-primary" style="background-color:#ec5050">Verify Code</button>
+            
+            
+          </form>
+  
+  
+        </div>
+        <div *ngIf="authorized&&!PasswordReset" class="reset">
+         
+          <form #registerForm="ngForm" (ngSubmit)="resetPassword()">
+  
+            
+              <div class="form-group">
+            
+      
+                <label>New Password(8-characters)</label>
+                <div style="position: relative;">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="password"
+                    [(ngModel)]="ResetForm.password"
+                    placeholder="Enter your Password"
+                    required
+                    minlength="8"
+                  />
+                </div>
+      
+                <label>Confirm Password</label>
+                <div class="password-input">
+                  <input
+                    type="{{ showPassword ? 'text' : 'password' }}"
+                    class="form-control"
+                    name="confirmPassword"
+                    [(ngModel)]="ResetForm.confirmPassword"
+                    placeholder="Confirm your Password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    style="cursor: pointer;
+                    background: none;
+                    border: none;
+                    font-size: 14px;
+                    
+                    color: #ec5050;
+                    margin-bottom:20px;"
+                    (click)="togglePasswordConfirm('confirmPassword')"
+                  >
+                    {{ showPassword ? 'Hide' : 'Show' }} Password
+                  </button>
+                </div>
+              
+              </div>
+              <br />
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="!registerForm.valid || ResetForm.password !==ResetForm.confirmPassword"
+               style="background-color:#ec5050" 
+              >
+                Reset Password
+              </button>
+           
+            &nbsp;&nbsp;
+              <button class="btn btn-primary" style="background-color:#ec5050" (click)="back()">Go Back</button>
+            
+            
+          </form>
+  
+  
+        </div>
+  
+        <div *ngIf="PasswordReset"> 
+            <h4>Your Password has been reset successfully!</h4>
+            <button class="btn btn-primary" style="background-color:#ec5050" (click)="back()">Go Back</button>
+            
+        </div>
       </div>
     </div>
   </div>
