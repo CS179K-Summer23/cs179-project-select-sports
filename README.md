@@ -25,7 +25,7 @@ Team members have some experience using React, but some time still needs to be i
 - (3) Chance-based points earning
 - (3) Daily login games
 - (3) Follow teams for user-specific pages
-- (2) Google Authenticate implementation to secure accounts
+- (2) Email Verification implementation to secure accounts for passwordReset
 - (2) Points Leaderboard on the homepage
 - (1) Sort through sports and user data
 
