@@ -13,6 +13,48 @@ const jwt = require('jsonwebtoken');
 const secretkey = "SportsSelectSecret";
 const VerifyAuth = require('../middleware/VerifyAuth');
 
+
+
+router.post('/ValidatingEmail', (req, res) => {
+   
+  UserData.findOne({ email: req.body.email }).exec()
+    .then((user) => {
+      if (!user) {
+        return res.json({ success: false, message: "Invalid Email" });
+      } else {
+          return res.json({ success: true, message: "Email Verified" });
+      }
+    })
+    .catch(err => {
+      res.json({ success: false, message: "Authentication Failed" });
+    });
+});
+
+router.post('/reset', (req, res) => {
+
+  bcrypt.hash(req.body.password, 10, (err, hash) => {
+      if (err) {
+          return res.json({ success: false, message: "Hashing Failed" });}
+      else{
+          
+  console.log(hash);
+  UserData.findOneAndUpdate({email : req.body.email }, { password:hash }, { new: true })
+      .then(successUpdate => {
+          if (!successUpdate) {
+              return res.json({ success: false, message: "User not found" });
+          }
+          return res.json({ success: true, message: "Password Reset Successful", data: successUpdate });
+      })
+      .catch(err => {
+          console.error(err);
+          return res.json({ success: false, message: "Error updating user details" });
+      });
+  }
+});
+});
+
+
+
 router.post('/register', (req, res) => {
     bcrypt.hash(req.body.password, 10, (err, hash) => {
         if (err) {

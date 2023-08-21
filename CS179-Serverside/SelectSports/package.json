@@ -32,6 +32,7 @@
     "tslib": "^2.3.0",
     "url": "^0.11.1",
     "util": "^0.12.5",
+    "uuidv4": "^6.2.13",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {

@@ -152,6 +152,15 @@ export class AuthService {
     const data = { userEmail, teamId };
     return this.http.post('http://localhost:4000/auth/removeTeamFromFavorites', data);
   }
+  VerifyEmail(email:any):Observable<any>{
+    const data = { email: email };
+    return this.http.post('http://localhost:4000/auth/ValidatingEmail', data)
+  }
+  
+  reset(data:any):Observable<any>{
+    return this.http.post('http://localhost:4000/auth/reset', data);
+  }
+  
 
 }
 
