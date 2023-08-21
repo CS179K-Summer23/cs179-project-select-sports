@@ -1,25 +1,18 @@
 
-
-
-
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-
-const UserTeamsSchema = new Schema({
-
-        //EventID: {type: String},
-        TeamID: Schema.Types.Mixed,
-       
-       });
-
-const TeamSchema = new Schema({
-   email:{type: String},
-   UserTeams: [UserTeamsSchema], 
-  
+const teamSchema = new mongoose.Schema({
+  email: String,
+  teamIDs: [String]
 });
 
-const Teams = mongoose.model('Teams', TeamSchema);
+const Team = mongoose.model('Team', teamSchema);
 
-module.exports = Teams;
+module.exports = Team;
+
+
+
+
+
+
 

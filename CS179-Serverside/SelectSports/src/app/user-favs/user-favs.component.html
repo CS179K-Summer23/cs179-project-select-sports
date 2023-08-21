@@ -1,0 +1,38 @@
+<div class="events" *ngIf="teamSchedules">
+  <h2>Upcoming Events</h2>
+  <ul class="event-list">
+    <li class="event-item" *ngFor="let event of teamSchedules">
+      <button class="event-button" (click)="navigateToEvent(event.idEvent)">
+        {{ event.dateEvent }} <br>
+        {{ event.strHomeTeam }} <br>
+        {{ event.strAwayTeam }}
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div class="events" *ngIf="pastGames">
+  <h2>Latest Events</h2>
+  <ul class="event-list">
+    <li class="event-item" *ngFor="let event of pastGames">
+      <button class="event-button" (click)="navigateToEvent(event.idEvent)">
+        {{ event.dateEvent }} <br>
+        {{ event.strHomeTeam }} <br>
+        {{ event.strAwayTeam }}
+      </button>
+    </li>
+  </ul>
+</div>
+
+
+  <div class="row" *ngIf="teamDetails != null">
+    <ul class="team-list">
+      <h2>My Favorite Teams</h2>
+      <li class="team-item" *ngFor="let team of teamDetails">
+        <button class="team-button" (click)="navigateToTeam(team.idTeam)">
+          {{ team.strTeam }}
+        <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+        </button>
+      </li>
+    </ul>
+  </div>

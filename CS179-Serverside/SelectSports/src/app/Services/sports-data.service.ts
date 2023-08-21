@@ -39,6 +39,16 @@ export class SportsDataService {
     return this.http.get(url);
   }
 
+  getNextFifteen(leagueId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/eventsnextleague.php?id=${leagueId}`;
+    return this.http.get(url);
+  }
+
+  getLASTFifteen(leagueId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/eventspastleague.php?id=${leagueId}`;
+    return this.http.get(url);
+  }
+
   getPastGames(teamId: string): Observable<any> {
     const url = `${this.baseUrl}${this.apiKey}/eventslast.php?id=${teamId}`;
     return this.http.get(url);
@@ -56,6 +66,61 @@ export class SportsDataService {
   
   getPlayerDetails(playerId: string): Observable<any> {
     const url = `${this.baseUrl}${this.apiKey}/lookupplayer.php?id=${playerId}`;
+    return this.http.get(url);
+  }
+
+  getLeagueTable(leagueId: string, leagueSeason: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuptable.php?l=${leagueId}&s=${leagueSeason}`;
+    return this.http.get(url);
+  }
+
+  getPlayerHonors(playerId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuphonours.php?id=${playerId}`;
+    return this.http.get(url);
+  }
+
+  getPlayerMilestones(playerId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupmilestones.php?id=${playerId}`;
+    return this.http.get(url);
+  }
+
+  getPlayerTeams(playerId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupformerteams.php?id=${playerId}`;
+    return this.http.get(url);
+  }
+
+  getPlayerContracts(playerId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupcontracts.php?id=${playerId}`;
+    return this.http.get(url);
+  }
+
+  getLeagueTeams(leagueName: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/search_all_teams.php?l=${leagueName}`;
+    return this.http.get(url);
+  }
+
+  getEventDetails(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupevent.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventStatistics(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookupeventstats.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventLineup(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuplineup.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventTimeline(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuptimeline.php?id=${eventId}`;
+    return this.http.get(url);
+  }
+
+  getEventTV(eventId: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/lookuptv.php?id=${eventId}`;
     return this.http.get(url);
   }
 }
