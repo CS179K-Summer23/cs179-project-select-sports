@@ -129,6 +129,11 @@ BetsEvents(){
          }
          else{
           this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Lost the BET! on Away Team";
+          this.points = this.points-50;
+          this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
+           
+          });
+        
          }
       }
 

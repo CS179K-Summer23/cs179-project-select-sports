@@ -31,7 +31,9 @@ reset=false;
 
   constructor(private auth: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   
+  }
 
   Login() {
     this.auth.login(this.userForm).subscribe(
