@@ -67,11 +67,21 @@ router.post('/register', (req, res) => {
                 points: req.body.points,
             });
 
-            user.save()
-                .then(() => {
-                    res.json({ success: true, message: "Account Created" });
-                })
-                .catch((err) => {
+            const bets = new Bets({
+              email: req.body.email,
+            });
+
+            const teams = new Teams({
+              email: req.body.email,
+            });
+
+          user.save()
+          teams.save()
+          bets.save()
+            .then(() => {
+              res.json({ success: true, message: "Account Created" });
+            })
+              .catch((err) => {
                     if (err.code === 11000) {
                         return res.json({ success: false, message: "Email Already Exists!" });
                     }
