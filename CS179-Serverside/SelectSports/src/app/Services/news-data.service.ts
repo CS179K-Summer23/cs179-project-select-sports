@@ -6,13 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NewsDataService {
-
-  //private apiKey = '601538b3642945e69c7e30cf879cbdd4';
-//  private apiKey = 'bc21df2ca0dc423ea4d0b4d44639e062';
-
-  // We have 2 keys, if one gets used up switch to the other
- private apiKey = '601538b3642945e69c7e30cf879cbdd4';
-  //private  apiKey = 'bc21df2ca0dc423ea4d0b4d44639e062';
+// We have 2 keys, if one gets used up switch to the other
+//private apiKey = '601538b3642945e69c7e30cf879cbdd4';
+private  apiKey = 'bc21df2ca0dc423ea4d0b4d44639e062';
 
   private baseUrl = 'https://newsapi.org/v2/';
 
