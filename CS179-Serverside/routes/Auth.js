@@ -1,20 +1,11 @@
 const router = require('express').Router();
-
-
 const UserData = require("../models/UserData");
 const Bets = require("../models/Bets");
-
 const Teams = require("../models/teams");
-
-
-
-
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretkey = "SportsSelectSecret";
 const VerifyAuth = require('../middleware/VerifyAuth');
-
 
 
 router.post('/ValidatingEmail', (req, res) => {
@@ -54,8 +45,6 @@ router.post('/reset', (req, res) => {
   }
 });
 });
-
-
 
 router.post('/register', (req, res) => {
     bcrypt.hash(req.body.password, 10, (err, hash) => {
@@ -117,7 +106,6 @@ router.post('/SignIn', (req, res) => {
       });
   });
   
-
 router.get('/profile', VerifyAuth, (req, res) => {
   const userId = req.userData.userId;
   UserData.findById(userId).exec()
@@ -160,7 +148,6 @@ router.post('/DailyLogin', (req, res) => {
       return res.json({ success: false, message: "Error updating profile" });
     });
 });
-
 router.post('/myBets', async (req,res)=>{
    console.log('I was sent here with', req);
   const { email, EventID, BettingTeamID } = req.body;
@@ -185,8 +172,7 @@ router.post('/myBets', async (req,res)=>{
   }
 });
 
-
-    router.get('/myBets/:email', async (req, res) => {
+router.get('/myBets/:email', async (req, res) => {
         const { email } = req.params;
       
         try {
@@ -207,8 +193,7 @@ router.post('/myBets', async (req,res)=>{
         }
       });
     
-
-      router.post('/AddPoints', (req, res) => {
+router.post('/AddPoints', (req, res) => {
         const { email, points} = req.body;
       
         UserData.findOneAndUpdate({ email: email }, { points: points}, { new: true })
@@ -224,7 +209,7 @@ router.post('/myBets', async (req,res)=>{
           });
       });
   
-  router.get('/getFavTeams/:email', (req, res) => {
+router.get('/getFavTeams/:email', (req, res) => {
     const userEmail = req.params.email;
         
     Teams.findOne({ email: userEmail })
@@ -241,7 +226,7 @@ router.post('/myBets', async (req,res)=>{
   });
 
 
-  router.post('/addTeamToFavorites', async (req, res) => {
+router.post('/addTeamToFavorites', async (req, res) => {
     const { userEmail, teamId } = req.body;
   
     try {
@@ -263,7 +248,7 @@ router.post('/myBets', async (req,res)=>{
     }
   });
 
-  router.post('/removeTeamFromFavorites', async (req, res) => {
+router.post('/removeTeamFromFavorites', async (req, res) => {
     const { userEmail, teamId } = req.body;
   
     try {
@@ -285,13 +270,9 @@ router.post('/myBets', async (req,res)=>{
     }
   });
   
-  
-
-
      
-      router.post('/forgot-password', (req, res) => {
+router.post('/forgot-password', (req, res) => {
         const { email } = req.body;
-      
         UserData.findOne({ email })
           .then(user => {
             if (!user) {
@@ -307,7 +288,6 @@ router.post('/myBets', async (req,res)=>{
               text: `Click on the following link to reset your password: ${resetLink}`
             };
 
-
             console.log('Password reset link:', resetLink);
       
             res.json({ success: true, message: 'Password reset link sent to your email' });
@@ -319,7 +299,6 @@ router.post('/myBets', async (req,res)=>{
 
 router.post('/reset-password', (req, res) => {
   const { token, newPassword } = req.body;
-
   try {
       const decodedToken = jwt.verify(token, secretKey);
 
@@ -335,5 +314,6 @@ router.post('/reset-password', (req, res) => {
       res.json({ success: false, message: 'Invalid or expired token' });
   }
 });
+
 
 module.exports = router;
