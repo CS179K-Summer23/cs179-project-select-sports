@@ -21,7 +21,6 @@
   
   /* Highlight active link */
   .navbar a.active {
-    background-color: #e33131;
     border-radius: 5px;
     color: white;
     
@@ -91,4 +90,11 @@
     display: block;
 }
 
+.profile-picture {
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px; 
+}
 

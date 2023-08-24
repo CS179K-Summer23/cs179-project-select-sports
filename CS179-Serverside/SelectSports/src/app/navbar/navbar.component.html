@@ -67,11 +67,13 @@
       </li>
 
       <li class="nav-item" *ngIf="isLoggedIn()">
-        <a class="nav-link" routerLink="/profile" routerLinkActive="active">My Profile</a>
+        <a class="nav-link" routerLink="/Bets" routerLinkActive="active">Bets</a>
       </li>
 
       <li class="nav-item" *ngIf="isLoggedIn()">
-        <a class="nav-link" routerLink="/Bets" routerLinkActive="active">Bets</a>
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">
+          <img class="profile-picture" [src]="'assets/ProfilePics/profilePic' + data.profileID + '.png'" alt="Profile Picture">
+        </a>
       </li>
 
     </ul>
