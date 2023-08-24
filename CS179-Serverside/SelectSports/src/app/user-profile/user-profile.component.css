@@ -1,22 +1,20 @@
-.container {
+.user-profile-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Limit the container width */
+  margin: 0 auto; /* Center the container */
+  margin-top: 20px;
+}
+
+body {
+  background-color: #f2f2f2;
+  margin: 0;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100vh;
- /* border: 50px solid #ccc; */
-
-  border: 50px solid #ef6869;
-    
-    background-color: #c4f0cc;
-}
-
-.left-side {
-  margin-right: 1rem;
-}
-
-.right-side {
-  margin-left: 1rem;
+  min-height: 100vh;
 }
 
 .profile-picture {
@@ -32,68 +30,71 @@
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 4px;
+  background-color: #ffffff;
 }
 
 .edit-button,
 .logout-button,
 .daily-login-button {
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #e33131;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
-.edit-button {
-  position:absolute;
-  bottom: 100px;
-  left: 1200px;
-}
-
-.logout-button {
-  position: absolute;
-  bottom: 30px;
-  left: 1200px;
-}
-
-.daily-login-button{
-  position: absolute;
-  bottom: 170px;
-  left: 1200px;
+.edit-button:hover,
+.logout-button:hover,
+.daily-login-button:hover {
+  background-color: #c12626;
+  transform: scale(1.05);
 }
 
 .top-bar {
-  position: absolute;
-  top: 170px;
-  right: 230px;
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
 .user-points {
   display: flex;
   align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
 }
 
 .user-points img {
   width: 36px;
   height: 36px;
-  margin-right: 5px;
-}
-
-.user-points span {
-  font-size: 24px; 
-  font-weight: bold;
-  color: #00aa00; 
+  margin-right: 10px;
 }
 
 .remaining-time-message {
-  margin-top: 60px; 
-  position: absolute;
-  top: 170px;
-  right: 190px;
+  margin-left: auto;
+  font-size: 14px;
+}
+
+.user-data {
+  margin-top: 20px;
+}
+
+.user-data p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.welcome-user {
+  margin-left: 15%;
 }

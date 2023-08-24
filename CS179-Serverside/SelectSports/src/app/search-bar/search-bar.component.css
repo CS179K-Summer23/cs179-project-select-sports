@@ -47,6 +47,12 @@ ul {
   margin-right: 10px;
 }
 
+.player-img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
 .result-box:last-child {
   border-bottom: none;
 }

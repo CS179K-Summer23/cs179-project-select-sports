@@ -5,7 +5,7 @@
     <img class="league-badge" *ngIf="leagueDetails.strBadge" [src]="leagueDetails.strBadge" alt="League Badge"/>
   </h1>
 
-  <div class="team-details">
+  <div class="league-details">
     <p>
       <strong>Sport:</strong> {{ leagueDetails.strSport }}
       <strong>Country:</strong> {{ leagueDetails.strCountry }}
@@ -13,8 +13,8 @@
     </p>
   </div>
 
-    <div class="row">
-      <div class="col-md-2" *ngIf="leagueNextFifteen != null">
+  <div class="row">
+    <div class="col-md-2" *ngIf="leagueNextFifteen != null">
 
         <!-- Display League Schedule -->
         <h2>Schedule</h2>
@@ -76,7 +76,6 @@
             </li>
           </ul>
         </div>
-
 
       </div>
 

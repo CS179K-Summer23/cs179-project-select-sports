@@ -7,7 +7,7 @@ body {
   background-color: #f2f2f2;
 }
 
-/* Heading */
+
 .heading {
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -27,7 +27,7 @@ body {
     margin-right: 10px;
 }
 
-.team-details {
+.league-details {
     text-align: center;
 }
 

@@ -8,9 +8,17 @@
     placeholder="Search..."
   />
   <div class="search-results" *ngIf="showResults && searchQuery">
-    <div class="result-box" *ngFor="let result of searchResults" (click)="onResultClick(result.idTeam)">
-      <img class="team-badge" *ngIf="result.strTeamBadge" [src]="result.strTeamBadge" alt="Team Badge"/>
-      {{ result.strTeam }}
+    <!-- Display Team Results -->
+    <div class="result-box" *ngFor="let teamResult of teamResults" (click)="onResultClick(teamResult.idTeam)">
+      <img class="team-badge" *ngIf="teamResult.strTeamBadge" [src]="teamResult.strTeamBadge" alt="Team Badge"/>
+      {{ teamResult.strTeam }}
+    </div>
+  
+    <!-- Display Player Results -->
+    <div class="result-box" *ngFor="let playerResult of playerResults" (click)="onPlayerResultClick(playerResult.idPlayer)">
+      <img class="player-img" *ngIf="playerResult.strCutout" [src]="playerResult.strCutout" alt="Cut Out"/>
+      {{ playerResult.strPlayer }}
     </div>
   </div>
+  
 </div>

@@ -1,9 +1,9 @@
-<div *ngIf="eventDetails">
+<div class="event-page" *ngIf="eventDetails">
     
-    <h1 *ngIf="eventDetails.strStatus == 'Match Finished' ">
+    <h1 class="heading" *ngIf="eventDetails.strStatus == 'Match Finished' ">
       {{ eventDetails.strAwayTeam }} {{ eventDetails.intAwayScore }} - {{ eventDetails.intHomeScore}} {{ eventDetails.strHomeTeam}}
     </h1>
-    <h1 *ngIf="eventDetails.strStatus != 'Match Finished' ">
+    <h1 class="heading" *ngIf="eventDetails.strStatus != 'Match Finished' ">
         {{ eventDetails.strEventAlternate }}
     </h1>
     <div class="event-details">
@@ -14,16 +14,15 @@
         <strong *ngIf="eventDetails.strTimeLocal">Time:</strong> {{ eventDetails.strTimeLocal }}
       </p>
     </div>
-</div>
 
-<div class="row">
-    <div class="col-md-2" *ngIf="stats">
+
+    <div class="row">
+    <div class="col-md-4" *ngIf="stats">
         <h2>Stats</h2>
         <ul class="stats-list">
             <li class="stats-item" *ngFor="let stat of stats">
-                {{stat.strStat}}: <br>
-                {{ eventDetails.strAwayTeam }} - {{ stat.intAway }} <br>
-                {{ eventDetails.strHomeTeam }} - {{ stat.intHome }}
+                <strong>{{stat.strStat}}</strong> <br>
+                {{ eventDetails.strAwayTeam }} - {{ stat.intAway }} | {{ stat.intHome }} - {{ eventDetails.strHomeTeam }}
             </li>
         </ul>
 
@@ -33,7 +32,7 @@
         <h2>Timeline</h2>
         <ul class="timeline-list">
             <li class="timeline-item" *ngFor="let event of timeline">
-                {{ event.intTime }}' - {{ event.strTimelineDetail }} for {{ event.strPlayer }}
+                <strong>{{ event.strTimelineDetail }}</strong> - {{ event.intTime }}'  for <strong>{{ event.strPlayer }}</strong>
             </li>
         </ul>
 
@@ -47,6 +46,7 @@
         </ul>
 
     </div>
-</div>
-<div class="tv" *ngIf="tv">
+    </div>
+    <div class="tv" *ngIf="tv">
+    </div>
 </div>

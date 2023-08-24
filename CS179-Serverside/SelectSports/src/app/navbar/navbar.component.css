@@ -16,11 +16,21 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    border-radius: 5px;
   }
   
   /* Highlight active link */
   .navbar a.active {
     background-color: #e33131;
+    border-radius: 5px;
+    color: white;
+    
+  }
+
+  a:hover {
+    background: #e33131;
+    border-radius: 5px;
+    color: white;
   }
   
   /* Style for dropdown menus */
@@ -67,7 +77,7 @@
 .navbar-brand {
     margin: 20px;
     font-size: 110%;
-    color: rgb(235, 80, 80);
+    color: #e33131;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
@@ -81,7 +91,4 @@
     display: block;
 }
 
-a:hover {
-    background: #ccc;
-    border-radius: 5px;
-}
+
