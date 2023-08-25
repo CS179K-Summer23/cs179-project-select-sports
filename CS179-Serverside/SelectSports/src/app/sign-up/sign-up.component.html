@@ -26,6 +26,17 @@
             email
           />
 
+          <label>Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="userForm.username"
+            [placeholder]="getDefaultUsername(userForm.email)"
+            required
+          />
+
+
           <label>Password</label>
           <div class="password-input">
             <input

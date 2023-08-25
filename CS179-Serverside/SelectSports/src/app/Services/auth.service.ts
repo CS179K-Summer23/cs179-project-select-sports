@@ -125,6 +125,14 @@ export class AuthService {
     return this.http.post('http://localhost:4000/sendEmail', data)
   };
 
+  
+  loginByUsername(data: any): Observable<any> {
+    return this.http.post('http://localhost:4000/auth/loginByUsername', data);
+  }
+  
+  updateUsername(data: any): Observable<any> {
+    return this.http.post('http://localhost:4000/auth/updateUsername', data);
+  }
 
   forgotPassword(email: string): Observable<any> {
     const data = { email };

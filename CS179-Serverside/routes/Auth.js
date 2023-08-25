@@ -54,6 +54,7 @@ router.post('/register', (req, res) => {
             const user = new UserData({
                 name: req.body.name,
                 email: req.body.email,
+                username: req.body.username,
                 password: hash,
                 points: req.body.points,
             });
@@ -83,28 +84,30 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/SignIn', (req, res) => {
-    UserData.findOne({ email: req.body.email }).exec()
-      .then((user) => {
-        if (!user) {
-          return res.json({ success: false, message: "Invalid Email" });
-        } else {
-          bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
-            if (isMatch) {
-              const payload = {
-                userId: user._id
-              };
-              const token = jwt.sign(payload, secretkey);
-              return res.json({ success: true, token: token, message: "Successfully logged in" });
-            } else {
-              return res.json({ success: false, message: "Invalid Password" });
-            }
-          });
-        }
-      })
-      .catch(err => {
-        res.json({ success: false, message: "Login Failed" });
-      });
-  });
+  const { emailOrUsername, password } = req.body;
+
+  UserData.findOne({ $or: [{ email: emailOrUsername }, { username: emailOrUsername }] }).exec()
+    .then((user) => {
+      if (!user) {
+        return res.json({ success: false, message: "Invalid Email or Username" });
+      } else {
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+          if (isMatch) {
+            const payload = {
+              userId: user._id
+            };
+            const token = jwt.sign(payload, secretkey);
+            return res.json({ success: true, token: token, message: "Successfully logged in" });
+          } else {
+            return res.json({ success: false, message: "Invalid Password" });
+          }
+        });
+      }
+    })
+    .catch(err => {
+      res.json({ success: false, message: "Login Failed" });
+    });
+});
   
 router.get('/profile', VerifyAuth, (req, res) => {
   const userId = req.userData.userId;
@@ -118,20 +121,30 @@ router.get('/profile', VerifyAuth, (req, res) => {
 });
 
 router.post('/profileEdit', (req, res) => {
-    const { email, profileID, favorite_sport, description } = req.body;
+  const { email, profileID, favorite_sport, description, username } = req.body;
 
-    UserData.findOneAndUpdate({ email: email }, { profileID: profileID, favorite_sport: favorite_sport, description: description }, { new: true })
-        .then(updatedUser => {
-            if (!updatedUser) {
-                return res.json({ success: false, message: "User not found" });
-            }
-            return res.json({ success: true, message: "Profile updated successfully", data: updatedUser });
-        })
-        .catch(err => {
-            console.error(err);
-            return res.json({ success: false, message: "Error updating profile" });
-        });
+  UserData.findOneAndUpdate(
+      { email: email },
+      { 
+          profileID: profileID,
+          favorite_sport: favorite_sport,
+          description: description,
+          username: username 
+      },
+      { new: true }
+  )
+  .then(updatedUser => {
+      if (!updatedUser) {
+          return res.json({ success: false, message: "User not found" });
+      }
+      return res.json({ success: true, message: "Profile updated successfully", data: updatedUser });
+  })
+  .catch(err => {
+      console.error(err);
+      return res.json({ success: false, message: "Error updating profile" });
+  });
 });
+
 
 router.post('/DailyLogin', (req, res) => {
   const { email, points, dailyAccessTime} = req.body;
@@ -314,6 +327,40 @@ router.post('/reset-password', (req, res) => {
       res.json({ success: false, message: 'Invalid or expired token' });
   }
 });
+router.get('/leaderboard/highestCurrentPoints', (req, res) => {
+  console.log('Request received for highestCurrentPoints route');
+  UserData.find().sort({ points: -1 }).limit(10).exec()
+    .then(users => {
+      res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ success: false, message: 'Error fetching highest current points leaderboard data' });
+    });
+});
 
+router.get('/leaderboard/highestAllTimePoints', (req, res) => {
+  console.log('Request received for highestAllTimePoints route');
+  UserData.find().sort({ allTimeEarnedPoints: -1 }).limit(10).exec()
+    .then(users => {
+      res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ success: false, message: 'Error fetching highest all-time points leaderboard data' });
+    });
+});
+
+router.get('/leaderboard/mostLostAllTimePoints', (req, res) => {
+  console.log('Request received for mostLostAllTimePoints route');
+  UserData.find().sort({ allTimeLostPoints: -1 }).limit(10).exec()
+    .then(users => {
+      res.json(users);
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ success: false, message: 'Error fetching most lost all-time points leaderboard data' });
+    });
+});
 
 module.exports = router;

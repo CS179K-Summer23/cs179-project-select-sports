@@ -1,0 +1,9 @@
+ul.leader-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  ul.leader-list li {
+    margin-bottom: 10px;
+  }
+  

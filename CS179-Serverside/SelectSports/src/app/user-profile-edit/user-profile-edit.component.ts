@@ -14,20 +14,24 @@ import { ActivatedRoute,Router } from '@angular/router';
 })
 
 export class UserProfileEditComponent implements OnInit{
-  userForm = { email: '', profileID: '', favorite_sport: '',  description: ''};
+  userForm = { email: '', username: '', profileID: '', favorite_sport: '',  description: ''};
 
   constructor(private formBuilder:FormBuilder, private auth:AuthService, private router: Router){
 }
 
-  ngOnInit(): void {
-    const currentUser = history.state.user;
-    if (currentUser) {
-      this.userForm.email = currentUser.email;
-      this.userForm.profileID = currentUser.profileID;
-      this.userForm.favorite_sport = currentUser.favorite_sport;
-      this.userForm.description = currentUser.description;
-    }
+ngOnInit(): void {
+  const currentUser = history.state.user;
+  if (currentUser) {
+    this.userForm = {
+      email: currentUser.email,
+      profileID: currentUser.profileID,
+      favorite_sport: currentUser.favorite_sport,
+      description: currentUser.description,
+      username: currentUser.username,
+    };
   }
+}
+
 
   back() {
     this.router.navigate(['/profile']);

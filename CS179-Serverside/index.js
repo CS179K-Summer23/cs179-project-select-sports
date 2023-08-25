@@ -6,12 +6,10 @@ const express = require('express');
 const app = express();
 const port= process.env.port || 4000; 
 const auth = require('./routes/Auth.js');
-
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const nodemailer = require("nodemailer");
-
 
 mongoose
   .connect("mongodb+srv://fazma001:fazma001@cluster0.q21z1na.mongodb.net/SelectSports",{useNewUrlParser: true, useUnifiedTopology: true})

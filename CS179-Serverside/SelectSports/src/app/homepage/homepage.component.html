@@ -74,11 +74,23 @@
     </ul>
   </div>
 
+  <!-- Leaderboards section -->
   <div class="col-md-3 marg">
-    <h2>Leaderboards</h2>
-    <ul class="leader-list">
-      <li class="news-item">
-      </li>
-    </ul>
+    <h3>Leaderboards</h3>
+    <button
+      *ngFor="let type of leaderboardTypes; let i = index"
+      (click)="switchLeaderboard(i)"
+      [class.active]="currentLeaderboardIndex === i"
+    >
+      {{ type }}
+    </button>
+  </div>
+  
+  <div class="col-md-3 marg">
+    <app-leaderboard
+      *ngIf="currentLeaderboardData.length > 0"
+      [leaderboardType]="leaderboardTypes[currentLeaderboardIndex]"
+      [users]="currentLeaderboardData"
+    ></app-leaderboard>
   </div>
 </div>
