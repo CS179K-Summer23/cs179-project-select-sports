@@ -1,11 +1,11 @@
 <!-- league-detail.component.html -->
-<div *ngIf="leagueDetails">
-  <h1>
+<div class="league-page" *ngIf="leagueDetails">
+  <h1 class="heading">
     {{ leagueDetails.strLeague }}
     <img class="league-badge" *ngIf="leagueDetails.strBadge" [src]="leagueDetails.strBadge" alt="League Badge"/>
   </h1>
 
-  <div class="team-details">
+  <div class="league-details">
     <p>
       <strong>Sport:</strong> {{ leagueDetails.strSport }}
       <strong>Country:</strong> {{ leagueDetails.strCountry }}
@@ -13,16 +13,14 @@
     </p>
   </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3" *ngIf="leagueNextFifteen != null">
+  <div class="row">
+    <div class="col-md-2" *ngIf="leagueNextFifteen != null">
 
         <!-- Display League Schedule -->
         <h2>Schedule</h2>
-        <div class="upcoming-events">
-          <h2>Upcoming Events</h2>
-          <ul>
-            <li *ngFor="let game of leagueNextFifteen">
+        <div *ngIf="leagueNextFifteen">
+          <ul class="event-list">
+            <li class="event-item" *ngFor="let game of leagueNextFifteen">
               <button class="event-button" (click)="navigateToEvent(game.idEvent)">
                 {{ game.dateEvent }} <br>
                 {{ game.strHomeTeam }} <br>
@@ -48,7 +46,7 @@
       </div>        
 
 
-      <div class="col-md-2" *ngIf="leagueTable != null">
+      <div class="col-md-3" *ngIf="leagueTable != null">
 
         <!-- Display league standings -->
         <h2 *ngIf="leagueTable != null">League Standings</h2>
@@ -56,31 +54,30 @@
           <ul class = "league-table">
             <li class="league-team" *ngFor="let team of leagueTable">
               <button class="team-button" (click)="navigateToTeam(team.idTeam)">
-                {{ team.intRank }} - {{ team.strTeam }}
-              <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+                {{ team.intRank }} - 
+                <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+                {{ team.strTeam }}
               </button>
             </li>
           </ul>
         </div>
       </div>
 
-      <div class="col-md-2" *ngIf="leagueTable == null">
+      <div class="col-md-3" *ngIf="leagueTable == null">
 
         <h2 *ngIf="leagueTable == null">League Teams</h2>
         <div *ngIf="leagueTable == null">
           <ul class = "league-teams">
             <li class="league-team" *ngFor="let team of leagueTeams">
               <button class="team-button" (click)="navigateToTeam(team.idTeam)">
-                {{ team.strTeam }}
-              <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+                <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
+                 {{ team.strTeam }}
               </button>
             </li>
           </ul>
         </div>
 
-
       </div>
 
     </div>
   </div>
-</div>

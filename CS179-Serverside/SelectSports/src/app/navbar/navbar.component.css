@@ -1,10 +1,71 @@
-.navbar {
-    background-color: #b6bce1;
-}
+/* Reset default margins and paddings for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Style for the whole navigation bar */
+  .navbar {
+    background-color: #333;
+    color: white;
+  }
+  
+  /* Style for the navigation links */
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+  /* Highlight active link */
+  .navbar a.active {
+    border-radius: 5px;
+    color: white;
+    
+  }
+
+  a:hover {
+    background: #e33131;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  /* Style for dropdown menus */
+  .dropdown-menu {
+    background-color: #333;
+    border: none;
+  }
+  
+  .dropdown-item {
+    color: white;
+  }
+  
+  /* Added hover effect to dropdown items */
+  .dropdown-item:hover {
+    background-color: #e33131;
+  }
+  
+  /* Adjust spacing for the nav items */
+  .navbar-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Optional: Media query for responsiveness */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
 
 .nav-item nav-link {
-    text-decoration-color: white;
+    text-decoration-color: rgb(23, 45, 155);
 }
+
 .navbar-nav {
     margin: 0 auto;
     display: flex;
@@ -15,7 +76,7 @@
 .navbar-brand {
     margin: 20px;
     font-size: 110%;
-    color: rgb(235, 80, 80);
+    color: #e33131;
     font-family: "Lucida Console", "Courier New", monospace;
 }
 
@@ -29,7 +90,11 @@
     display: block;
 }
 
-a:hover {
-    background: #ccc;
-    border-radius: 5px;
+.profile-picture {
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px; 
 }
+

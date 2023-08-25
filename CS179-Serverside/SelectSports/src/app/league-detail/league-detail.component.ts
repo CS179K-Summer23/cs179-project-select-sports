@@ -40,7 +40,7 @@ export class LeagueDetailComponent implements OnInit {
       
       this.sportsDataService.getLeagueDetailsById(leagueId)
       .subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.leagueDetails = data.leagues[0];
         const leagueName = this.leagueDetails.strLeague;
         const thisSeason = this.leagueDetails.strCurrentSeason;
@@ -65,6 +65,7 @@ export class LeagueDetailComponent implements OnInit {
   fetchNextFifteen(leagueId: string) {
     this.sportsDataService.getNextFifteen(leagueId).subscribe(
       (next) => {
+        console.log(next.events.slice(0, 10));
         this.leagueNextFifteen = next.events.slice(0, 10);
       })
   }
@@ -79,7 +80,7 @@ export class LeagueDetailComponent implements OnInit {
   fetchLeagueStandings(leagueId: string, leagueYear: string) {
     this.sportsDataService.getLeagueTable(leagueId, leagueYear).subscribe(
       (table) => {
-        console.log(table);
+        //console.log(table);
         this.leagueTable = table.table;
       })
   }
@@ -88,7 +89,7 @@ export class LeagueDetailComponent implements OnInit {
     this.sportsDataService.getLeagueTeams(leagueName).subscribe(
       (teams) => {
         this.leagueTeams = teams.teams;
-        console.log(this.leagueTeams);
+        //console.log(this.leagueTeams);
       })
   }
 }

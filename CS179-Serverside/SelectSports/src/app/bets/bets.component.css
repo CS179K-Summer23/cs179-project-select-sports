@@ -14,21 +14,18 @@
 }
 
 
-
 .betbtn:focus{
     color: #fff;
-    background-color: #9498b1;
-    border-color: #c53eff;
-    box-shadow: 0 0 0 0.25rem rgba(96, 29, 189, 0.5);
+    transform: scale(1.05);
+    
 }
 .btn-primary{
-    --bs-btn-bg: rgb(236, 70, 70);
+    --bs-btn-bg: #e33131;
 }
 .btn-primary:focus {
     color: #fff;
-    background-color: #5165dd;
-    border-color: #0a24ca;
-    box-shadow: 0 0 0 0.25rem rgba(189, 29, 29, 0.5);
+    --bs-btn-bg: #e33131;
+    transform: scale(1.05);
 }
 
 
