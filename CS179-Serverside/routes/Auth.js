@@ -56,6 +56,7 @@ router.post('/reset', (req, res) => {
 
 
 router.post('/register', (req, res) => {
+ // console.log(req);
     bcrypt.hash(req.body.password, 10, (err, hash) => {
         if (err) {
             return res.json({ success: false, message: "Hashing Failed" });
@@ -66,20 +67,24 @@ router.post('/register', (req, res) => {
                 password: hash,
                 points: req.body.points,
             });
-
+                
             const bets = new Bets({
               email: req.body.email,
+              PlacedBets:[],
             });
 
             const teams = new Teams({
               email: req.body.email,
+              teamIDs: [],
             });
 
           user.save()
           teams.save()
           bets.save()
+          
             .then(() => {
               res.json({ success: true, message: "Account Created" });
+             
             })
               .catch((err) => {
                     if (err.code === 11000) {

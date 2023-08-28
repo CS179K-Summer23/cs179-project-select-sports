@@ -29,6 +29,11 @@ export class SportsDataService {
     return this.http.get(url);
   }
 
+  searchPlayers(query: string): Observable<any> {
+    const url = `${this.baseUrl}${this.apiKey}/searchplayers.php?p=${query}`;
+    return this.http.get(url);
+  }
+
   getTeamDetails(teamId: string): Observable<any> {
     const url = `${this.baseUrl}${this.apiKey}/lookupteam.php?id=${teamId}`;
     return this.http.get(url);

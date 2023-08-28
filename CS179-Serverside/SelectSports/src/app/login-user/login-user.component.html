@@ -1,7 +1,7 @@
 <body>
 <div class="signUp container">
     <div class="card" style="width: 35rem;">
-      <div class="card-body" style="background-color: #b6bce180">
+      <div class="card-body" style="background-color: #ffffff">
         <div *ngIf="!resetRequest">
         <h5 class="card-title">Login</h5>
         <form #registerForm="ngForm" (ngSubmit)="Login()">
@@ -20,14 +20,14 @@
                 placeholder="Enter your Password"
                 required
               />
-              <button style="color:#ec5050" type="button" class="password-toggle" (click)="togglePasswordVisibility()">
+              <button style="color:#e33131" type="button" class="password-toggle" (click)="togglePasswordVisibility()">
                 {{ showPassword ? 'Hide' : 'Show' }} Password
               </button>
             </div>
           </div>
           <br />
-          <button style="background-color:#ec5050"class="btn btn-primary">Sign In</button>&nbsp;
-          <p class="text-muted" style="display:inline"><a style="display:inline; color:#ec5050" (click)="resetRequest=true" class=" " routerLink=" " routerLinkActive="active">Reset Password</a></p>
+          <button style="background-color:#e33131"class="btn btn-primary">Sign In</button>&nbsp;
+          <p class="text-muted" style="display:inline"><a style="display:inline; color:#e33131" (click)="resetRequest=true" class=" " routerLink=" " routerLinkActive="active">Reset Password</a></p>
         </form>
 
         </div>
@@ -45,10 +45,10 @@
             </div>
             <br />
             
-            <button class="btn btn-primary" style="background-color:#ec5050" (click)="EmailCode()">Send me code</button>&nbsp;&nbsp;
+            <button class="btn btn-primary" style="background-color:#e33131" (click)="EmailCode()">Send me code</button>&nbsp;&nbsp;
             
            
-            <button class="btn btn-primary" style="background-color:#ec5050" (click)="back()">Go Back</button>
+            <button class="btn btn-primary" style="background-color:#e33131" (click)="back()">Go Back</button>
             
           </form>
   
@@ -66,7 +66,7 @@
             </div>
             <br />
             
-            <button class="btn btn-primary" style="background-color:#ec5050">Verify Code</button>
+            <button class="btn btn-primary" style="background-color:#e33131">Verify Code</button>
             
             
           </form>
@@ -111,7 +111,7 @@
                     border: none;
                     font-size: 14px;
                     
-                    color: #ec5050;
+                    color: #e33131;
                     margin-bottom:20px;"
                     (click)="togglePasswordConfirm('confirmPassword')"
                   >
@@ -125,13 +125,13 @@
                 type="submit"
                 class="btn btn-primary"
                 [disabled]="!registerForm.valid || ResetForm.password !==ResetForm.confirmPassword"
-               style="background-color:#ec5050" 
+               style="background-color:#e33131" 
               >
                 Reset Password
               </button>
            
             &nbsp;&nbsp;
-              <button class="btn btn-primary" style="background-color:#ec5050" (click)="back()">Go Back</button>
+              <button class="btn btn-primary" style="background-color:#e33131" (click)="back()">Go Back</button>
             
             
           </form>
@@ -141,7 +141,7 @@
   
         <div *ngIf="PasswordReset"> 
             <h4>Your Password has been reset successfully!</h4>
-            <button class="btn btn-primary" style="background-color:#ec5050" (click)="back()">Go Back</button>
+            <button class="btn btn-primary" style="background-color:#e33131" (click)="back()">Go Back</button>
             
         </div>
       </div>

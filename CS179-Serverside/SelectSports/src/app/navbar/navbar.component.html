@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light">
+
   <a class="navbar-brand" routerLink="/">Select Sports</a>
+
   <div class="collapse navbar-collapse" id="navbarNav">
+    
     <ul class="navbar-nav">
       <!-- Home -->
       <li class="nav-item">
@@ -45,7 +48,7 @@
       </li>
 
       <!-- Search Bar -->
-      <li class="nav-item">
+      <li class="search-bar">
         <app-search-bar></app-search-bar>
       </li>
 
@@ -53,6 +56,7 @@
       <li class="nav-item" *ngIf="!isLoggedIn()">
         <a class="nav-link" routerLink="/SignIn" routerLinkActive="active">Sign In</a>
       </li>
+
       <li class="nav-item" *ngIf="!isLoggedIn()">
         <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
       </li>
@@ -61,12 +65,17 @@
       <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/favs" routerLinkActive="active">My Favorites</a>
       </li>
-      <li class="nav-item" *ngIf="isLoggedIn()">
-        <a class="nav-link" routerLink="/profile" routerLinkActive="active">My Profile</a>
-      </li>
+
       <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/Bets" routerLinkActive="active">Bets</a>
       </li>
+
+      <li class="nav-item" *ngIf="isLoggedIn()">
+        <a class="nav-link" routerLink="/profile" routerLinkActive="active">
+          <img class="profile-picture" [src]="'assets/ProfilePics/profilePic' + data.profileID + '.png'" alt="Profile Picture">
+        </a>
+      </li>
+
     </ul>
   </div>
 </nav>

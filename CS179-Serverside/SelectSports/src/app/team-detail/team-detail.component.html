@@ -1,14 +1,14 @@
-<div *ngIf="team">
+<!-- team-detail.component.html -->
+<div class="team-page" *ngIf="team">
   <!-- Display Team Name and Badge -->
-  <h1>
-    <button  *ngIf="isLoggedIn" class="favorite-button" (click)="toggleFavorite(team.idTeam)">
+  <h1 class="heading">
+    <button  class="favorite-button" *ngIf="isLoggedIn" (click)="toggleFavorite(team.idTeam)">
       <img class="star-icon" [src]="isTeamFavorite(team.idTeam) ? 'assets/FavsIcons/unfavorite.png' : 'assets/FavsIcons/favorite.png'" alt="Toggle Favorite" />
     </button>
     {{ team.strTeam }}
     <img class="team-badge" *ngIf="team.strTeamBadge" [src]="team.strTeamBadge" alt="Team Badge"/>
   </h1>
   
-
   <!-- Display Team Details -->
   <div class="team-details">
     <p>
@@ -20,16 +20,14 @@
   </div>
 
   <!-- Table -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
+  <div class="row">
+    <div class="col-md-3">
 
         <!-- Display Upcoming Games -->
-        <h2>Schedule</h2>
         <div class="upcoming-games" *ngIf="upcomingGames.length > 0">
           <h2>Next 5 Games</h2>
-          <ul>
-            <li *ngFor="let game of upcomingGames">
+          <ul class="event-list">
+            <li class="event-item" *ngFor="let game of upcomingGames">
               <button class="event-button" (click)="navigateToEvent(game.idEvent)">
                 {{ game.dateEvent }} <br>
                 {{ game.strHomeTeam }} <br>
@@ -42,8 +40,8 @@
         <!-- Display Past 5 Games-->
         <div class="past-games" *ngIf="pastGames.length > 0">
           <h2>Past 5 Games</h2>
-            <ul>
-              <li *ngFor="let game of pastGames">
+            <ul class="event-list">
+              <li class="event-item" *ngFor="let game of pastGames">
                 <button class="event-button" *ngIf="game.intHomeScore > game.intAwayScore" (click)="navigateToEvent(game.idEvent)">
                   {{ game.dateEvent }} <br>
                   <strong>{{ game.strHomeTeam }} - {{ game.intHomeScore }} </strong><br>
@@ -74,6 +72,7 @@
           <a [href]="newsItem.url" target="_blank">Read More</a>
         </div>        
       </div>
+      
       <div class="col-md-2">
 
         <!-- Display team players -->
@@ -87,5 +86,4 @@
         </ul>
       </div>
     </div>
-  </div>
 </div>
