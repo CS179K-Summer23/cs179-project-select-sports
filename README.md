@@ -18,17 +18,17 @@ Team members have some experience using React, but some time still needs to be i
 
 ## Major Features:
 (Highest to Lowest Priority)
-- (7) Emailing Feature(notifying user of their bets)
-- (6) Search sports data
-- (5) User Accounts
-- (4) Site point system
-- (3) Daily bonus reward page
-- (3) Bet placing system
-- (3) Daily login games
-- (3) Follow teams for user-specific pages
-- (2) Email Verification implementation to secure accounts for passwordReset
-- (2) Points Leaderboard on the homepage
-- (1) Sort through sports and user data
+- (7) Emailing Feature: notifying user of their bets, reseting passwords (serve as a security authentication).
+- (6) Search sports data: user can search up any sports related information by input keywords.
+- (5) User Accounts: users are having individual accounts, data saved in mongoDB database.
+- (4) Site point system: a rewarding system implement inside the website, user can earn and spend points through different features on the website.
+- (3) Daily bonus reward page and game: a slot machine game for user to guarantee earn points on a daily basis.
+- (3) Bet placing system: users can place bet on sports teams to win or lose site points.
+- (3) Follow teams for user-specific pages: users are allowed to follow their favorite teams for easier information access.
+- (2) Email Verification implementation to secure accounts for passwordReset: security aspects of user accounts.
+- (2) Points Record Page: A page display the point gain/loss record.
+- (2) Points Leaderboard on the homepage: a way to show off to your friends.
+- (1) Sort through sports and user data.
 
 ## User Stories:
 - As a user, I want to be able to search through the database based on my input query.
