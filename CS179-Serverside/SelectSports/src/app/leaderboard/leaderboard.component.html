@@ -1,0 +1,10 @@
+<ul class="leader-list">
+  <li class="leaderboard-item" *ngFor="let user of leaderboardUsers; let i = index">
+    <div class="user-box">
+      <div class="user-info">
+        <span>{{ i + 1 }}. {{ user.name }}</span>
+        <span class="user-points">{{ getPointsByLeaderboardType(user) }} points</span>
+      </div>
+    </div>
+  </li>
+</ul>

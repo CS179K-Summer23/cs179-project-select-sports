@@ -13,7 +13,6 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { AuthService } from './Services/auth.service';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { DailyLoginComponent } from './daily-login/daily-login.component';
-
 import { FilterLeaguePipe } from './Services/filter-league.pipe';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchResultComponent } from './search-result/search-result.component';
@@ -23,10 +22,11 @@ import { PlayerDetailComponent } from './player-detail/player-detail.component';
 import { BetsComponent } from './bets/bets.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 import { UserFavsComponent } from './user-favs/user-favs.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { RecordTableComponent } from './record-table/record-table.component';
-
 
 @NgModule({
   declarations: [
@@ -45,8 +45,10 @@ import { RecordTableComponent } from './record-table/record-table.component';
     LeagueDetailComponent,
     PlayerDetailComponent,
     BetsComponent,
+    PasswordResetComponent,
     UserFavsComponent,
     EventDetailComponent,
+    LeaderboardComponent,
     RecordTableComponent,
   ],
   imports: [
@@ -54,7 +56,6 @@ import { RecordTableComponent } from './record-table/record-table.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
     ReactiveFormsModule,
     RouterModule,
 BrowserAnimationsModule,
