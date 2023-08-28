@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../Services/auth.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class SignUpComponent implements OnInit {
   };
   showPassword = false;
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router:Router) {}
 
   ngOnInit(): void {
     this.userForm.username = this.getDefaultUsername(this.userForm.email);
@@ -28,6 +29,7 @@ export class SignUpComponent implements OnInit {
     this.auth.register(this.userForm).subscribe(
       res => {
         alert(res.message);
+        this.router.navigateByUrl('/SignIn');
       },
       err => {
         console.log(err);

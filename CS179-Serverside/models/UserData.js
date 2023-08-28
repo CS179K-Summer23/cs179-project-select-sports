@@ -14,6 +14,7 @@ const userSchema = new Schema({
     points: { type: Number, default: 0 },
     allTimeEarnedPoints: { type: Number, default: 0 },
     allTimeLostPoints: { type: Number, default: 0 }
+    pointsinfo: [{ type: String }]
 });
 
 

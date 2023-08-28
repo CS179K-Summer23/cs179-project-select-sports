@@ -26,8 +26,7 @@ import { PasswordResetComponent } from './password-reset/password-reset.componen
 import { UserFavsComponent } from './user-favs/user-favs.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-
-
+import { RecordTableComponent } from './record-table/record-table.component';
 
 @NgModule({
   declarations: [
@@ -46,20 +45,17 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     LeagueDetailComponent,
     PlayerDetailComponent,
     BetsComponent,
-
     PasswordResetComponent,
-
     UserFavsComponent,
     EventDetailComponent,
     LeaderboardComponent,
-
+    RecordTableComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
     ReactiveFormsModule,
     RouterModule,
 BrowserAnimationsModule,

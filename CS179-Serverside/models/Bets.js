@@ -32,7 +32,7 @@ const betsSchema = new Schema({
    PlacedBets: [PlacedBetSchema], 
   
 });
-
+betsSchema.index({ email: 1, 'PlacedBets.EventID': 1 });
 const Bets = mongoose.model('Bets', betsSchema);
 
 module.exports = Bets;
