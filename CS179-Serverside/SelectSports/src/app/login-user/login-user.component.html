@@ -52,18 +52,18 @@
       </div>
 
       <div *ngIf="resetRequest && !codeEmailed" class="reset">
-        <form #registerForm="ngForm">
+        <form #resetForm="ngForm">
           <div class="form-group">
             <label>Email or Username</label>
             <input
               type="text"
               class="form-control"
               name="emailOrUsername"
-              [(ngModel)]="userForm.emailOrUsername"
+              [(ngModel)]="ResetForm.emailOrUsername"
               placeholder="Enter your Email or Username"
               required
             />
-
+      
             <label>Verification Code</label>
             <input
               type="text"
@@ -74,7 +74,7 @@
               minlength="36"
               required
             />
-
+      
             <label>New Password (8 characters)</label>
             <div style="position: relative;">
               <input
@@ -87,7 +87,7 @@
                 minlength="8"
               />
             </div>
-
+      
             <label>Confirm Password</label>
             <div class="password-input">
               <input
@@ -106,12 +106,12 @@
                 {{ showPassword ? 'Hide' : 'Show' }} Password
               </button>
             </div>
-
+      
             <br />
             <button
               type="submit"
               class="btn btn-primary"
-              [disabled]="!registerForm.valid || ResetForm.password !== ResetForm.confirmPassword"
+              [disabled]="!resetForm.valid || ResetForm.password !== ResetForm.confirmPassword"
               style="background-color:#ec5050"
             >
               Reset Password
@@ -121,6 +121,7 @@
           </div>
         </form>
       </div>
+      
 
       <div *ngIf="PasswordReset">
         <h4>Your Password has been reset successfully!</h4>

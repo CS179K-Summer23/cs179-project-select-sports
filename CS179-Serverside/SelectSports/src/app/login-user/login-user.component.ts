@@ -18,6 +18,7 @@ export class LoginUserComponent implements OnInit {
   authorized = false;
   PasswordReset = false;
 
+  
   ResetForm = { emailOrUsername: '', password: '', confirmPassword: '' };
   reset = false;
 
@@ -26,11 +27,15 @@ export class LoginUserComponent implements OnInit {
   ngOnInit(): void {}
 
   Login() {
+    console.log('Login Form:', this.userForm);
+  
     // Check if the input is an email or username
     if (this.userForm.emailOrUsername.includes('@')) {
       // Email login
+      console.log('Email login');
       this.auth.login(this.userForm).subscribe(
         (res: any) => {
+          console.log('Email Login Response:', res);
           if (res.success) {
             localStorage.setItem('token', res.token);
             this.router.navigate(['/profile']);
@@ -39,13 +44,16 @@ export class LoginUserComponent implements OnInit {
           }
         },
         (err: any) => {
+          console.log('Email Login Error:', err); 
           alert('Login Unsuccessful');
         }
       );
     } else {
       // Username login
+      console.log('Username login');
       this.auth.loginByUsername(this.userForm).subscribe(
         (res: any) => {
+          console.log('Username Login Response:', res);
           if (res.success) {
             localStorage.setItem('token', res.token);
             this.router.navigate(['/profile']);
@@ -54,11 +62,12 @@ export class LoginUserComponent implements OnInit {
           }
         },
         (err: any) => {
+          console.log('Username Login Error:', err);
           alert('Login Unsuccessful');
         }
       );
     }
-  }
+  }  
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;

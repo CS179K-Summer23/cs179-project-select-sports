@@ -127,7 +127,7 @@ export class AuthService {
 
   
   loginByUsername(data: any): Observable<any> {
-    return this.http.post('http://localhost:4000/auth/loginByUsername', data);
+    return this.http.post('http://localhost:4000/auth/SignIn', data);
   }
   
   updateUsername(data: any): Observable<any> {
