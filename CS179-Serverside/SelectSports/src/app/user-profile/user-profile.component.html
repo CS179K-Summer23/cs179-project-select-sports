@@ -1,48 +1,49 @@
-<div class="container">
+<div class="user-profile-container">
   <div class="top-bar">
-    <a (click)="dailyLogin()">
-      <div class="user-points">
-        <img src="assets/icon.png" alt="Points Icon">
-        <span>{{ data.points }}</span>
-      </div>
+    <a (click)="dailyLogin()" class="user-points">
+      <img src="assets/icon.png" alt="Points Icon">
+      {{ data.points }}
     </a>
+    <h2 class="welcome-user">Welcome {{ data.name }}</h2>
   </div>
 
   <ng-container *ngIf="remainingTime.hours === 0 && remainingTime.minutes === 0 && remainingTime.seconds === 0; else timer">
-    </ng-container>
-    <ng-template #timer>
-      <div class="remaining-time-container">
-        <div class="remaining-time-message">
-          Rewards Cooldown:
-          <span>{{ remainingTime.hours }}h</span>
-          <span>{{ remainingTime.minutes }}m</span>
-          <span>{{ remainingTime.seconds }}s</span>
-        </div>
+  </ng-container>
+  <ng-template #timer>
+    <div class="remaining-time-container">
+      <div class="remaining-time-message">
+        Rewards Cooldown:
+        <span>{{ remainingTime.hours }}h</span>
+        <span>{{ remainingTime.minutes }}m</span>
+        <span>{{ remainingTime.seconds }}s</span>
       </div>
-    </ng-template>
+    </div>
+  </ng-template>
 
-  <div class="left-side">
+  <div class="profile-section">
     <ng-container *ngIf="data.profileID; else defaultProfile">
       <img class="profile-picture" [src]="'assets/ProfilePics/profilePic' + data.profileID + '.png'" alt="Profile Picture">
     </ng-container>
     <ng-template #defaultProfile>
       <img class="profile-picture" src="assets/ProfilePics/profilePic.png" alt="Default Profile Picture">
     </ng-template>
-    <h2>Welcome {{ data.name }}</h2>
+    
   </div>
 
-  <div class="right-side">
-    <p>Name: {{ data.name }}</p>
-    <p>Email: {{ data.email }}</p>
-    <p>User Points: {{ data.points }}</p>
-    <p>Favorite Sport: {{ data.favorite_sport }}</p>
-    <p>Description: </p>
+  <div class="user-data">
+    <p><strong>Name:</strong> {{ data.name }}</p>
+    <p><strong>Email:</strong> {{ data.email }}</p>
+    <p><strong>User Points:</strong> {{ data.points }}</p>
+    <p><strong>Favorite Sport:</strong> {{ data.favorite_sport }}</p>
+    <p><strong>Description:</strong></p>
     <div class="description-box">
-      <span>{{ data.description }}</span>
+      {{ data.description }}
     </div>
   </div>
-</div>
 
-<button (click)="ProfileEditt()" class="edit-button">Edit Profile</button>
-<button (click)="ViewTable()" class="view-button">View Points Record</button>
-<button (click)="logout()" class="logout-button">Log out</button>
+  <div class="action-buttons">
+    <button (click)="ProfileEditt()" class="edit-button">Edit Profile</button>
+    <button (click)="ViewTable()" class="view-button">View Points Record</button>
+    <button (click)="logout()" class="logout-button">Log out</button>
+  </div>
+</div>

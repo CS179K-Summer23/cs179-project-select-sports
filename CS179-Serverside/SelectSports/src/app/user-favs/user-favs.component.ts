@@ -15,6 +15,8 @@ export class UserFavsComponent implements OnInit {
   teamSchedules: any[] = [];
   pastGames: any[] = [];
   teamDetails: any[] = [];
+  teamNews: any[] = [];
+  teamNames: any[] = [];
   data: any;
   
 
@@ -49,16 +51,6 @@ export class UserFavsComponent implements OnInit {
       );    
     }
 
-
-  getTeamDetails(teamId: string) {
-    this.sportsDataService.getTeamDetails(teamId).subscribe(
-      (team) => {
-        this.teamDetails.push(team.teams[0]);
-        
-      }
-    );
-  }
-
   getTeams(userEmail: string) {
     this.auth.getFavTeams(userEmail).subscribe(
       (teamIds) => {
@@ -70,6 +62,15 @@ export class UserFavsComponent implements OnInit {
             this.getPastGames(teamId);
           }
         }
+      }
+    );
+  }
+
+  getTeamDetails(teamId: string) {
+    this.sportsDataService.getTeamDetails(teamId).subscribe(
+      (team) => {
+        this.teamDetails.push(team.teams[0]);
+        this.getTeamNews(team.teams[0].strTeam);
       }
     );
   }
@@ -96,5 +97,17 @@ export class UserFavsComponent implements OnInit {
     localStorage.clear();
     this.auth.SetLoggedOut();
     this.router.navigate(['/SignIn']);
+  }
+
+  getTeamNews(teamName: string) {
+    this.newsDataService.getTeamNews(teamName).subscribe(
+      (news) => {
+        this.teamNews.push(news.articles.slice(0, 1)[0]);
+        console.log(this.teamNews);
+      },
+      (error) => {
+        console.error('Error fetching team news:', error);
+      }
+    );
   }
 }

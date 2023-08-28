@@ -1,60 +1,79 @@
-h1 {
-    text-align: center;
-    background-color: #ccc;
-  }
-  
-  h2 {
-    text-align: center;
-  }
-
-  .event-details {
-    text-align: center;
-  }
-
-.col-md-4 {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    margin: 10px;
+.event-page {
+  background-color: #f2f2f2;
 }
-  
-.col-md-4 h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ccc;
-}
-  
-.col-md-4 ul {
+ .heading {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  margin-right: 25%;
+  margin-left: 25%;
+  padding: 10px;
+  text-align: center;
+ }
+ 
+ .event-details, h2 {
+  text-align: center;
+ }
+
+ .stats-list {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
   list-style-type: none;
-  padding: 0;
-}
-  
-.col-md-4 li {
-  margin-bottom: 10px;
-}
+ }
 
-.col-md-2 {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-    margin: 10px;
-}
-  
-.col-md-2 h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+ .stats-item {
   border-bottom: 1px solid #ccc;
-}
-  
-.col-md-2 ul {
+  padding: 3%;
+  text-align: center;
+ }
+
+ .stats-item:last-child {
+  border-bottom: none;
+ }
+
+ .timeline-list {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
   list-style-type: none;
-  padding: 0;
-}
-  
-.col-md-2 li {
-  margin-bottom: 10px;
+ }
+
+ .timeline-item {
+  border-bottom: 1px solid #ccc;
+  padding: 3%;
+  padding-left: 10%;
+  text-align: left;
+ }
+
+ .timeline-item:last-child {
+  border-bottom: none;
+ }
+
+ .lineup-list {
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  list-style-type: none;
+ }
+
+ .lineup-item {
+  border-bottom: 1px solid #ccc;
+  padding: 3%;
+  text-align: left;
+ }
+
+ .lineup-item:last-child {
+  border-bottom: none;
+ }
+
+.row {
+  margin-right: 2%;
+  margin-left: 2%;
 }
