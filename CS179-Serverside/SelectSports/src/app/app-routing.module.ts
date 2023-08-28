@@ -14,8 +14,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BetsComponent } from './bets/bets.component';
 import { AuthGuard } from './auth/auth-guard.service';
-
-
+import { RecordTableComponent } from './record-table/record-table.component';
 
 
 const routes: Routes = [
@@ -24,7 +23,7 @@ const routes: Routes = [
   {path:'register', component:SignUpComponent},
   {path:'DailyLogin', component:DailyLoginComponent},
   {path:'profile', component:UserProfileComponent,canActivate:[AuthGuard]},
-  {path:'profile', component:UserProfileComponent,canActivate:[AuthGuard]},
+  {path:'RecordTable', component:RecordTableComponent},
   {path:'favs', component:UserFavsComponent,canActivate:[AuthGuard]},
   {path:'profileEdit', component:UserProfileEditComponent,canActivate:[AuthGuard]},
   {path:'Bets', component:BetsComponent, canActivate:[AuthGuard]},

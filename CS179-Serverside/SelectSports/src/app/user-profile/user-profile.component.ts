@@ -58,6 +58,10 @@ export class UserProfileComponent implements OnInit {
     this.router.navigate(['/profileEdit'], { state: { user: this.data } });
   }
 
+  ViewTable() {
+    this.router.navigate(['/RecordTable'], { state: { user: this.data } });
+  }
+
   dailyLogin() {
     if (this.checkTime()) {
       this.router.navigate(['/DailyLogin'], { state: { user: this.data } });
@@ -71,7 +75,7 @@ export class UserProfileComponent implements OnInit {
       const one_minute = 60000;
       const one_hour = one_minute * 60;
       const one_day = one_hour * 24;
-      const goal = one_minute*2;
+      const goal = one_day;
       const timeDifference = Date.now() - this.lastLoginTimestamp;
       if ( timeDifference >= goal){
         return true;
@@ -91,7 +95,8 @@ export class UserProfileComponent implements OnInit {
     if (this.lastLoginTimestamp != null) {
       const one_minute = 60000;
       const one_hour = one_minute * 60;
-      const goal = one_minute*2;
+      const one_day = one_hour * 24;
+      const goal = one_day;
 
       const timeDifference = Date.now() - this.lastLoginTimestamp;
 
