@@ -8,9 +8,9 @@ import { AuthService } from '../Services/auth.service';
   styleUrls: ['./daily-login.component.css']
 })
 export class DailyLoginComponent implements OnInit {
-  userForm = { email: '', points: 0, dailyAccessTime: 0};
+  userForm = { email: '', points: 0, dailyAccessTime: 0, pointsinfo: [] as string[]};
   Counter: number = 0;
-  maxC: number = 2;
+  maxC: number = 1;
 
   constructor(private auth:AuthService, private router: Router) { }
 
@@ -96,6 +96,12 @@ export class DailyLoginComponent implements OnInit {
                 this.userForm.points += PointsToAdd;
                 this.Counter++;
                 setTimeout(() => {
+                  const timestamp = Date.now();
+                  const currTimestamp = new Date(timestamp);
+                  const currDate = currTimestamp.toLocaleDateString('en-US');
+                  const currTime = currTimestamp.toLocaleTimeString('en-US');
+                  const logInfo = "Earned " + PointsToAdd + " points from DailyLogin at " + currTime + " on " + currDate;
+                  this.userForm.pointsinfo.push(logInfo);
                   alert("Congratulations!! You got " + PointsToAdd + " points");
                   this.adjustbgm(1);
                   if(newrolling1 && newrolling2 && newrolling3){
@@ -179,6 +185,12 @@ export class DailyLoginComponent implements OnInit {
                 this.userForm.points += PointsToAdd;
                 this.Counter++;
                 setTimeout(() => {
+                  const timestamp = Date.now();
+                  const currTimestamp = new Date(timestamp);
+                  const currDate = currTimestamp.toLocaleDateString('en-US');
+                  const currTime = currTimestamp.toLocaleTimeString('en-US');
+                  const logInfo = "Earned " + PointsToAdd + " points from DailyLoginCheat at " + currTime + " on " + currDate;
+                  this.userForm.pointsinfo.push(logInfo);
                   alert("Congratulations!! You got " + PointsToAdd + " points");
                   this.adjustbgm(1);
                   if(newrolling1 && newrolling2 && newrolling3){

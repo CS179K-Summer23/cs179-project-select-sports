@@ -12,7 +12,8 @@ const userSchema = new Schema({
         description: {type: String},
         profileID: {type: Number},
         points: {type: Number},
-        dailyAccessTime: {type: Number}
+        dailyAccessTime: {type: Number},
+        pointsinfo: [{ type: String }]
 });
 
 //creating model for db

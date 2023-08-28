@@ -34,6 +34,7 @@
   border-radius: 4px;
 }
 
+.view-button,
 .edit-button,
 .logout-button,
 .daily-login-button {
@@ -49,13 +50,19 @@
 .edit-button {
   position:absolute;
   bottom: 100px;
-  left: 1200px;
+  left: 1150px;
 }
 
 .logout-button {
   position: absolute;
   bottom: 30px;
-  left: 1200px;
+  left: 1150px;
+}
+
+.view-button {
+  position: absolute;
+  bottom: 170px;
+  left: 1150px;
 }
 
 .daily-login-button{
