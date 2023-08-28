@@ -52,6 +52,7 @@ body {
 
 .edit-button:hover,
 .logout-button:hover,
+.view-button:hover,
 .daily-login-button:hover {
   background-color: #c12626;
   transform: scale(1.05);
