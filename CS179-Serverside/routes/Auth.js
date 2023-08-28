@@ -159,6 +159,33 @@ router.post('/DailyLogin', (req, res) => {
     });
 });
 
+router.post('/AddInfo', (req, res) => {
+        const { email, points, pointsinfo} = req.body;
+      
+        UserData.findOneAndUpdate({ email: email }, { $set:{points, points}, $push: {pointsinfo: pointsinfo}}, { new: true })
+          .then(updatedUser => {
+            if (!updatedUser) {
+              return res.json({ success: false, message: "User not found" });
+            }
+            return res.json({ success: true, message: "Profile updated successfully", data: updatedUser });
+          })
+          .catch(err => {
+            console.error(err);
+            return res.json({ success: false, message: "Error updating profile" });
+          });
+      });
+
+router.get('/RecordTable', VerifyAuth, (req, res) => {
+  const userId = req.userData.userId;
+  UserData.findById(userId).exec()
+    .then((response) => {
+      res.json({ success: true, data: response });
+  })
+  .catch(err => {
+    res.json({ success: false, message: "Fetching User failed" });
+  });
+});
+
 router.post('/myBets', async (req,res)=>{
    console.log('I was sent here with', req);
   const { email, EventID, BettingTeamID } = req.body;

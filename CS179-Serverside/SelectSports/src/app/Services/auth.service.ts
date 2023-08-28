@@ -85,8 +85,20 @@ export class AuthService {
     return this.http.post('http://localhost:4000/auth/profileEdit', data)
   }
 
+  RecordTable():Observable<any>{
+    let headers={
+      'Authorization':'Bearer '+ localStorage.getItem('token')
+    }
+    return this.http.get('http://localhost:4000/auth/RecordTable', {headers:headers})
+  }
+
   DailyLogin(data:any):Observable<any>{
     return this.http.post('http://localhost:4000/auth/DailyLogin', data)
+  }
+
+  AddInfo(email:any, points:Number, pointsinfo:string):Observable<any>{
+    const data = { email, points, pointsinfo};
+    return this.http.post('http://localhost:4000/auth/AddInfo', data)
   }
 
   AddPoints(email:any, points:Number):Observable<any>{

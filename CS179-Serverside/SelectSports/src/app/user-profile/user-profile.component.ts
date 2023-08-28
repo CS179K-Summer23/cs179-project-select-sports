@@ -59,7 +59,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   ViewTable() {
-    this.router.navigate(['/RecordTable'], { state: { user: this.data } });
+    this.router.navigate(['/RecordTable']);
   }
 
   dailyLogin() {
