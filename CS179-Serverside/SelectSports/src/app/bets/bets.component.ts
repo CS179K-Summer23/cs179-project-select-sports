@@ -48,7 +48,7 @@ export class BetsComponent implements OnInit{
   points:any;
   BetResult: { [key: number]: string} = {};
   BetEvent: any;
-  
+  betting_value: any; 
 
   constructor(private auth:AuthService, private spinner:NgxSpinnerService){
 
@@ -66,7 +66,7 @@ export class BetsComponent implements OnInit{
 
          
 
-          this.BetsEvents();
+          //this.BetsEvents();
         
           this.Ready=true;
            
@@ -96,8 +96,7 @@ BetsEvents(){
  // this.Events = this.Events.filter((event:any) => !this.PlayedEvents.some((playedEvent: any) => playedEvent.EventID === event.idEvent));
 
     
-
-    
+  if(this.points > 0){
     for(let i=0; i<this.PlayedEvents.length; i++){
       
       if((this.BetsPlacedEvents[i].events[0].idEvent==this.PlayedEvents[i].EventID) && this.PlayedEvents[i].BettingTeamID=="Home"){
@@ -105,14 +104,27 @@ BetsEvents(){
        if(this.BetsPlacedEvents[i].events[0].intHomeScore>this.BetsPlacedEvents[i].events[0].intAwayScore){
         this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Won the BET! on Home Team";
         
-        this.points = this.points+50;
-        this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
+        this.points = this.points+100;
+        const timestamp = Date.now();
+        const currTimestamp = new Date(timestamp);
+        const currDate = currTimestamp.toLocaleDateString('en-US');
+        const currTime = currTimestamp.toLocaleTimeString('en-US');
+        const message = "Earned 100 points from winning a bet on Home Team at " + currTime + " on " + currDate;
+        this.auth.AddInfo(this.currentUser.email, this.points, message).subscribe((res:any)=>{
          
         });
-      
        }
        else{
         this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Lost the BET! on Home Team";
+        this.points = this.points-100;
+        const timestamp = Date.now();
+        const currTimestamp = new Date(timestamp);
+        const currDate = currTimestamp.toLocaleDateString('en-US');
+        const currTime = currTimestamp.toLocaleTimeString('en-US');
+        const message = "Losted 100 points from Losing a bet on Home Team at " + currTime + " on " + currDate;
+        this.auth.AddInfo(this.currentUser.email, this.points, message).subscribe((res:any)=>{
+         
+        });
        }
 
       }
@@ -120,23 +132,35 @@ BetsEvents(){
         if(this.BetsPlacedEvents[i].events[0].intHomeScore<this.BetsPlacedEvents[i].events[0].intAwayScore){
           this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Won the BET! on Away Team";
           
-          this.points = this.points+50;
-        this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
-         
-        });
+          this.points = this.points+100;
+          const timestamp = Date.now();
+          const currTimestamp = new Date(timestamp);
+          const currDate = currTimestamp.toLocaleDateString('en-US');
+          const currTime = currTimestamp.toLocaleTimeString('en-US');
+          const message = "Earned 50 points from winning a bet on Away Team at " + currTime + " on " + currDate;
+          this.auth.AddInfo(this.currentUser.email, this.points, message).subscribe((res:any)=>{
+          
+          });
       
         
          }
          else{
           this.BetResult[this.BetsPlacedEvents[i].events[0].idEvent] = "You Lost the BET! on Away Team";
-          this.points = this.points-50;
-          this.auth.AddPoints(this.currentUser.email, this.points).subscribe((res:any)=>{
-           
+          this.points = this.points-100;
+          const timestamp = Date.now();
+          const currTimestamp = new Date(timestamp);
+          const currDate = currTimestamp.toLocaleDateString('en-US');
+          const currTime = currTimestamp.toLocaleTimeString('en-US');
+          const message = "Losted 100 points from losing a bet on Away Team at " + currTime + " on " + currDate;
+          this.auth.AddInfo(this.currentUser.email, this.points, message).subscribe((res:any)=>{
+          
           });
         
          }
       }
-
+    }
+    }else{
+      alert("You cannot bet with negative points");
     }
    
   });
