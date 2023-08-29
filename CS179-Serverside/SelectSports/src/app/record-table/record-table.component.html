@@ -7,11 +7,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pointInfo of data.pointsinfo.reverse()">
+      <tr *ngFor="let pointInfo of getDisplayedPointsInfo()">
         <td>{{ pointInfo }}</td>
       </tr>
     </tbody>
   </table>
+</div>
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 0">Previous</button>
+  <span class="button-spacing"></span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Next</button>
 </div>
 
 <button (click)="back_to_profile()" class="back-button">Back</button>

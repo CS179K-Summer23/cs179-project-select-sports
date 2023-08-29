@@ -27,11 +27,35 @@ th {
 
 .back-button {
   position: fixed;
-  bottom: 20px;
+  bottom: 25px;
   right: 105px;
   padding: 10px 20px;
   background-color: #3498db;
   color: #fff;
   border: none;
   cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button-spacing {
+  margin: 0 40px;
 }
