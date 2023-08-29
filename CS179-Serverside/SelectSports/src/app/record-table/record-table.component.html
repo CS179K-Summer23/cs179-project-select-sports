@@ -1,7 +1,17 @@
-<p>record-table works!</p>
-<p>Name: {{ data.name }}</p>
-<p>Email: {{ data.email }}</p>
-<p>User Points: {{ data.points }}</p>
-<p>Favorite Sport: {{ data.favorite_sport }}</p>
+<div class="record-table-container">
+  <h2 class="table-title">Points Record Table</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Points Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pointInfo of data.pointsinfo.reverse()">
+        <td>{{ pointInfo }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <button (click)="back_to_profile()" class="back-button">Back</button>
