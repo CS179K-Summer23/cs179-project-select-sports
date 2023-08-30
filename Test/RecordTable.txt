@@ -1,0 +1,6 @@
+As a user I want to view the record of my site points changes:
+- when user clicked on the record table button, they should see the 10 most recent record of themselves winning or losing site points.
+- when user clicked on the next button, they should see the next 10 most recent record of themselves winning or losing site points.
+- when user clicked on the prev button, they should see the previous 10 most recent record of themselves winning or losing site points.
+- when user does not have more than 10 records, they are not able to click on the next button.
+- when user on the first page of the record, they are not able to click on the prev button.
