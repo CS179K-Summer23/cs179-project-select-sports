@@ -20,6 +20,7 @@ Team members have some experience using React, but some time still needs to be i
 (Highest to Lowest Priority)
 - (7) Emailing Feature: notifying user of their bets, reseting passwords (serve as a security authentication).
 - (6) Search sports data: user can search up any sports related information by input keywords.
+- (5) Individual Sporting pages: Pages are divided by leagues, teams, and players. Each displaying specified contents and news.
 - (5) User Accounts: users are having individual accounts, data saved in mongoDB database.
 - (4) Site point system: a rewarding system implement inside the website, user can earn and spend points through different features on the website.
 - (3) Daily bonus reward page and game: a slot machine game for user to guarantee earn points on a daily basis.
